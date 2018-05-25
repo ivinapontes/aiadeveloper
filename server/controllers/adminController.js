@@ -109,14 +109,14 @@ function deleteListing(req, res) {
 function updatingListing(req, res) {
     Listing.findById(req.params.id)
         .then(function(listing) {
-        listing.name = req.body.name;
-        listing.price = req.body.price;
-        listing.description = req.body.description;
-        listing.picture = req.body.picture;
-        listing.save().then(function(listing) {
-            res.send(listing);
+            listing.name = req.body.name;
+            listing.price = req.body.price;
+            listing.description = req.body.description;
+            listing.picture = req.body.picture;
+            listing.save().then(function(listing) {
+             res.send(listing);
         });
-        })
+    })
         .catch(err => res.send(err));
 };
 
@@ -151,13 +151,6 @@ module.exports= {
     createListing,
     getAllListings,
     showOneListing,
-
-
-
-    
-    
-  
-
     logout,
      // getAllUsers,
     // authenticateUser,

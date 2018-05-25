@@ -1,0 +1,356 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-05-25T16:34:23.415Z",
+	"__export_source": "insomnia.desktop.app:v5.16.6",
+	"resources": [
+		{
+			"_id": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"created": 1527253356545,
+			"description": "",
+			"modified": 1527253356545,
+			"name": "One Market",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_ae17e04e0f3c4076871c74f174adc408",
+			"color": null,
+			"created": 1527253356931,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1527253356931,
+			"name": "New Environment",
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_d866ebd6b5cb47ecb54812c5e77da639",
+			"cookies": [
+				{
+					"creation": "2018-05-25T14:17:14.980Z",
+					"domain": "localhost",
+					"hostOnly": true,
+					"httpOnly": true,
+					"id": "10184302723535965",
+					"key": "connect.sid",
+					"lastAccessed": "2018-05-25T15:39:40.123Z",
+					"path": "/",
+					"value": "s%3A67RHQ4YxNK9rPyvonPt9JOhpvtLXTQi9.SgBUOhdW0bWA2JaotYNYaDYwUNW39bQu3eKoIA%2Bk0Iw"
+				}
+			],
+			"created": 1527253356950,
+			"modified": 1527262780123,
+			"name": "Default Jar",
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_479e47da650149e097d20327b70bba9f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": ""
+			},
+			"created": 1527256367099,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_5865f0ef35244c20a06bdac8a8e749ad",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527256367100,
+			"method": "GET",
+			"modified": 1527256675312,
+			"name": "Test",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/ping",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b0b6af24f4f04e4f9ca1f74409cba310",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"firstName\": \"Teodor\",\n\t\"lastName\": \"Cataniciu\",\n  \"email\": \"teodor@restart.com\",\n  \"password\": \"password1\",\n\t\"confirmPassword\": \"password1\"\n\t\n}"
+			},
+			"created": 1527257542334,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f650c4b8680d4ac0b74e8e19870b29c7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527257542334,
+			"method": "POST",
+			"modified": 1527257702071,
+			"name": "Create Admin",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/register",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5162e1c32614467aa10cd62601741dec",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\n  \"email\": \"teodor@restart.com\",\n  \"password\": \"password1\"\n}"
+			},
+			"created": 1527257817578,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f650c4b8680d4ac0b74e8e19870b29c7",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"disabled": true,
+					"id": "pair_1af9701b4ed448928cae47196db3bb20",
+					"name": "url",
+					"value": "http://localhost:3000/"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527256954717,
+			"method": "POST",
+			"modified": 1527261286143,
+			"name": "Login",
+			"parameters": [
+				{
+					"id": "pair_acdc208db87f42b6af710db1a105c176",
+					"name": "",
+					"value": ""
+				}
+			],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/login",
+			"_type": "request"
+		},
+		{
+			"_id": "req_21a03782bf7147ff9a301151f65d5de2",
+			"authentication": {},
+			"body": {},
+			"created": 1527259437373,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1527259437373,
+			"method": "GET",
+			"modified": 1527259487365,
+			"name": "get all users",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/users/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_34835c898c6f4641ad8f8ffed504347d",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"name\": \"Cat\",\n  \"description\": \"Black cat\",\n  \"price\": \"12\"\n\t\n}    "
+			},
+			"created": 1527259681627,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9b1f3edff9b446bfa70cda81adec27d7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527259681627,
+			"method": "POST",
+			"modified": 1527261030043,
+			"name": "Create Listing",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/createListing/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c63bf4728b86475e919c4004544bf44b",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"name\": \"Cat\",\n  \"description\": \"Black cat\",\n  \"price\": \"12\",\n\t\"img\":\t\"https://media.mnn.com/assets/images/2018/02/AdorableBlackCatLookingAtCameraFromSofa.jpg.653x0_q80_crop-smart.jpg\"\n\n}    "
+			},
+			"created": 1527260530019,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9b1f3edff9b446bfa70cda81adec27d7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527259559500,
+			"method": "GET",
+			"modified": 1527261651260,
+			"name": "Get All Listing",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/getAllListings/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_4528bcb03ec94f67b6fe2b4137bac37e",
+			"authentication": {},
+			"body": {},
+			"created": 1527261466226,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1527261466226,
+			"method": "GET",
+			"modified": 1527261836197,
+			"name": "Show One Product",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/showOneListing/5b0825142da0a42c8880402d",
+			"_type": "request"
+		},
+		{
+			"_id": "req_245f0a2b07894afca986b78814b1b575",
+			"authentication": {},
+			"body": {},
+			"created": 1527261813948,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1527261813948,
+			"method": "DELETE",
+			"modified": 1527261871642,
+			"name": "Delete Listing",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/deleteListing/5b082444e4113838e85f6f47",
+			"_type": "request"
+		},
+		{
+			"_id": "req_cf85110e50754fda8edf4820a7c27339",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t \"name\": \"Caaaaat\",\n  \"description\": \"Blacnnnnnk cat\",\n  \"price\": \"133332\"\n\n\t\n}"
+			},
+			"created": 1527262001579,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_78ee07610198421692c5db61a3ef9ff4",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527262001579,
+			"method": "PUT",
+			"modified": 1527262522297,
+			"name": "Update Listing",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/updatingListing/5b0825142da0a42c8880402d",
+			"_type": "request"
+		},
+		{
+			"_id": "req_858817168a6f44b3a91bb13d96bdd41f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": ""
+			},
+			"created": 1527262728668,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f650c4b8680d4ac0b74e8e19870b29c7",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"disabled": true,
+					"id": "pair_1af9701b4ed448928cae47196db3bb20",
+					"name": "url",
+					"value": "http://localhost:3000/"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527256660908.5,
+			"method": "GET",
+			"modified": 1527262787249,
+			"name": "logout",
+			"parameters": [
+				{
+					"id": "pair_acdc208db87f42b6af710db1a105c176",
+					"name": "",
+					"value": ""
+				}
+			],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3000/api/logout",
+			"_type": "request"
+		}
+	]
+}

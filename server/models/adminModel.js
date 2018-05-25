@@ -10,6 +10,7 @@ const ListingSchema = new Schema ({
     price : {type:String, required: true},
     img: { data: Buffer, contentType: String },
     user_id: {type: Schema.Types.ObjectId, ref: "User"},
+    password_student: {type: String , required: true},
     createAt: { type : Date, default : Date.now},
     updatedAt: { type : Date, default : Date.now}
 
@@ -29,13 +30,10 @@ const HousesSchema = {
 
 }
 
-// this function we get it from add custom methods to mongoose models (search it on google) and get it (instance methods)
 AdminSchema.methods.hashPassword = function(password){
-    // this is hashing numbers and many time of it
     return bcrypt.hashSync(password, 12);
 }
 
-// to check the password and compare it for login 
 AdminSchema.methods.comparePassword = function(password, hashPassword){
     return bcrypt.compareSync(password, hashPassword);
 }
