@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 // browserRouter is a redirct and we need to install it besides the windowns.location 
 import { BrowserRouter, Route } from 'react-router-dom';
 import Listings from './components/homepage';
+import Start from './components/start';
+import App from './App';
 // import ShowOne from './components/showOne';
 // import DeleteOne from './components/deleteOne';
 // import CreateListing from './components/createListing';
@@ -16,7 +18,8 @@ import Listings from './components/homepage';
 ReactDOM.render(
 <BrowserRouter>
     <div>
-      <Route exact path='/' component={Listings} />
+      <Route exact path='/' component={App} />
+      <Route  path='/homePage' component={Listings} />
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
       <Route path='/article/:id' component={ShowOne} />

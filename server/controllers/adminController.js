@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 var User = mongoose.model('User');
 var Listing = mongoose.model('Listing');
+var House = mongoose.model('House');
+var Coupon = mongoose.model('Coupon');
+
 const {check, validationResult} = require('express-validator/check');
 
 function createUser(req, res, next) {
@@ -22,6 +25,7 @@ function createUser(req, res, next) {
    }
 
 
+
    var validateRegister = () => {
     return (
             check('firstName', 'Please enter your full name.').not().isEmpty(),
@@ -32,6 +36,60 @@ function createUser(req, res, next) {
             check('confirmPassword', 'Your password and confirm are not matched.')
                   .custom( (value, {req}) => value === req.body.password)
     );
+};
+
+function createCoupon(req, res, next) {
+    
+        const coupon = new Coupon(req.body);
+        coupon.save((err) => {
+            if (err) {
+            console.log('Error saving coupon: ', coupon);
+            return next();    
+            }
+            res.json({ok: true});
+        })
+    
+   }
+
+
+
+function createHouse(req, res, next) {
+  if(req.session.user)
+   {
+   const house = new House(req.body);
+   house.user_id= req.session.user._id;
+   house.save((err) => {
+       if (err) {
+       console.log('Error saving house: ', house);
+       return next();    
+       }
+       res.json({ok: true});
+   })
+}
+}
+
+
+function loginCoupon( req, res, next){
+   
+    Coupon.findOne({coupon_student: req.body.coupon_student}, (err, coupon_student) => {
+       // console.log(coupon_student);
+        if (err) {
+            console.log('Error getting user: ', err);
+            return next();
+        }
+        if(!coupon_student) {
+            return res.status(404).json({err : true, message : "Coupon does not exist"})
+        };
+
+        req.session.coupon_student= coupon_student;
+        res.json(coupon_student);
+    })
+}
+
+function deleteCoupon(req, res) {
+    Coupon.findOneAndRemove({_id:req.params.id})
+    .then((res)=>{res.send( res)})
+    .catch((err)=>{res.send(err)})
 };
  
 function loginUser( req, res, next){
@@ -51,18 +109,39 @@ function loginUser( req, res, next){
         res.json(user)
     })
 }
-// function getAllUsers(req, res, next) {
-//     User.find({}, ['firstName','lastName', 'email'], (err, users) => {
-//         if (err) {
-//             console.log('Error getting user: ', err);
-//             return next();    
-//             }
-//             res.json(users);
-//     })
-// }
+
+function getAllHouses(req, res, next) {
+    House.find({}, ['houseName','coins', 'level'], (err, houses) => {
+        if (err) {
+            console.log('Error getting houses: ', err);
+            return next();    
+            }
+            console.log(houses);
+            res.json(houses);
+    })
+}
+
+function updatingHouse(req, res) {
+    House.findById(req.params.id)
+        .then(function(house) {
+            house.houseName = req.body.houseName;
+            house.coins= req.body.coins;
+            house.level = req.body.level;
+            house.save().then(function(house) {
+             res.send(house);
+        });
+    })
+        .catch(err => res.send(err));
+};
+
+function deleteHouse(req, res) {
+    House.findOneAndRemove({_id:req.params.id})
+    .then((res)=>{res.send( res)})
+    .catch((err)=>{res.send(err)})
+};
 
 function createListing(req, res, next) {
-    //    console.log(req.body.listing);
+        //console.log(req.body.listing);
     //    console.log('sess '+ req.session.user);
       if(req.session.user)
        {
@@ -123,12 +202,12 @@ function updatingListing(req, res) {
 
 
 function getAuthenticateUserName(req,res, next) {
-    res.json({name:req.session.user.name});
+    res.json({name:req.session.user.firstname});
  }
- // function getAuthenticateUserID(req,res, next) {
- //     res.json({name:req.session.user._id});
- // }
- 
+function getAuthenticateUserID(req,res, next) {
+    res.json({name:req.session.user._id});
+}
+
  function authenticateUser(req,res, next) {
     if(req.session.user) return next();
     res.json({err:true, message:"Not Authenticated"});
@@ -146,16 +225,22 @@ function getAuthenticateUserName(req,res, next) {
  
 
 module.exports= {
+    getAllHouses,
     createUser,
+    createHouse,
+    updatingHouse,
     loginUser,
     createListing,
     getAllListings,
     showOneListing,
     logout,
+    authenticateUser,
+    deleteHouse,
      // getAllUsers,
-    // authenticateUser,
-    // getAuthenticateUserName,
-
+     createCoupon,
+    getAuthenticateUserName,
+    loginCoupon,
+    deleteCoupon,
     
     updatingListing,
     // likeListing,

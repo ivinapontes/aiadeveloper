@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-05-25T16:34:23.415Z",
+	"__export_date": "2018-05-26T14:49:06.763Z",
 	"__export_source": "insomnia.desktop.app:v5.16.6",
 	"resources": [
 		{
@@ -32,15 +32,15 @@
 					"domain": "localhost",
 					"hostOnly": true,
 					"httpOnly": true,
-					"id": "10184302723535965",
+					"id": "6301246879754794",
 					"key": "connect.sid",
-					"lastAccessed": "2018-05-25T15:39:40.123Z",
+					"lastAccessed": "2018-05-26T14:16:50.182Z",
 					"path": "/",
-					"value": "s%3A67RHQ4YxNK9rPyvonPt9JOhpvtLXTQi9.SgBUOhdW0bWA2JaotYNYaDYwUNW39bQu3eKoIA%2Bk0Iw"
+					"value": "s%3AgHqMfb31kj7YK50PaHFAa2LpHUHX8fg9.OvBKjH7aedZWrwXtwOOolYX2N%2FPHGRljA7BjDHuhvJQ"
 				}
 			],
 			"created": 1527253356950,
-			"modified": 1527262780123,
+			"modified": 1527344210182,
 			"name": "Default Jar",
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
 			"_type": "cookie_jar"
@@ -64,7 +64,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527256367100,
 			"method": "GET",
-			"modified": 1527256675312,
+			"modified": 1527341695674,
 			"name": "Test",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -73,7 +73,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/ping",
+			"url": "http://localhost:3001/ping",
 			"_type": "request"
 		},
 		{
@@ -95,7 +95,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527257542334,
 			"method": "POST",
-			"modified": 1527257702071,
+			"modified": 1527341680192,
 			"name": "Create Admin",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -104,7 +104,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/register",
+			"url": "http://localhost:3001/api/register",
 			"_type": "request"
 		},
 		{
@@ -132,7 +132,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527256954717,
 			"method": "POST",
-			"modified": 1527261286143,
+			"modified": 1527341683663,
 			"name": "Login",
 			"parameters": [
 				{
@@ -147,7 +147,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/login",
+			"url": "http://localhost:3001/api/login",
 			"_type": "request"
 		},
 		{
@@ -160,7 +160,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527259437373,
 			"method": "GET",
-			"modified": 1527259487365,
+			"modified": 1527341675654,
 			"name": "get all users",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -169,7 +169,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/users/",
+			"url": "http://localhost:3001/api/users/",
 			"_type": "request"
 		},
 		{
@@ -177,7 +177,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n  \"name\": \"Cat\",\n  \"description\": \"Black cat\",\n  \"price\": \"12\"\n\t\n}    "
+				"text": "{\n  \"name\": \"Cssassssssst\",\n  \"description\": \"Bwwwlack cat\",\n  \"price\": \"12\"\n}    "
 			},
 			"created": 1527259681627,
 			"description": "",
@@ -191,7 +191,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527259681627,
 			"method": "POST",
-			"modified": 1527261030043,
+			"modified": 1527341657831,
 			"name": "Create Listing",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -200,7 +200,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/createListing/",
+			"url": "http://localhost:3001/api/createListing/",
 			"_type": "request"
 		},
 		{
@@ -208,7 +208,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n  \"name\": \"Cat\",\n  \"description\": \"Black cat\",\n  \"price\": \"12\",\n\t\"img\":\t\"https://media.mnn.com/assets/images/2018/02/AdorableBlackCatLookingAtCameraFromSofa.jpg.653x0_q80_crop-smart.jpg\"\n\n}    "
+				"text": ""
 			},
 			"created": 1527260530019,
 			"description": "",
@@ -222,7 +222,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527259559500,
 			"method": "GET",
-			"modified": 1527261651260,
+			"modified": 1527341667317,
 			"name": "Get All Listing",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -231,7 +231,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/getAllListings/",
+			"url": "http://localhost:3001/api/getAllListings/",
 			"_type": "request"
 		},
 		{
@@ -244,7 +244,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527261466226,
 			"method": "GET",
-			"modified": 1527261836197,
+			"modified": 1527341654076,
 			"name": "Show One Product",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -253,7 +253,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/showOneListing/5b0825142da0a42c8880402d",
+			"url": "http://localhost:3001/api/showOneListing/5b0825142da0a42c8880402d",
 			"_type": "request"
 		},
 		{
@@ -266,7 +266,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527261813948,
 			"method": "DELETE",
-			"modified": 1527261871642,
+			"modified": 1527341640412,
 			"name": "Delete Listing",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -275,7 +275,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/deleteListing/5b082444e4113838e85f6f47",
+			"url": "http://localhost:3001/api/deleteListing/5b082444e4113838e85f6f47",
 			"_type": "request"
 		},
 		{
@@ -297,7 +297,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527262001579,
 			"method": "PUT",
-			"modified": 1527262522297,
+			"modified": 1527341650213,
 			"name": "Update Listing",
 			"parameters": [],
 			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
@@ -306,7 +306,7 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/updatingListing/5b0825142da0a42c8880402d",
+			"url": "http://localhost:3001/api/updatingListing/5b0825142da0a42c8880402d",
 			"_type": "request"
 		},
 		{
@@ -334,7 +334,7 @@
 			"isPrivate": false,
 			"metaSortKey": -1527256660908.5,
 			"method": "GET",
-			"modified": 1527262787249,
+			"modified": 1527341690929,
 			"name": "logout",
 			"parameters": [
 				{
@@ -349,7 +349,218 @@
 			"settingRebuildPath": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "http://localhost:3000/api/logout",
+			"url": "http://localhost:3001/api/logout",
+			"_type": "request"
+		},
+		{
+			"_id": "req_9a4fb35508dc4851898e57565a12bc0f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"houseName\": \"AiA\",\n  \"coins\": \"100000000000000\",\n  \"level\": \"Guide\"\n}    "
+			},
+			"created": 1527335252726,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9b1f3edff9b446bfa70cda81adec27d7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527259620563.5,
+			"method": "POST",
+			"modified": 1527341664118,
+			"name": "Create House",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/createHouse/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_73553a0333224524ab663d01a5a44d91",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": ""
+			},
+			"created": 1527336262023,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9b1f3edff9b446bfa70cda81adec27d7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527259498436.5,
+			"method": "GET",
+			"modified": 1527341672197,
+			"name": "Get all houses",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/getAllHouses/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_7ad8dcdc988b4b22b18091d5a3a3d2a4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\t\"houseName\": \"Tim Berners-lee3\",\n\t\t\"coins\": 6666699999,\n\t\t\"level\": \"bootcamp\"\n\t}"
+			},
+			"created": 1527336714451,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_78ee07610198421692c5db61a3ef9ff4",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527261907763.5,
+			"method": "PUT",
+			"modified": 1527341647437,
+			"name": "Update House",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/updatingHouse/5b094b128d222c315814428b",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6d7db7d5e13d4f658a57300de32560b7",
+			"authentication": {},
+			"body": {},
+			"created": 1527336948888,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1527261640087,
+			"method": "DELETE",
+			"modified": 1527341637615,
+			"name": "Delete House",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/deleteHouse/5b094b128d222c315814428b",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d650fa8d05df4f2da65fc863259b0b41",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"coupon_student\":\"happyCoding\"\n}    "
+			},
+			"created": 1527337333540,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9b1f3edff9b446bfa70cda81adec27d7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527259651095.25,
+			"method": "POST",
+			"modified": 1527341661030,
+			"name": "Create coupon",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/createCoupon/",
+			"_type": "request"
+		},
+		{
+			"_id": "req_86bfca83d39b4efc9778eaa1e09da094",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n  \"coupon_student\":\"happyCoding\"\n}    "
+			},
+			"created": 1527337644595,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_f650c4b8680d4ac0b74e8e19870b29c7",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"disabled": true,
+					"id": "pair_1af9701b4ed448928cae47196db3bb20",
+					"name": "url",
+					"value": "http://localhost:3000/"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1527256807812.75,
+			"method": "POST",
+			"modified": 1527341687926,
+			"name": "Login Coupon",
+			"parameters": [
+				{
+					"id": "pair_acdc208db87f42b6af710db1a105c176",
+					"name": "",
+					"value": ""
+				}
+			],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/loginCoupon",
+			"_type": "request"
+		},
+		{
+			"_id": "req_2abf2de1e95e449684f3770d91a1da65",
+			"authentication": {},
+			"body": {},
+			"created": 1527339583330,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1527261553156.5,
+			"method": "DELETE",
+			"modified": 1527341632482,
+			"name": "Delete Coupon",
+			"parameters": [],
+			"parentId": "wrk_05f0f678d4d049b080ec31dac0467c7f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:3001/api/deleteCoupon/5b0951bcffc84f4204dcf847",
 			"_type": "request"
 		}
 	]
