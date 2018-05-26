@@ -12,7 +12,7 @@ class Start extends Component {
         this.updateInputField = this.updateInputField.bind(this);
         this.sendFrom = this.sendFrom.bind(this);
       }
-
+//////testeeeee
       sendFrom(event){
           console.log("hahahha");
         event.preventDefault();

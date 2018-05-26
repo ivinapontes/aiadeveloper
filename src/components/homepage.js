@@ -54,7 +54,7 @@ class Listings extends Component {
         //   .catch(function (error) {
         //     console.log(error);
         //   });
-    // }
+    // }ssss
 
     // deleteHandler = (event, id) => {
     //     const url = `/api/deleteListing/${id}`;
