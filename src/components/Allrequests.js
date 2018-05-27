@@ -7,7 +7,7 @@ class AllListing extends Component {
     constructor(props){
         super(props);
          this.state= {
-             showingListings: [],
+             showingRequests: [],
              errors: ""
          }
          }
@@ -15,11 +15,11 @@ class AllListing extends Component {
 
 
     componentDidMount(){
-        axios.get('/api/getAllListings/')
+        axios.get('/api/getAlluserRequest/')
         .then((response)=> {
             //console.log(response.data.list.name);
           this.setState({
-              showingListings: response.data.list,
+            showingRequests: response.data,
             });
           
         //   window.location.href = "/";
@@ -38,19 +38,49 @@ class AllListing extends Component {
             <div>
                  
 
-                
-                <br/>
+                <h1>helloooooo</h1>
+            
                
-               {this.state.showingListings && this.state.showingListings.map((listing)=>{
+               {this.state.showingRequests && this.state.showingRequests.map((request)=>{
                     return (
-                       <div key={listing._id}>
-                          <h3><b> {listing.name}</b></h3>
-                          <h3><b> {listing.price}</b></h3>
-                          <h3><b> {listing.description}</b></h3>
-                          <Link className="btn nav-link btn-success" to="/Request">Buy</Link>}
+                        <div className="requests">
+                      
+                        
+                      <table className="requestTable">
+                        
+                     
+                        
+                 
+                        
+                        <th className="requestTableth">Name
+                        <td><b> {request.userName}</b></td>
+                        </th>
+                      
+                        <th className="requestTableth">House
+                        <td><b> {request.userHouse}</b></td>
+                        </th>
+                     
+                        <th className="requestTableth">Level</th>
+                        <tr>
+                      
+                     
+                        <td><b> {request.userLevel}</b></td>
+                        </tr>
+                        
+                        
+                     
+                       
+                        
+                            
+
+                        </table>
+                     
+                      
+                        
                            </div>
                     )
                 })}
+                  <Link className="btn nav-link btn-success" to="/adminHomepage">Back</Link>
             </div>
         );
     }
