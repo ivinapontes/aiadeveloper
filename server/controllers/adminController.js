@@ -210,6 +210,16 @@ function userRequest(req, res, next) {
         res.json({ok: true});
     })
   }
+  function getAlluserRequest(req, res, next) {
+    Request.find({}, ['userName','userHouse'], (err, houses) => {
+        if (err) {
+            console.log('Error getting userRequest: ', err);
+            return next();    
+            }
+            console.log(houses);
+            res.json(houses);
+    })
+}
 
 
 
