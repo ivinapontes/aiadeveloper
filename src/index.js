@@ -8,7 +8,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Listings from './components/homepage';
 import Start from './components/start';
 import App from './App';
-// import ShowOne from './components/showOne';
+import ShowOne from './components/showOne';
 // import DeleteOne from './components/deleteOne';
 // import CreateListing from './components/createListing';
 // import UpdateListing from './components/updateListing';
@@ -20,9 +20,10 @@ ReactDOM.render(
     <div>
       <Route exact path='/' component={App} />
       <Route  path='/homepage' component={Listings} />
+      <Route path='/showOne/:id' component={ShowOne} />
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
-      <Route path='/article/:id' component={ShowOne} />
+      
       <Route path='/deleteOne/:id' component={DeleteOne} />
       <Route path='/createArticle/new' component={CreateListing} />
       <Route path='/updateListing/:id' component={UpdateListing} />
