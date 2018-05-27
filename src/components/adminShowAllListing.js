@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 
-class AllListing extends Component {
+class ShowAllListing extends Component {
     constructor(props){
         super(props);
          this.state= {
@@ -45,7 +45,7 @@ class AllListing extends Component {
                           <h4><b>Description: {listing.description}</b></h4>
                           <h4><b>Coins: {listing.price}</b></h4>
                           <Link to={`/showOne/${listing._id}`}>View Listing</Link><br />
-                          <Link className="btn nav-link btn-success" to="/Request">Buy</Link>
+                          <Link to={`/editListing/${listing._id}`}>Edit Listing</Link>
                         </div>
                           <br/>  
                         </div>
@@ -57,4 +57,5 @@ class AllListing extends Component {
     }
 }
 
-export default AllListing;
+export default ShowAllListing;
+
