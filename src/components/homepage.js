@@ -99,11 +99,18 @@ class Listings extends Component {
     
     render() {
         return (
-            <div>
+        <div>
+            <div className= "header_title">
                 <h1> Welcome to the OneMarket</h1>
-                <AllListing />
-            
             </div>
+            
+                 <div className= "listing">
+                     <AllListing />
+            
+                 </div>
+                 Login admin
+                 <Link to={`/login`}>Admin login</Link><br />
+        </div>
         );
     }
 }
