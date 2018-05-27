@@ -20,7 +20,7 @@ constructor(props) {
   
   submitHandler(e){
     e.preventDefault();
-    axios.post("http:/api/login", this.state.data).then((res)=>{
+    axios.post("/api/login", this.state.data).then((res)=>{
      console.log(res);
      if (res.data.err) {
       return  this.setState({err:res.data.message})
@@ -58,7 +58,7 @@ constructor(props) {
                         <input onChange={changeHandler} value={this.state.data.password} name="password" type="password" className="form-control" id="password" placeholder="Password"/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
-</form>
+      </form>
       </div>
     )
   }
