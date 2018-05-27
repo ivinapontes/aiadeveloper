@@ -7,6 +7,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Listings from './components/homepage';
 import Start from './components/start';
+import Alllisting from './components/Alllisting';
+import Request from './components/Request';
+import adminHomepage from './components/adminHomepage';
+import adminLogin from './components/adminLogin';
 import App from './App';
 import ShowOne from './components/showOne';
 // import DeleteOne from './components/deleteOne';
@@ -20,7 +24,13 @@ ReactDOM.render(
     <div>
       <Route exact path='/' component={App} />
       <Route  path='/homepage' component={Listings} />
+
+      <Route  path='/Request' component={Request} />
+      <Route  path='/adminHomepage' component={adminHomepage} />
+      <Route  path='/adminLogin' component={adminLogin} />
+
       <Route path='/showOne/:id' component={ShowOne} />
+
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
       
