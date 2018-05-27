@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import Alllisting from "./Alllisting";
+import AllListing from "./Alllisting";
 
 
 class Listings extends Component {
@@ -55,7 +55,7 @@ class Listings extends Component {
         //   .catch(function (error) {
         //     console.log(error);
         //   });
-    // }
+    // }ssss
 
     // deleteHandler = (event, id) => {
     //     const url = `/api/deleteListing/${id}`;
@@ -101,7 +101,7 @@ class Listings extends Component {
         return (
             <div>
                 <h1> Welcome to the OneMarket</h1>
-                <Alllisting />
+                <AllListing />
             
             </div>
         );

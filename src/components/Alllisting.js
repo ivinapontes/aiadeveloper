@@ -1,36 +1,58 @@
-//Alllisting.js
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 
-class Alllisting extends Component {
-    constructor(props) {
+class AllListing extends Component {
+    constructor(props){
         super(props);
-        this.state={
-            data:null,
-        
-        }
-        axios.get(`api/getAllListings/`)
-        .then((data)=>{this.setState({data:data.data})});
-        
+         this.state= {
+             showingListings: [],
+             errors: ""
+         }
+         }
+
+
+
+    componentDidMount(){
+        axios.get('/api/getAllListings/')
+        .then((response)=> {
+            //console.log(response.data.list.name);
+          this.setState({
+              showingListings: response.data.list,
+            });
+          
+        //   window.location.href = "/";
       
+        })
+        .catch( (error) =>{
+          console.log(error);
+          this.setState({errors : "Server Error"});
+        });
     }
+
     
     render() {
-        var listing = this.state.data;
+
         return (
-      
-            (this.state.data &&
-            <div className="card text-center">
-                <div className="card-body">
+            <div>
+                 
+
                 
-                    <p className="card-text"><b>Description:</b> {listing}</p>
-                    <p className="card-text btn-sm"> <b>Location:</b> {listing}</p>
-                </div>
-            </div>)
+                <br/>
+               
+               {this.state.showingListings && this.state.showingListings.map((listing)=>{
+                    return (
+                       <div key={listing._id}>
+                          <h3><b> {listing.name}</b></h3>
+                          <h3><b> {listing.price}</b></h3>
+                          <h3><b> {listing.description}</b></h3>
+                           </div>
+                    )
+                })}
+            </div>
         );
     }
 }
 
-export default Alllisting;
+export default AllListing;
