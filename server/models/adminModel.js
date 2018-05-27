@@ -36,6 +36,12 @@ const CouponSchema = {
     createAt: { type : Date, default : Date.now},
     updatedAt: { type : Date, default : Date.now}
 }
+const RequestSchema = {
+    userName: {type: String , required: true},
+    userHouse: {type: String , required: true},
+    createAt: { type : Date, default : Date.now},
+    updatedAt: { type : Date, default : Date.now}
+}
 
 AdminSchema.methods.hashPassword = function(password){
     return bcrypt.hashSync(password, 12);
@@ -48,4 +54,5 @@ AdminSchema.methods.comparePassword = function(password, hashPassword){
 mongoose.model('User', AdminSchema);
 mongoose.model('Listing', ListingSchema);
 mongoose.model('House', HousesSchema);
-mongoose.model('Coupon', CouponSchema)
+mongoose.model('Coupon', CouponSchema);
+mongoose.model('Request', RequestSchema)

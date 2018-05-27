@@ -3,6 +3,7 @@ var User = mongoose.model('User');
 var Listing = mongoose.model('Listing');
 var House = mongoose.model('House');
 var Coupon = mongoose.model('Coupon');
+var Request = mongoose.model('Request');
 
 const {check, validationResult} = require('express-validator/check');
 
@@ -199,6 +200,17 @@ function updatingListing(req, res) {
         .catch(err => res.send(err));
 };
 
+function userRequest(req, res, next) {
+    const request = new Request(req.body);
+    request.save((err) => {
+        if (err) {
+        console.log('Error saving request: ', request);
+        return next();    
+        }
+        res.json({ok: true});
+    })
+  }
+
 
 
 function getAuthenticateUserName(req,res, next) {
@@ -238,6 +250,7 @@ module.exports= {
     deleteHouse,
      // getAllUsers,
      createCoupon,
+     userRequest,
     getAuthenticateUserName,
     loginCoupon,
     deleteCoupon,

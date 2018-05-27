@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.post('/api/createListing', adminController.createListing);
     app.post('/api/createHouse', adminController.createHouse);
     app.post('/api/createCoupon', adminController.createCoupon);
+    app.post('/api/userRequest', adminController.userRequest);
     app.get('/api/getAllHouses',adminController.getAllHouses);
     //app.get('/api/users/', authUser, adminController.getAllUsers);
     // app.get('/api/session', (req,res) => res.json({session: req.session}));
