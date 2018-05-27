@@ -19,7 +19,7 @@ ReactDOM.render(
 <BrowserRouter>
     <div>
       <Route exact path='/' component={App} />
-      <Route  path='/homePage' component={Listings} />
+      <Route  path='/homepage' component={Listings} />
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
       <Route path='/article/:id' component={ShowOne} />
