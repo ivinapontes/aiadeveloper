@@ -10,7 +10,7 @@ class AllListing extends Component {
              showingListings: [],
              errors: ""
          }
-         }
+        }
 
 
 
@@ -21,9 +21,6 @@ class AllListing extends Component {
           this.setState({
               showingListings: response.data.list,
             });
-          
-        //   window.location.href = "/";
-      
         })
         .catch( (error) =>{
           console.log(error);
@@ -36,18 +33,18 @@ class AllListing extends Component {
 
         return (
             <div>
-                 
-
-                
-                <br/>
-               
+                 <br/>  
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (
                        <div key={listing._id}>
-                          <h3><b> {listing.name}</b></h3>
-                          <h3><b> {listing.price}</b></h3>
-                          <h3><b> {listing.description}</b></h3>
-                           </div>
+                         <div className="eachProduct"> 
+                          <h4><b>Product: {listing.name}</b></h4>
+                          <h4><b>Description: {listing.description}</b></h4>
+                          <h4><b>Coins: {listing.price}</b></h4>
+                          <Link to={`/showOne/${listing._id}`}>View Listing</Link><br />
+                        </div>
+                          <br/>  
+                        </div>
                     )
                 })}
             </div>
