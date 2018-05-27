@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import Alllisting from "./Alllisting";
 
 
 class Listings extends Component {
@@ -99,7 +100,9 @@ class Listings extends Component {
     render() {
         return (
             <div>
-                 Welcome to the OneMarket
+                <h1> Welcome to the OneMarket</h1>
+                <Alllisting />
+            
             </div>
         );
     }
