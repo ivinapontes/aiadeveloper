@@ -11,6 +11,7 @@ import Alllisting from './components/Alllisting';
 import Request from './components/Request';
 import adminHomepage from './components/adminHomepage';
 import adminLogin from './components/adminLogin';
+import Allrequests from './components/Allrequests';
 import App from './App';
 // import ShowOne from './components/showOne';
 // import DeleteOne from './components/deleteOne';
@@ -27,6 +28,8 @@ ReactDOM.render(
       <Route  path='/Request' component={Request} />
       <Route  path='/adminHomepage' component={adminHomepage} />
       <Route  path='/adminLogin' component={adminLogin} />
+      <Route  path='/Allrequests' component={Allrequests} />
+      <Route  path='/Alllisting' component={Alllisting} />
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
       <Route path='/article/:id' component={ShowOne} />

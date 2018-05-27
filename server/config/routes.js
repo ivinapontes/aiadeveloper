@@ -30,6 +30,7 @@ module.exports = function(app) {
     app.delete('/api/deleteListing/:id', adminController.deleteListing);
     app.delete('/api/deleteCoupon/:id', adminController.deleteCoupon);
     app.get('/api/showOneListing/:id', adminController.showOneListing);
+    app.delete('/api/deleteRequest/:id', adminController.deleteRequest);
 
     
     

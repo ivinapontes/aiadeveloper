@@ -211,7 +211,7 @@ function userRequest(req, res, next) {
     })
   }
   function getAlluserRequest(req, res, next) {
-    Request.find({}, ['userName','userHouse'], (err, requests) => {
+    Request.find({}, ['userName','userHouse','userLevel'], (err, requests) => {
         if (err) {
             console.log('Error getting userRequest: ', err);
             return next();    
@@ -220,6 +220,12 @@ function userRequest(req, res, next) {
             res.json(requests);
     })
 }
+function deleteRequest(req, res) {
+    Request.findOneAndRemove({_id:req.params.id})
+    .then((res)=>{res.send( res)})
+    .catch((err)=>{res.send(err)})
+};
+
 
 
 
@@ -262,6 +268,7 @@ module.exports= {
      createCoupon,
      userRequest,
      getAlluserRequest,
+     deleteRequest,
     getAuthenticateUserName,
     loginCoupon,
     deleteCoupon,
