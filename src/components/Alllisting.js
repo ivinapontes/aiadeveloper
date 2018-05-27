@@ -1,54 +1,58 @@
-//Allposts.js
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 
-
-function Result(props) {
-    return (
-        props.posts.map((post)=>{
-            return(
-                <ul className='users' key={post._id}>
-                <div className="card-body">
-          
-                    <h2 className="card-title">Name: {post.name}</h2>
-            
-
-              
-                    <hr />
-                </div>
-                </ul>
-            )
-        })
-    )
-}
-
-class Alllisting extends Component {
-    constructor(props) {
+class AllListing extends Component {
+    constructor(props){
         super(props);
-        this.state={
-            posts:null
-        }
-        
-    }
+         this.state= {
+             showingListings: [],
+             errors: ""
+         }
+         }
+
+
+
     componentDidMount(){
-        axios.get('http://localhost:3001/api/getAllListings/')
-        .then((res)=>this.setState({posts:res.data})) 
-        
+        axios.get('/api/getAllListings/')
+        .then((response)=> {
+            //console.log(response.data.list.name);
+          this.setState({
+              showingListings: response.data.list,
+            });
+          
+        //   window.location.href = "/";
+      
+        })
+        .catch( (error) =>{
+          console.log(error);
+          this.setState({errors : "Server Error"});
+        });
     }
-  
 
- 
-
+    
     render() {
+
         return (
             <div>
-            {this.state.posts && <Result posts ={this.state.posts} />}
-    
-             </div>
+                 
+
+                
+                <br/>
+               
+               {this.state.showingListings && this.state.showingListings.map((listing)=>{
+                    return (
+                       <div key={listing._id}>
+                          <h3><b> {listing.name}</b></h3>
+                          <h3><b> {listing.price}</b></h3>
+                          <h3><b> {listing.description}</b></h3>
+                           </div>
+                    )
+                })}
+            </div>
         );
     }
 }
 
-export default Alllisting;
+export default AllListing;
