@@ -211,13 +211,13 @@ function userRequest(req, res, next) {
     })
   }
   function getAlluserRequest(req, res, next) {
-    Request.find({}, ['userName','userHouse'], (err, houses) => {
+    Request.find({}, ['userName','userHouse'], (err, requests) => {
         if (err) {
             console.log('Error getting userRequest: ', err);
             return next();    
             }
-            console.log(houses);
-            res.json(houses);
+            console.log(requests);
+            res.json(requests);
     })
 }
 
@@ -261,6 +261,7 @@ module.exports= {
      // getAllUsers,
      createCoupon,
      userRequest,
+     getAlluserRequest,
     getAuthenticateUserName,
     loginCoupon,
     deleteCoupon,
