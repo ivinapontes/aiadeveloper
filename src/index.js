@@ -14,6 +14,9 @@ import ShowOne from './components/showOne';
 import AdminHomepage from './components/adminHomepage';
 import ShowAllListing from './components/adminShowAllListing';
 import UpdateListing from './components/updateListing';
+import CreateListing from './components/insertListing';
+import ShowOneAdmin from './components/showOneAdmin';
+import DeleteListing from './components/deleteListing';
 
 
 ReactDOM.render(
@@ -34,12 +37,15 @@ ReactDOM.render(
       {/* <Route exact path='/login' component={Login} /> */}
       <Route path='/editListing/:id' component={UpdateListing} />
       <Route path='/showOne/:id' component={ShowOne} />
+      <Route exact path = '/showOneAdmin/:id'component={ShowOneAdmin}/>
       <Route path ='/showAllRequests/' component={Allrequests}/>
+      <Route path='/createListing' component={CreateListing} />
+      <Route exact path='/deleteListing/:id' component={DeleteListing} />
 
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
       
-      <Route path='/deleteOne/:id' component={DeleteOne} />
+      
       <Route path='/createArticle/new' component={CreateListing} />
       
       <Route path = '/registration' component={Login} />
