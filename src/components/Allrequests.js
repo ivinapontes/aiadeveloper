@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 
-class AllListing extends Component {
+class Allrequests extends Component {
     constructor(props){
         super(props);
          this.state= {
@@ -86,4 +86,4 @@ class AllListing extends Component {
     }
 }
 
-export default AllListing;
+export default Allrequests;
