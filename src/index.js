@@ -8,6 +8,7 @@ import Request from './components/Request';
 import adminHomepage from './components/adminHomepage';
 import adminLogin from './components/adminLogin';
 import Allrequests from './components/Allrequests';
+import Login from './components/adminLogin';
 import App from './App';
 import ShowOne from './components/showOne';
 import AdminHomepage from './components/adminHomepage';
@@ -33,6 +34,7 @@ ReactDOM.render(
       {/* <Route exact path='/login' component={Login} /> */}
       <Route path='/editListing/:id' component={UpdateListing} />
       <Route path='/showOne/:id' component={ShowOne} />
+      <Route path ='/showAllRequests/' component={Allrequests}/>
 
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
