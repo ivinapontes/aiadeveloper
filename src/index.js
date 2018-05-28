@@ -14,6 +14,11 @@ import ShowOne from './components/showOne';
 import AdminHomepage from './components/adminHomepage';
 import ShowAllListing from './components/adminShowAllListing';
 import UpdateListing from './components/updateListing';
+import HousesWalet from './components/housesWalet';
+import NewHouse from './components/newHouse';
+import ShowOneHouse from './components/showOneHouse';
+import UpdateHouse from './components/updateHouse';
+import AddCoinsHouse from './components/addCoinsHouse';
 
 
 ReactDOM.render(
@@ -28,7 +33,13 @@ ReactDOM.render(
       <Route exact path='/login' component={Login} />
       <Route path='/editListing/:id' component={UpdateListing} />
       <Route path='/showOne/:id' component={ShowOne} />
+      <Route path='/showOneHouse/:id' component={ShowOneHouse} />
       <Route path ='/showAllRequests/' component={Allrequests}/>
+      <Route path='/updateHouse/:id' component={UpdateHouse} />
+      <Route path='/addCoinsHouse/:id' component={AddCoinsHouse} />
+      <Route path ='/housesWalet/' component={HousesWalet}/>
+      <Route path ='/newHouse/' component={NewHouse}/>
+
 
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />

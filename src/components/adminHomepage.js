@@ -12,8 +12,8 @@ class AdminHomepage extends Component {
           <h1>Welcome Admin</h1>
         </div>
         <Link to={`/adminListing`}> Listings</Link><br />
-        <div>Listings</div>
-        <div>Houses</div>
+        <Link to={`/housesWalet`}> Houses Walet</Link><br />
+        
 
 
 

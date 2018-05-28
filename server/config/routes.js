@@ -19,6 +19,7 @@ module.exports = function(app) {
     // // app.get('/api/users/:userEmail', authUser, usersController.findOneUser);
     app.get('/api/user', authUser, adminController.getAuthenticateUserName);
     app.get('/api/logout', adminController.logout);
+    
 
    
     app.get('/api/getAllListings/', adminController.getAllListings);
@@ -26,10 +27,12 @@ module.exports = function(app) {
     // app.post('/api/likeListing/:id', usersController.likeListing);
     app.put('/api/updatingListing/:id', adminController.updatingListing);
     app.put('/api/updatingHouse/:id', adminController.updatingHouse);
+    app.put('/api/updatingCoins/:id', adminController.updatingCoins);
     app.delete('/api/deleteHouse/:id', adminController.deleteHouse);
     app.delete('/api/deleteListing/:id', adminController.deleteListing);
     app.delete('/api/deleteCoupon/:id', adminController.deleteCoupon);
     app.get('/api/showOneListing/:id', adminController.showOneListing);
+    app.get('/api/showOneHouse/:id', adminController.showOneHouse);
     app.delete('/api/deleteRequest/:id', adminController.deleteRequest);
 
     

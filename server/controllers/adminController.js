@@ -112,7 +112,7 @@ function loginUser( req, res, next){
 }
 
 function getAllHouses(req, res, next) {
-    House.find({}, ['houseName','coins', 'level'], (err, houses) => {
+    House.find({}, ['houseName','coins', 'level','reason'], (err, houses) => {
         if (err) {
             console.log('Error getting houses: ', err);
             return next();    
@@ -135,11 +135,29 @@ function updatingHouse(req, res) {
         .catch(err => res.send(err));
 };
 
+function updatingCoins(req, res) {
+    House.findById(req.params.id)
+        .then(function(house) {
+            house.coins= req.body.coins;
+            house.reason = req.body.reason;
+            house.save().then(function(house) {
+             res.send(house);
+        });
+    })
+        .catch(err => res.send(err));
+};
+
 function deleteHouse(req, res) {
     House.findOneAndRemove({_id:req.params.id})
     .then((res)=>{res.send( res)})
     .catch((err)=>{res.send(err)})
 };
+
+function showOneHouse(req, res) {
+    House.findById({_id:req.params.id})
+    .then((house)=>{res.json(house)})
+    .catch((error)=>{res.json(error)})
+}
 
 function createListing(req, res, next) {
         //console.log(req.body.listing);
@@ -272,9 +290,10 @@ module.exports= {
     getAuthenticateUserName,
     loginCoupon,
     deleteCoupon,
-    
+    showOneHouse,
     updatingListing,
     // likeListing,
     deleteListing,
-    validateRegister
+    validateRegister,
+    updatingCoins
  };
