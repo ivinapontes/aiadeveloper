@@ -109,7 +109,7 @@ class Listings extends Component {
             
                  </div>
                  Login admin
-                 <Link to={`/login`}>Admin login</Link><br />
+                 <Link to={`/adminLogin`}>Admin login</Link><br />
         </div>
         );
     }
