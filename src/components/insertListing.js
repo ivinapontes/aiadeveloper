@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-class UpdateListing extends Component {
+class CreateListing extends Component {
     constructor(props){
         super(props);
         this.state={
             name:"",
             price:"",
-            description:""
+            description:"",
+            errors:""
 
         }
         this.updateInputField = this.updateInputField.bind(this);
@@ -16,50 +17,52 @@ class UpdateListing extends Component {
     }
     sendFrom(event){
         event.preventDefault();
-        axios.put(`/api/updatingListing/${this.props.match.params.id}`, {
+        axios.post('/api/createListing/', {
             name:this.state.name,
             price:this.state.price,
             description:this.state.description
         }).then((response) => {
             console.log(response);
-            alert("The List has been updated");
-             window.location.href="/adminListing";
+           // window.location.href="/adminS";
         }).catch((error)=>{
             console.log(error);
             this.setState({errors : "Server Error"});
         });
         
-    }
+      }
+
+
+
+
     updateInputField(event){
         this.setState({[event.target.name] : event.target.value})
-    }
+      }
     render() {
         return (
             <div>
                 <div>
-                <h1>Update a List</h1>
+                <h3>Insert here the product details</h3>
                 <h3 style={{color:"red"}}> {this.state.errors}</h3>
                 <form>
                  <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">name</label>
-                  <input type="text" name="name" value={this.state.name} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text" name="name" value={this.state.name} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name of the product"/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Price</label>
-                  <input type="number" name="price" value={this.state.price} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price"/>
+                  <label for="exampleInputEmail1">Price</label>
+                  <input type="number" name="price" value={this.state.price} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the price"/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Description</label>
-                  <input type="text" name="description" value={this.state.description} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description"/>
+                  <label for="exampleInputEmail1">Description</label>
+                  <input type="text" name="description" value={this.state.description} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
                 </div>
                 <button type="submit" onClick={this.sendFrom} className="btn btn-primary">Submit</button>
               </form>
             </div>
-            
             <Link to={`/adminListing`}>Go Back</Link>
             </div>
         );
     }
 }
 
-export default UpdateListing;
+export default CreateListing;
