@@ -20,12 +20,6 @@ ReactDOM.render(
 <BrowserRouter>
     <div>
       <Route exact path='/' component={App} />
-      <Route  path='/homepage' component={Listings} />
-      <Route  path='/Request' component={Request} />
-      <Route  path='/adminHomepage' component={adminHomepage} />
-      <Route  path='/adminLogin' component={adminLogin} />
-      <Route  path='/Allrequests' component={Allrequests} />
-      <Route  path='/Alllisting' component={Alllisting} />
       <Route exact path='/homepage' component={Listings} />
 
       <Route exact path='/Request' component={Request} />
@@ -34,6 +28,7 @@ ReactDOM.render(
       <Route exact path='/login' component={Login} />
       <Route path='/editListing/:id' component={UpdateListing} />
       <Route path='/showOne/:id' component={ShowOne} />
+      <Route path ='/showAllRequests/' component={Allrequests}/>
 
       {/* <Route path='/homepage' component={Craigslist} />
       <Route path='/logout' component={Logout} />
