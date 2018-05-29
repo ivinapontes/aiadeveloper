@@ -47,9 +47,9 @@ class Start extends Component {
                     <div className= 'main_title'>
                     
                     <img src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/>
-                        <h1>Welcome to OneMarket</h1>
+                        <h1 className="display-3">Welcome to OneMarket</h1>
                     </div>
-                    <div className='subtitle'>
+                    <div className="lead">
                         <h2>Please enter your coupon code :</h2>
                     </div>
                     <div className= 'textBox'>
@@ -58,6 +58,12 @@ class Start extends Component {
                         <h3 style={{color:"red"}}>{this.state.couponErrors && this.state.couponErrors.coupon_student && <p>{this.state.couponErrors.coupon_student.msg} </p> }</h3>
 
                     </div>
+                
+                
+
+
+
+
                 </div>
                 </div>
 
