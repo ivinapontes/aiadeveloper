@@ -12,7 +12,6 @@ class Start extends Component {
         this.updateInputField = this.updateInputField.bind(this);
         this.sendFrom = this.sendFrom.bind(this);
       }
-//////testeeeee
       sendFrom(event){
           console.log("hahahha");
         event.preventDefault();
@@ -35,10 +34,26 @@ class Start extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to the market Plaats from Restart</h1>
-                <h2>Please enter your coupon code :</h2>
-                <input type="text" name="coupon" value={this.state.coupon} onChange={this.updateInputField}/>
-                <button type="submit" onClick={this.sendFrom}>Enter</button>
+              <div className= "body">
+              {/* <video autoplay muted loop id="myVideo">
+                <source url="https://www.youtube.com/watch?v=Ykt0tpCbN-Q" type="video/mp4"/>
+                </video> */}
+
+                <div className= 'container1'>
+                    <div className= 'main_title'>
+                    
+                    <img src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/>
+                        <h1>Welcome to OneMarket</h1>
+                    </div>
+                    <div className='subtitle'>
+                        <h2>Please enter your coupon code :</h2>
+                    </div>
+                    <div className= 'textBox'>
+                        <input type="text" name="coupon" value={this.state.coupon} onChange={this.updateInputField}/>
+                        <button type="submit" onClick={this.sendFrom}>Enter</button>
+                    </div>
+                </div>
+                </div>
             </div>
         );
     }

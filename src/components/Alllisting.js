@@ -37,9 +37,6 @@ class AllListing extends Component {
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (
                        <div key={listing._id}>
-
-                     
-
                          <div className="eachProduct"> 
                           <h4><b>Product: {listing.name}</b></h4>
                           <h4><b>Description: {listing.description}</b></h4>

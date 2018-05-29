@@ -28,15 +28,12 @@ ReactDOM.render(
 <BrowserRouter>
     <div>
       <Route exact path='/' component={App} />
-      <Route  path='/homepage' component={Listings} />
       <Route  path='/Request' component={Request} />
-      <Route  path='/adminHomepage' component={adminHomepage} />
       <Route  path='/adminLogin' component={adminLogin} />
       <Route  path='/Allrequests' component={Allrequests} />
       <Route  path='/Alllisting' component={Alllisting} />
       <Route exact path='/homepage' component={Listings} />
 
-      <Route exact path='/Request' component={Request} />
       <Route exact path='/adminHomepage' component={adminHomepage} />
       <Route exact path='/adminListing' component={ShowAllListing} />
       {/* <Route exact path='/login' component={Login} /> */}
@@ -50,19 +47,10 @@ ReactDOM.render(
       <Route path ='/newHouse/' component={NewHouse}/>
 
       <Route exact path = '/showOneAdmin/:id'component={ShowOneAdmin}/>
-      <Route path ='/showAllRequests/' component={Allrequests}/>
       <Route path='/createListing' component={CreateListing} />
       <Route exact path='/deleteListing/:id' component={DeleteListing} />
 
-      {/* <Route path='/homepage' component={Craigslist} />
-      <Route path='/logout' component={Logout} />
-      
-      
-      <Route path='/createArticle/new' component={CreateListing} />
-      
-      <Route path = '/registration' component={Login} />
-      <Route path = '/registration' component={Register}/>
-      */}
+
     </div>
 </BrowserRouter>, document.getElementById('root'));
 
