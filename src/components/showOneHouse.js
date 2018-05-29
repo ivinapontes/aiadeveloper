@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import Nav from './Nav';
+
 export default class ShowOneHouse extends Component {
     constructor(props){
         super(props);
@@ -27,6 +29,7 @@ export default class ShowOneHouse extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <h1>hello one house </h1>
         <div className="card bg-light mb-3" style={{maxWidth: 50 +"rem"}}>
         <div className="card-header"><h3> {this.state.data.houseName}</h3></div>

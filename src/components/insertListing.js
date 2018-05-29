@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
-
+import Nav from './Nav';
 class CreateListing extends Component {
     constructor(props){
         super(props);
@@ -17,6 +17,7 @@ class CreateListing extends Component {
     }
     sendFrom(event){
         event.preventDefault();
+        console.log("hahahhah");
         axios.post('/api/createListing/', {
             name:this.state.name,
             price:this.state.price,
@@ -40,6 +41,7 @@ class CreateListing extends Component {
     render() {
         return (
             <div>
+                <Nav />
                 <div>
                 <h3>Insert here the product details</h3>
                 <h3 style={{color:"red"}}> {this.state.errors}</h3>
@@ -54,12 +56,13 @@ class CreateListing extends Component {
                 </div>
                 <div className="form-group">
                   <label for="exampleInputEmail1">Description</label>
-                  <input type="text" name="description" value={this.state.description} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                  <input type="text" name="description" value={this.state.description} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description"/>
                 </div>
                 <button type="submit" onClick={this.sendFrom} className="btn btn-primary">Submit</button>
               </form>
             </div>
-            <Link to={`/adminListing`}>Go Back</Link>
+            <br />
+            <Link className ="btn btn-info btn-lg" to={`/adminListing`}>Go Back</Link>
             </div>
         );
     }

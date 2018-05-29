@@ -4,6 +4,7 @@ import axios from "axios";
 import AllListing from "./Alllisting";
 
 
+
 class Listings extends Component {
     // constructor(props){
     //     super(props);

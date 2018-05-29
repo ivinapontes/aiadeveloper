@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Allrequests from "./Allrequests";
 import { Link } from 'react-router-dom';
+import Nav from "./Nav";
 
 class AdminHomepage extends Component {
   render() {
     return (
       <div>
-      
+      <Nav />
         <div  className="header_title" >
           <h1>Welcome Admin</h1>
         </div>

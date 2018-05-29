@@ -34,6 +34,7 @@ module.exports = function(app) {
     app.get('/api/showOneListing/:id', adminController.showOneListing);
     app.get('/api/showOneHouse/:id', adminController.showOneHouse);
     app.delete('/api/deleteRequest/:id', adminController.deleteRequest);
+    app.get('/api/session', (req,res) => res.json({session: req.session.user}));
 
     
     

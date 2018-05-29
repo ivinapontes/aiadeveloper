@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+
 class Start extends Component {
     constructor(props){
         super(props);
@@ -34,6 +35,7 @@ class Start extends Component {
     render() {
         return (
             <div>
+                
               <div className= "body">
               {/* <video autoplay muted loop id="myVideo">
                 <source url="https://www.youtube.com/watch?v=Ykt0tpCbN-Q" type="video/mp4"/>

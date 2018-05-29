@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from "axios";
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
+import Nav from "./Nav";
 
 export default class AddCoinsHouse extends Component {
     constructor(props){
@@ -56,9 +57,9 @@ export default class AddCoinsHouse extends Component {
 console.log(this.state.changedCoins);
     return (
       <div>
+          <Nav />
        <div>
         <h1>Update House</h1>
-        <h1>hello one house </h1>
         <div className="card bg-light mb-3" style={{maxWidth: 50 +"rem"}}>
         <div className="card-header"><h3>House Name: {this.state.data.houseName}</h3></div>
         <div className="card-body"><h3> Coins :{this.state.data.coins}</h3></div>

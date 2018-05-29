@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import swal from 'sweetalert';
+import Nav from './Nav';
 
 export default class UpdateHouse extends Component {
     constructor(props){
@@ -36,6 +37,7 @@ export default class UpdateHouse extends Component {
   render() {
     return (
       <div>
+          <Nav />
        <div>
         <h1>Update House</h1>
         <form style={{width: 600+ "px", marginLeft:25 + "%"}}>

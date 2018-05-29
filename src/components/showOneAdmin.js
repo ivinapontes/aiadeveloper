@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
-
+import Nav from './Nav';
 
 
 class ShowOneAdmin extends Component {
@@ -33,6 +33,7 @@ class ShowOneAdmin extends Component {
     render() {
         return (
             <div>
+                <Nav />
              <h3>{this.state.name}</h3>
              <h3>{this.state.description}</h3>
              <h3>{this.state.price}</h3>
