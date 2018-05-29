@@ -20,15 +20,13 @@ class Listings extends Component {
     render() {
         return (
         <div>
-            <div className= "header_title">
-                <h1> Welcome to the OneMarket</h1>
-            </div>
+            
             
                  <div className= "listing">
                      <AllListing />
             
                  </div>
-                 Login admin
+                 
                  <Link to={`/adminLogin`}>Admin login</Link><br />
         </div>
         );

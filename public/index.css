@@ -3,8 +3,9 @@
     text-align: center
 
 }
+
 .listing{
-    background-color: lightblue
+    background-color: #272932
 }
 .eachProduct{
     margin-left: 50px;
@@ -12,10 +13,15 @@
 }
 
 .container1{
-    background-color: #ebebeb;
     align-items: center;
     padding: 150px;
-    border: pink
+    background: url('https://restart.network/one/img/buildings.png');
+    background-position: center;
+    background-size: cover;
+    padding-top: 50px;
+    background: #ebebeb;
+    position: relative;
+    
 }
 .main_title {
     padding: 0;
