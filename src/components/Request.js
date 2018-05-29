@@ -18,7 +18,7 @@ constructor(props) {
       err:null
     }
     this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
   }
   
@@ -29,18 +29,50 @@ constructor(props) {
     this.setState({ data: formData })
 
 }
-  
-  submitHandler(e){
-    e.preventDefault();
-    axios.post("/api/userRequest", this.state.data).then((res)=>{
-     console.log(res);
-     if (res.data.err) {
-      return  this.setState({err:res.data.message})
-     } 
-      return this.props.history.push("/Request");
-    });
-  }
+handleSubmit(event) {
+  event.preventDefault();
+  let _this = this;
 
+  let formData = new FormData();
+  formData.append('userName', this.state.data.userName);
+  formData.append('userHouse', this.state.data.userHouse);
+  formData.append('userLevel', this.state.data.userLevel);
+  formData.append('screenshot', this.state.data.screenshot);
+  axios.post("/api/userRequest", formData)
+      .then(res => {
+          console.log(res.data);
+          if (res.data.errors) {
+              let mainErr = res.data.errors;
+              let errMsg = {
+                userName: mainErr.userName ? mainErr.userName.msg : '',
+                userHouse: mainErr.userHouse ? mainErr.userHouse.msg : '',
+                userLevel: mainErr.userLevel ? mainErr.userLevel.msg : '',
+                  screenshot: mainErr.screenshot ? mainErr.screenshot.msg : ''
+              };
+              _this.setState({
+                  error: errMsg
+              });
+          } else {
+              _this.setState({
+                  data: {
+                    userName: '',
+                    userHouse: '',
+                    userLevel: '',
+                    screenshot: '',
+                  },
+                  error: {
+                    userName: '',
+                    userHouse: '',
+                    userLevel: '',
+                      screenshot: '',
+                  },
+                  success: 'Student Registered successfully'
+              })
+          }
+      })
+      .catch(error => console.log(error))
+}
+ 
 
   
   changeHandler(e){
@@ -60,7 +92,7 @@ constructor(props) {
       <div className='loginform'>
       <h1 className="requestText">Send a request for this item</h1><br/><br/><br/>
         {this.state.err && <h3>{this.state.err}</h3> }
-      <form onSubmit={this.submitHandler}>
+      <form onSubmit={this.handleSubmit}>
             <div className="form-group">
                         <label htmlFor="userName" >Enter Your Name</label>
                         <input type="text" value={this.state.data.userName} name="userName" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="userName"/>
@@ -70,8 +102,8 @@ constructor(props) {
                         <input onChange={changeHandler} value={this.state.data.userHouse} name="userHouse" type="userHouse" className="form-control" id="userHouse" placeholder="userHouse"/>  
             </div>
             <div className="form-group">
-                                <label htmlFor="exampleInputPhoto">Profile Photo</label>
-                                <input type="file" name="screenshot"  onChange={this.handlePhotoChange} className="form-control" id="exampleInputPhoto" placeholder="screenshot" />
+                                <label htmlFor="exampleInputPhoto">Upload Screenshot</label>
+                                <input type="file" name="screenshot"  onChange={this.handlePhotoChange}  className="form-control" id="exampleInputPhoto" placeholder="screenshot" />
                             </div>
 
             <div className="requestOption">
