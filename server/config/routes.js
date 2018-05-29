@@ -1,6 +1,23 @@
 
 const adminController = require('./../controllers/adminController');
 const authUser = adminController.authenticateUser;
+var multer = require("multer");
+var mime = require("mime-types");
+var path = require("path");
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, path.resolve(__dirname, "uploads"));
+    },
+    filename: function(req, file, cb) {
+      const extension = mime.extension(file.mimetype);
+      const filename = file.originalname + "-" + Date.now().toString();
+      cb(null, filename + "." + extension);
+    }
+  });
+  
+  
+  //this is for uploading photo
+  var upload = multer({ storage: storage });
 
 
 module.exports = function(app) {
@@ -11,7 +28,7 @@ module.exports = function(app) {
     app.post('/api/createListing', adminController.createListing);
     app.post('/api/createHouse', adminController.createHouse);
     app.post('/api/createCoupon', adminController.createCoupon);
-    app.post('/api/userRequest', adminController.userRequest);
+    app.post('/api/userRequest', upload.fields([{ name: "screenshot", maxCount: 1 }]), adminController.userRequest);
     app.get('/api/getAllHouses',adminController.getAllHouses);
     app.get('/api/getAlluserRequest',adminController.getAlluserRequest);
     //app.get('/api/users/', authUser, adminController.getAllUsers);

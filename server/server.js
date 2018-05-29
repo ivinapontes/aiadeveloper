@@ -1,5 +1,9 @@
 const express =require('./../node_modules/express');
 const app = express();
+var multer = require("multer");
+var mime = require("mime-types");
+var path = require("path");
+var fs = require('fs');
 
 
 const bodyParser = require('./../node_modules/body-parser');
@@ -12,7 +16,21 @@ app.use(session({
     resave: false,
     saveUninitialized: false
   }))
-
+  var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, path.resolve(__dirname, "uploads"));
+    },
+    filename: function(req, file, cb) {
+      const extension = mime.extension(file.mimetype);
+      const filename = file.originalname + "-" + Date.now().toString();
+      cb(null, filename + "." + extension);
+    }
+  });
+  
+  //this is for uploading photo
+  var upload = multer({ storage: storage });
+  
+  app.use("/uploads", express.static("uploads"));
 
 require('./config/mongoose');
 require('./config/routes.js')(app);

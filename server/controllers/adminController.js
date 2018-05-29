@@ -25,6 +25,16 @@ function createUser(req, res, next) {
     }
    }
 
+   var validateLogin = () => {
+    return [
+            check('email', 'Your email is empty').isEmail(),
+            check('email', 'Your email is not exist, please register.')
+            .custom(value => User.findOne({email: value}).then(user => user)),
+            check('password', 'Your password should be minmum 8 char.')
+                  .isLength({ min: 8 })
+        ];
+};
+
 
 
    var validateRegister = () => {
@@ -53,8 +63,19 @@ function createCoupon(req, res, next) {
    }
 
 
-
+   var validateHouse= () => {
+    return (
+            check('houseName', 'Please enter the house name.').not().isEmpty(),
+            check('coins', 'Please enter coins.').not().isEmpty()
+    
+    );
+};
 function createHouse(req, res, next) {
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+         return res.status(422).json({ errors: errors.mapped() });
+    } else {
   if(req.session.user)
    {
    const house = new House(req.body);
@@ -67,11 +88,23 @@ function createHouse(req, res, next) {
        res.json({ok: true});
    })
 }
+    }
 }
 
+var validateCoupon = () => {
+    return [
+        check('coupon_student', 'Your coupon is not empty, Please enter your coupon.').not().isEmpty(),
+            check('coupon_student', 'Your coupon is not exist, Please Contact Us.')
+            .custom(value => Coupon.findOne({coupon_student: value}).then(coupon => coupon)),
+        ];
+};
 
 function loginCoupon( req, res, next){
-   
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+         return res.status(422).json({ errors: errors.mapped() });
+    } else {
     Coupon.findOne({coupon_student: req.body.coupon_student}, (err, coupon_student) => {
        // console.log(coupon_student);
         if (err) {
@@ -86,6 +119,7 @@ function loginCoupon( req, res, next){
         res.json(coupon_student);
     })
 }
+}
 
 
 function deleteCoupon(req, res) {
@@ -94,8 +128,22 @@ function deleteCoupon(req, res) {
     .catch((err)=>{res.send(err)})
 };
  
+
+var validateLogin = () => {
+    return [
+            check('email', 'Your email is empty').isEmail(),
+            check('email', 'Your email is not exist, please register.')
+            .custom(value => User.findOne({email: value}).then(user => user)),
+            check('password', 'Your password should be minmum 8 char.')
+                  .isLength({ min: 8 })
+        ];
+};
+
 function loginUser( req, res, next){
-   
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({errors: errors.mapped()});
+    } else {
     User.findOne({email : req.body.email}, (err, user) => {
         if (err) {
             console.log('Error getting user: ', err);
@@ -110,6 +158,7 @@ function loginUser( req, res, next){
         req.session.user= user;
         res.json(user)
     })
+ }
 }
 
 function getAllHouses(req, res, next) {
@@ -124,6 +173,11 @@ function getAllHouses(req, res, next) {
 }
 
 function updatingHouse(req, res) {
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+         return res.status(422).json({ errors: errors.mapped() });
+    } else {
     House.findById(req.params.id)
         .then(function(house) {
             house.houseName = req.body.houseName;
@@ -134,9 +188,23 @@ function updatingHouse(req, res) {
         });
     })
         .catch(err => res.send(err));
+}
+};
+
+var validateCoins= () => {
+    return (
+            check('coins', 'Please enter coins.').not().isEmpty(),
+            check('reason', 'Please enter the reason.').not().isEmpty()
+    
+    );
 };
 
 function updatingCoins(req, res) {
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+         return res.status(422).json({ errors: errors.mapped() });
+    } else {
     House.findById(req.params.id)
         .then(function(house) {
             house.coins= req.body.coins;
@@ -146,6 +214,7 @@ function updatingCoins(req, res) {
         });
     })
         .catch(err => res.send(err));
+}
 };
 
 function deleteHouse(req, res) {
@@ -230,7 +299,7 @@ function userRequest(req, res, next) {
     })
   }
   function getAlluserRequest(req, res, next) {
-    Request.find({}, ['userName','userHouse','userLevel'], (err, requests) => {
+    Request.find({}, ['userName','userHouse','userLevel','screenshot'], (err, requests) => {
         if (err) {
             console.log('Error getting userRequest: ', err);
             return next();    
@@ -277,6 +346,7 @@ module.exports= {
     createHouse,
     updatingHouse,
     loginUser,
+    validateLogin,
     createListing,
     getAllListings,
     showOneListing,
@@ -290,11 +360,14 @@ module.exports= {
      deleteRequest,
     getAuthenticateUserName,
     loginCoupon,
+    validateCoupon,
     deleteCoupon,
     showOneHouse,
     updatingListing,
     // likeListing,
     deleteListing,
     validateRegister,
-    updatingCoins
+    updatingCoins,
+    validateHouse,
+    validateCoins
  };
