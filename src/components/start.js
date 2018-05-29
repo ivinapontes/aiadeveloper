@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+
 class Start extends Component {
     constructor(props){
         super(props);
@@ -43,15 +44,24 @@ class Start extends Component {
                     <div className= 'main_title'>
                     
                     <img src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/>
-                        <h1>Welcome to OneMarket</h1>
+                        <h1 className="display-3">Welcome to OneMarket</h1>
                     </div>
-                    <div className='subtitle'>
+                    <div className="lead">
                         <h2>Please enter your coupon code :</h2>
                     </div>
                     <div className= 'textBox'>
                         <input type="text" name="coupon" value={this.state.coupon} onChange={this.updateInputField}/>
-                        <button type="submit" onClick={this.sendFrom}>Enter</button>
+                        <button type="submit" color="primary" onClick={this.sendFrom}>Enter</button>
+                        <br/>
+                        <br/>
+
                     </div>
+                
+                
+
+
+
+
                 </div>
                 </div>
             </div>
