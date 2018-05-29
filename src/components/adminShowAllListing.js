@@ -35,7 +35,7 @@ class ShowAllListing extends Component {
             alert("Are you sure You want to Delete it?");
           console.log(response);
           
-          window.location.href = "/craigslist";
+         // window.location.href = "/craigslist";
       
         })
         .catch(function (error) {
