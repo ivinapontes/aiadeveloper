@@ -14,7 +14,8 @@ export default class AddCoinsHouse extends Component {
                 houseName:null,
                 coins:null,
                 level:null
-                }
+                },
+                errors: null
         }
     }
 
@@ -41,7 +42,8 @@ export default class AddCoinsHouse extends Component {
             console.log(response);
             swal("Good job!", "Coins has been updated!", "success");
         }).catch((error)=>{
-            console.log(error);
+            console.log(error.response.data.errors);
+            this.setState({errors: error.response.data.errors });
         });
         
       }
@@ -71,10 +73,14 @@ console.log(this.state.changedCoins);
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Reason :</label>
                   <input type="text" name="reason" value={this.state.reason} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Level"/>
+                  <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.reason && <p>{this.state.errors.reason.msg} </p> }</h3>
+
             </div> 
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Coins:</label>
                   <input type="number" name="changedCoins"  onChange={this.updateInputField} value={this.state.changedCoins} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.state.data.coins}/>
+                  <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.coins && <p>{this.state.errors.coins.msg} </p> }</h3>
+
                   <button type="submit" onClick={this.sendFrom}  className="btn btn-primary">Submit</button>
 
             </div>

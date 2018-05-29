@@ -11,7 +11,8 @@ export default class NewHouse extends Component {
             coins:null,
             formdata:{
                 level:"Bootcamp"
-            }
+            },
+            errors: null
         }
         
     }
@@ -31,7 +32,9 @@ export default class NewHouse extends Component {
             console.log(response);
             swal("Good job!", "The house has been Added!", "success");
         }).catch((error)=>{
-            console.log(error);
+            console.log(error.response.data.errors);
+            this.setState({errors: error.response.data.errors });
+
             
         });
         
@@ -58,6 +61,8 @@ export default class NewHouse extends Component {
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">House Name:</label>
                   <input type="text" name="houseName" value={this.state.houseName} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="House Name"/>
+                  <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.houseName && <p>{this.state.errors.houseName.msg} </p> }</h3>
+
             </div>
             
             
@@ -77,6 +82,7 @@ export default class NewHouse extends Component {
                   <label htmlFor="exampleInputEmail1">Coins:</label>
                   <input type="number" name="coins"  onChange={this.updateInputField} value={this.state.coins} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coins"/>
                   <button type="submit" onClick={this.sendFrom}  className="btn btn-primary">Submit</button>
+                  <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.coins && <p>{this.state.errors.coins.msg} </p> }</h3>
 
             </div>
         </form>
