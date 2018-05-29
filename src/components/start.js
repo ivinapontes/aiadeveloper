@@ -23,8 +23,10 @@ class Start extends Component {
             console.log(response);
             window.location.href="/homePage";
         }).catch((error)=>{
-            console.log(error);
-            this.setState({couponErrors : "Server Error"});
+            
+            this.setState({couponErrors :  error.response.data.errors});
+            console.log(error.response.data.errors);
+        
         });
         
       }
@@ -53,9 +55,12 @@ class Start extends Component {
                     <div className= 'textBox'>
                         <input type="text" name="coupon" value={this.state.coupon} onChange={this.updateInputField}/>
                         <button type="submit" onClick={this.sendFrom}>Enter</button>
+                        <h3 style={{color:"red"}}>{this.state.couponErrors && this.state.couponErrors.coupon_student && <p>{this.state.couponErrors.coupon_student.msg} </p> }</h3>
+
                     </div>
                 </div>
                 </div>
+
             </div>
         );
     }

@@ -6,7 +6,7 @@ class Request extends Component {
         super(props);
         this.state = {
             formdata:{
-            rating:"bootcamp"
+            rating:"Bootcamp"
             }
         }
     }

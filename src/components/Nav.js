@@ -8,6 +8,10 @@ export default class Nav extends Component {
         super(props);
          this.state= {
              session:null,
+             houses:[],
+             formdata:{
+                level:""
+                }
          }
          }
 
@@ -21,7 +25,30 @@ export default class Nav extends Component {
             .catch(function (error) {
               console.log(error);
              });
+             axios.get('/api/getAllHouses/')
+        .then((response)=> {
+            this.setState ({
+                houses: response.data
+             });
+            
+            console.log(response.data);
+        })
+        .catch( (error) =>{
+          console.log(error);
+        });
             }
+            handleInput = (event,name) => {
+        
+                const newFormdata = {
+                    ...this.state.formdata
+                }
+                newFormdata[name] = event.target.value
+        
+                this.setState({
+                    formdata:newFormdata
+                })
+            }
+
 
 
   render() {
@@ -37,13 +64,36 @@ export default class Nav extends Component {
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Features</a>
       <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      
+      <select className="form-control" style={{width:150 + "px", height:33+"px"}}
+                            value={this.state.formdata.level}
+                            onChange={(event)=> this.handleInput(event, 'level')}
+                        >
+                        <option val="1">Bootcamp</option>
+                        <option val="2">Guide</option>
+                        <option val="3">Developer</option>
+                        </select>
+
       {this.state.session ?<h4 className="nav-link"  style={{marginLeft:90 +"%"}}>Welcome: {this.state.session.firstName.toUpperCase()}</h4>: null}
       { this.state.session ?<Link className="nav-link" to='/logout'><h2 className="btn btn-default navbar-btn">LogOut</h2></Link>: null}
     </div>
   </div>
 </nav>
 
+        {this.state.houses && this.state.houses.map((house) =>{
+            return(
+            <div key={house._id}>
+            
+            
+            
+            { house.level === this.state.formdata.level ?<td>{house.houseName}</td>: null }
+            { house.level === this.state.formdata.level ?<td>{house.coins}</td>: null }
+            
+
+            </div>
+            )
+        })}
+       
 
       </div>
     )

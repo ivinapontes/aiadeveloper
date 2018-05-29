@@ -12,7 +12,8 @@ constructor(props) {
         email:'',
         password:''
       },
-      err:null
+      loginErrors: null,
+      matchingPassword: null
     }
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
@@ -20,14 +21,29 @@ constructor(props) {
   
   submitHandler(e){
     e.preventDefault();
-    axios.post("/api/login", this.state.data).then((res)=>{
-     console.log(res);
-     if (res.data.err) {
-      return  this.setState({err:res.data.message})
-     } 
-      return this.props.history.push("/adminHomepage");
+    axios.post('/api/login', 
+       this.state.data
+    ).then((response) => {
+        console.log(response);
+        window.location.href="/adminHomepage";
+    })
+    .catch((error)=>{
+        console.log(error.response.data.errors);
+        this.setState({loginErrors: error.response.data.errors, matchingPassword :error.response.data.message });
     });
+    
   }
+  // submitHandler(e){
+  //   e.preventDefault();
+  //   axios.post("/api/login", this.state.data).then((res)=>{
+  //    console.log(res);
+  //    if (res.data.err) {
+  //     return  this.setState({err:res.data.message})
+  //     console.log(res.data.err);
+  //    } 
+  //     return this.props.history.push("/adminHomepage");
+  //   });
+  // }
 
 
   
@@ -52,10 +68,14 @@ constructor(props) {
             <div className="form-group">
                         <label htmlFor="email">Email address</label>
                         <input type="email" value={this.state.data.email} name="email" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
+                        <h3 style={{color:"red"}}>{this.state.loginErrors && this.state.loginErrors.email && <p>{this.state.loginErrors.email.msg} </p> }</h3>
+
             </div>
             <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <input onChange={changeHandler} value={this.state.data.password} name="password" type="password" className="form-control" id="password" placeholder="Password"/>
+                        <h3 style={{color:"red"}}>{this.state.loginErrors && this.state.loginErrors.password && <p>{this.state.loginErrors.password.msg} </p> }</h3>
+                        <h3 style={{color:"red"}}>{this.state.matchingPassword}  </h3>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
       </form>
