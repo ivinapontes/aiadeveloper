@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-
+import Nav from "./Nav";
 
 class AllListing extends Component {
     constructor(props){
@@ -33,6 +33,7 @@ class AllListing extends Component {
 
         return (
             <div>
+                <Nav />
                  <br/>  
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (

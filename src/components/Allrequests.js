@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-
+import Nav from "./Nav";
 
 class AllRequests extends Component {
     constructor(props){
@@ -36,7 +36,7 @@ class AllRequests extends Component {
 
         return (
             <div>
-                 
+                 <Nav />
 
                 <h1>helloooooo</h1>
             

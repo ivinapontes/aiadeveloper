@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
-
+import Nav from "./Nav";
 export default class HousesWalet extends Component {
     constructor(props){
         super(props);
@@ -56,6 +56,7 @@ export default class HousesWalet extends Component {
   render() {
     return (
       <div>
+        <Nav />
           <h1> Hello Walet </h1>
           <button type="button" className="btn btn-warning btn-circle" ><Link to={`/newHouse`}>Add New House</Link></button>
             <br />
@@ -84,8 +85,12 @@ export default class HousesWalet extends Component {
             <td><Link to={`/updateHouse/${house._id}`}><button className="glyphicon glyphicon-cog"></button></Link></td>
             <td><Link to={`/addCoinsHouse/${house._id}`}><button className="glyphicon glyphicon-usd"></button></Link></td>
             <td><button type="button" className="btn btn-warning btn-circle" onClick={(event) => { this.deleteHandler(event, house._id) }} ><i class="glyphicon glyphicon-remove"></i></button></td>
+            <hr />
             
+            
+            { house.level === "bootcamp" ?<td>{house.level}</td>: null }
             </tr>
+
             </tbody>
             )
         })}

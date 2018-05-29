@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import Nav from './Nav';
 
 class UpdateListing extends Component {
     constructor(props){
@@ -36,6 +37,7 @@ class UpdateListing extends Component {
     render() {
         return (
             <div>
+                <Nav />
                 <div>
                 <h1>Update a List</h1>
                 <h3 style={{color:"red"}}> {this.state.errors}</h3>

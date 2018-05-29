@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import Nav from './Nav';
+import swal from 'sweetalert';
 
 
 class ShowAllListing extends Component {
@@ -17,6 +19,7 @@ class ShowAllListing extends Component {
     componentDidMount(){
         axios.get('/api/getAllListings/')
         .then((response)=> {
+            console.log(response);
             //console.log(response.data.list.name);
           this.setState({
               showingListings: response.data.list,
@@ -29,18 +32,35 @@ class ShowAllListing extends Component {
     }
     
     deleteHandler = (event, id) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
+              });
         const url = `/api/deleteListing/${id}`;
         axios.delete(url)
         .then((response)=> {
-            alert("Are you sure You want to Delete it?");
           console.log(response);
           
-         // window.location.href = "/craigslist";
+         window.location.href = "/adminListing";
       
         })
         .catch(function (error) {
           console.log(error);
+          
         });
+        
+      } else {
+        swal("Your imaginary file is safe!");
+      }
+    });
     }
 
     
@@ -48,29 +68,48 @@ class ShowAllListing extends Component {
 
         return (
             <div>
-                <div> <h3> <Link to={`/createListing/`}>Create a new Listing</Link></h3></div>
+              <Nav />
+                <div> <h3> <Link className ="btn btn-info btn-lg" to={`/createListing/`}>Create a new Listing</Link></h3></div>
                  <br/>  
+                 <table class="table">
+                    
+                    <thead>
+                      <tr>
+                        <th scope="col">Product:</th>
+                        <th scope="col">Description:</th>
+                        <th scope="col">Coins: </th>
+                        <th scope="col"> Information</th>
+                        <th scope="col">Edit Information</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (
 
-                       <div key={listing._id}>
+                       <tbody key={listing._id}>
                           
                      
 
-                         <div className="eachProduct"> 
-                          <h4><b>Product: {listing.name}</b></h4>
-                          <h4><b>Description: {listing.description}</b></h4>
-                          <h4><b>Coins: {listing.price}</b></h4>
-                          <Link to={`/showOneAdmin/${listing._id}`}>View Listing</Link><br />
-                          <Link to={`/editListing/${listing._id}`}>Edit Listing</Link>
-                          <Link to={`/deleteListing/${listing._id}`}>Delete Post</Link>
-                        </div>
+                         <tr className="eachProduct"> 
+                          <td> {listing.name}</td>
+                          <td> {listing.description}</td>
+                          <td>{listing.price}</td>
+                          <td><Link to={`/showOneAdmin/${listing._id}`}><button type="button" className="glyphicon glyphicon-eye-open" ><i ></i></button></Link><br /></td>
+                          <td><Link to={`/editListing/${listing._id}`}><button className="glyphicon glyphicon-cog"></button></Link></td>
+                          <td><button type="button" className="btn btn-warning btn-circle"onClick={(event) => { this.deleteHandler(event, listing._id) }}><i class="glyphicon glyphicon-remove"></i></button></td>
+
+                        </tr>
                           <br/>  
-                        </div>
+                        </tbody>
                        
 
                     )
+                    
                 })}
+                </table>
+                <Link className ="btn btn-info btn-lg" to={`/adminHomepage`}>Go Back</Link>
+
             </div>
         );
     }

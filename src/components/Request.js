@@ -1,20 +1,47 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import Nav from './Nav';
 class Request extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            formdata:{
+            rating:"bootcamp"
+            }
+        }
+    }
+    handleInput = (event,name) => {
+        
+        const newFormdata = {
+            ...this.state.formdata
+        }
+        newFormdata[name] = event.target.value
+
+        this.setState({
+            formdata:newFormdata
+        })
+    }
+    
+
     render() {
         return (
             <div>
-                 <h1> Send a rquest for this item</h1> <Link className="btn nav-link btn-success" to="/homepage">Back</Link>}
+                <Nav />
+                 <h1> Send a rquest for this item</h1> <Link className="btn nav-link btn-success" to="/homepage">Back</Link>
                  <h5> your name :</h5>
                    <input type="text" name="name"/>
                    <h5> your house</h5>
                    <div>
-                   <select name="cars">
-                    <option value="volvo">Bootcampers</option>
-                    <option value="saab">Guides</option>
-                    <option value="fiat">Developers</option>
-                   </select>
+                   <select className="form-control" style={{width:150 + "px", height:33+"px"}}
+                            value={this.state.formdata.rating}
+                            onChange={(event)=> this.handleInput(event, 'rating')}
+                        >
+                        <option val="1">Bootcamp</option>
+                        <option val="2">Guide</option>
+                        <option val="3">Developer</option>
+                        
+
+                        </select>
                    <h5> Proof agrement</h5>
                    </div>
                    <div>

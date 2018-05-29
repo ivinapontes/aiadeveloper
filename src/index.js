@@ -22,6 +22,8 @@ import AddCoinsHouse from './components/addCoinsHouse';
 import CreateListing from './components/insertListing';
 import ShowOneAdmin from './components/showOneAdmin';
 import DeleteListing from './components/deleteListing';
+import Nav from './components/Nav';
+import Logout from './components/logout';
 
 
 ReactDOM.render(
@@ -45,6 +47,8 @@ ReactDOM.render(
       <Route path='/addCoinsHouse/:id' component={AddCoinsHouse} />
       <Route path ='/housesWalet/' component={HousesWalet}/>
       <Route path ='/newHouse/' component={NewHouse}/>
+      <Route path ='/Nav/' component={Nav}/>
+      <Route path ='/logout' component={Logout}/>
 
       <Route exact path = '/showOneAdmin/:id'component={ShowOneAdmin}/>
       <Route path='/createListing' component={CreateListing} />
