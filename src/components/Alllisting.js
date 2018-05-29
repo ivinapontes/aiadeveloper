@@ -38,16 +38,18 @@ class AllListing extends Component {
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (
                        <div key={listing._id}>
-                         <div className="eachProduct"> 
-                          <h4><b>Product: {listing.name}</b></h4>
-                          <h4><b>Description: {listing.description}</b></h4>
-                          <h4><b>Coins: {listing.price}</b></h4>
-                          <Link to={`/showOne/${listing._id}`}>View Listing</Link><br />
-                          <Link className="btn nav-link btn-success" to="/Request">Buy</Link>
-                        </div>
+                         <div className="card" style={{maxWidth: 18 +"rem"}}>
+                         <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>
+                            <div className="card-body">
+                              <h4 className='card-header'><b>Product: {listing.name}</b></h4>
+                              <h4 className='card-text'><b>Description: {listing.description}</b></h4>
+                              <h4 className='card-text'><b>Coins: {listing.price}</b></h4>
+                          <Link className="card-link" to={`/showOne/${listing._id}`}>View Listing</Link>
+                          <Link className="card-link" to="/Request">Buy</Link>
+                         </div>
                           <br/>  
                         </div>
-
+                        </div>
                     )
                 })}
             </div>

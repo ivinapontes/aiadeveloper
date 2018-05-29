@@ -58,6 +58,7 @@ class Start extends Component {
                         <h3 style={{color:"red"}}>{this.state.couponErrors && this.state.couponErrors.coupon_student && <p>{this.state.couponErrors.coupon_student.msg} </p> }</h3>
 
                     </div>
+                    
                 
                 
 
