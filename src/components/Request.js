@@ -66,7 +66,7 @@ handleSubmit(event) {
                     userLevel: '',
                       screenshot: '',
                   },
-                  success: 'Student Registered successfully'
+                  success: 'Your Request Inserted successfully'
               })
           }
       })
@@ -115,6 +115,7 @@ handleSubmit(event) {
           
             <button type="submit" className="btn btn-primary">Submit</button>
             </div>
+         
       </form>
       </div>
     )

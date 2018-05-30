@@ -3,7 +3,6 @@
 }
 .requests{
   text-align: center;
-  background-color: red;
 }
 .requestTable {
  
@@ -14,6 +13,12 @@
 .requestTableth{
   border: 1px solid black;
 
+}
+.eachProduct{
+  text-align: left;
+}
+.eachProduct1{
+  background-color: #E44235
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
