@@ -22,7 +22,7 @@ class Start extends Component {
             
         }).then((response) => {
             console.log(response);
-            window.location.href="/homePage";
+            window.location.href="/homepage";
         }).catch((error)=>{
             
             this.setState({couponErrors :  error.response.data.errors});
@@ -49,13 +49,12 @@ class Start extends Component {
                         <h2>Please enter your coupon code :</h2>
                     </div>
                     <div className= 'textBox'>
-                        <input type="text" name="coupon" className="form-control-mainpage" placeholder="Enter Your Coupon Code" aria-describedby="basic-addon1" value={this.state.coupon} onChange={this.updateInputField}/>
-                        <h1><button type="submit" className='btn btn-danger'  onClick={this.sendFrom}>Enter</button></h1>
+                        <input type="text" name="coupon" className="form-control" placeholder="Enter Your Coupon Code" aria-describedby="basic-addon1" value={this.state.coupon} onChange={this.updateInputField}/>
+                        <h1><button type="submit" className='btn btn-danger btn-lg'  onClick={this.sendFrom}>Enter</button></h1>
                         <h3 style={{color:"red"}}>{this.state.couponErrors && this.state.couponErrors.coupon_student && <p>{this.state.couponErrors.coupon_student.msg} </p> }</h3>
 
                     </div>
                 </div>
-
                     <footer className="footer">
                         <div className="container text-center text-md-left">
                             <div className="row">
@@ -74,30 +73,21 @@ class Start extends Component {
                                             </li>
                                             <li>
                                                 <a href="https://restart.network/#">Contact</a>
-                                            </li>
-                                        
+                                            </li>                                        
                                         </ul>
                                       </div>
-                                      <div className="col-md-2 mx-auto">
-                                        
+                                      <div className="col-md-2 mx-auto"> 
                                         <div className="social-networks">
                                           <a href="https://twitter.com/Restart_Network"  className="fa fa-twitter"></a> Twitter
                                         <br/>
                                         <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"></a> Facebook
                                         <br/>
                                         <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram"></a>Instagram
-
                                         </div>
                                       </div>
-                                    
-
-                            </div>  
-                           
+                            </div>       
                         </div>        
                     </footer>
-                            
-                                                
-
             </div>
         );
     }

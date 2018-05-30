@@ -33,9 +33,10 @@ class ShowOne extends Component {
         return (
             <div>
                 <Nav />
-             <h3>{this.state.name}</h3>
-             <h3>{this.state.description}</h3>
-             <h3>{this.state.price}</h3>
+             <h3><b>Product name:</b>{this.state.name}</h3>
+             
+             <h3><b>Price:</b>{this.state.price}</h3>
+             <h3><b>Description:</b> {this.state.description}</h3>
             
              <Link to={`/homepage`}>Back to the Homepage</Link>
              <footer className="footer">

@@ -61,9 +61,10 @@ export default class Nav extends Component {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style={{marginLeft: 120 +"px"}} >
     <div class="navbar-nav" >
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      {/* <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link" href="#">Pricing</a> */}
+      
       
       <select className="form-control" style={{width:150 + "px", height:33+"px"}}
                             value={this.state.formdata.level}
@@ -72,7 +73,10 @@ export default class Nav extends Component {
                         <option val="1">Bootcamp</option>
                         <option val="2">Guide</option>
                         <option val="3">Developer</option>
-                        </select>
+    </select>
+
+  
+        <Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>
 
       {this.state.session ?<h4 className="nav-link"  style={{marginLeft:90 +"%"}}>Welcome: {this.state.session.firstName.toUpperCase()}</h4>: null}
       { this.state.session ?<Link className="nav-link" to='/logout'><h2 className="btn btn-default navbar-btn">LogOut</h2></Link>: null}
@@ -82,12 +86,10 @@ export default class Nav extends Component {
 
         {this.state.houses && this.state.houses.map((house) =>{
             return(
+
             <div key={house._id}>
-            
-            
-            
-            { house.level === this.state.formdata.level ?<td>{house.houseName}</td>: null }
-            { house.level === this.state.formdata.level ?<td>{house.coins}</td>: null }
+            <h5> <b>  { house.level === this.state.formdata.level ?<td>{house.houseName}</td>: null } </b> </h5>
+            <h5> <b>  { house.level === this.state.formdata.level ?<td>{house.coins}</td>: null }</b> </h5>
             
 
             </div>
