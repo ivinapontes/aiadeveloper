@@ -162,7 +162,7 @@ function loginUser( req, res, next){
 }
 
 function getAllHouses(req, res, next) {
-    House.find({}, ['houseName','coins', 'level','reason'], (err, houses) => {
+    House.find({}, ['houseName','coins', 'level','reason','histories'], (err, houses) => {
         if (err) {
             console.log('Error getting houses: ', err);
             return next();    
@@ -207,8 +207,11 @@ function updatingCoins(req, res) {
     } else {
     House.findById(req.params.id)
         .then(function(house) {
+            console.log(house.histories);
+            console.log(req.body.histories);
             house.coins= req.body.coins;
             house.reason = req.body.reason;
+            house.histories.history = house.histories.push(req.body.histories),
             house.save().then(function(house) {
              res.send(house);
         });

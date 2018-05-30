@@ -11,15 +11,23 @@ class AdminHomepage extends Component {
         <div  className="header_title" >
           <h1>Welcome Admin</h1>
         </div>
-        <Link to={`/adminListing`}> Listings</Link><br />
-        <Link to={`/housesWalet`}> Houses Walet</Link><br />
-        
-
-
-
-        <Link className="btn nav-link btn-success" to="/Allrequests">Listing requests</Link>
-        <div>Listing requests</div>
-        
+         <div class="card-group">
+          <div class="card">
+            <div class="card-body text-center">
+              <h4 class="card-text"><Link to={`/adminListing`}> <b>Listings</b></Link></h4>
+            </div>
+          </div>
+          <div class="card bg-warning">
+            <div class="card-body text-center">
+              <h4 class="card-text"><Link to={`/housesWalet`}><b> Houses Wallet</b></Link></h4>
+            </div>
+          </div>
+          <div class="card bg-info">
+            <div class="card-body text-center">
+              <h4 class="card-text"><Link to={`/Allrequests`}> <b>Listing requests</b></Link></h4>
+            </div>
+          </div> 
+        </div>
       </div>
     );
   }

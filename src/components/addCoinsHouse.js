@@ -13,8 +13,10 @@ export default class AddCoinsHouse extends Component {
             data:{
                 houseName:null,
                 coins:null,
-                level:null
+                level:null,
+                histories:null
                 },
+                date: new Date(),
                 errors: null
         }
     }
@@ -32,14 +34,16 @@ export default class AddCoinsHouse extends Component {
     }
 
     sendFrom = (event)=>{
-        
         console.log(this.props);
         event.preventDefault();
+       
         axios.put(`/api/updatingCoins/${this.props.match.params.id}`, {
             reason:this.state.reason,
             coins:parseInt(this.state.changedCoins) + parseInt(this.state.data.coins),
+            histories:`on ${this.state.date} You have send ${this.state.changedCoins} Because of ${this.state.reason}`
         }).then((response) => {
             console.log(response);
+            
             swal("Good job!", "Coins has been updated!", "success");
         }).catch((error)=>{
             console.log(error.response.data.errors);
@@ -67,6 +71,16 @@ console.log(this.state.changedCoins);
         <div className="card-body"><h3> Coins :{this.state.data.coins}</h3></div>
         <div className="card-body">
         <h4 className="card-text">Level :{this.state.data.level}</h4>
+        <h4 className="card-text">histories :{this.state.data.histories && this.state.data.histories.map((history)=>{
+            return(
+                <div key={history._id}>
+                <ul>
+                    <li>{history}
+                        </li>
+                        </ul>
+                </div>
+            )
+        })}</h4>
         </div>
         </div>
         <form style={{width: 600+ "px", marginLeft:25 + "%"}}>

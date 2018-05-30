@@ -28,6 +28,7 @@ const HousesSchema = {
     coins: {type: Number, required: true},
     level: { type: String, required: true},
     reason:{ type: String, default: 0, required: true},
+    histories:[history ={type: String, required: true}],
     createAt: { type : Date, default : Date.now},
     updatedAt: { type : Date, default : Date.now}
 }
