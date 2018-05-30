@@ -1,5 +1,4 @@
 .header_title{
-    background-color: palegreen;
     text-align: center
 
 }
@@ -29,10 +28,12 @@
     width: 10%;
     size: 250px
   }
-  .card-group {
+  .card-group-listing{
     align-items: center;
-    background-color: pink;
-    margin: 0;
+    background-color:#ebebeb;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 60px;
     text-align: center;
     padding: 20px;
    

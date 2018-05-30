@@ -90,11 +90,12 @@ export default class HousesWalet extends Component {
             
             { house.level === "bootcamp" ?<td>{house.level}</td>: null }
             </tr>
-
             </tbody>
+            
             )
         })}
         </table>
+        <Link className ="btn btn-info btn-lg" to={`/adminHomepage`}>Go Back</Link>
       </div>
     )
   }
