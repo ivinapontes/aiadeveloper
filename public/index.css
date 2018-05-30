@@ -15,13 +15,27 @@
 .container1{
     align-items: center;
     padding: 150px;
-    background: url('https://restart.network/one/img/buildings.png');
+    background: url('https://restart.network/assets/partials/particles_partial/assets/images/art2.jpg');
     background-position: center;
     background-size: cover;
-    padding-top: 50px;
+    padding-top: 200px;
+  
     background: #ebebeb;
     position: relative;
     
+}
+.form-control {
+  
+    width: 10%;
+    size: 250px
+  }
+  .card-group {
+    align-items: center;
+    background-color: pink;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+   
 }
 .main_title {
     padding: 0;
@@ -32,25 +46,16 @@
     font-family: sans-serif;
 
 }
+.card{
+    align-content:center
+}
+.footer{
+    background-color: light
+}
 .textBox{
     font-family: sans-serif;
+    margin-left:450px;
+    width: 300px;
+    align-items: center
     
 }
-.textMainPage{
-    background-color: darksalmon
-}
-.video-background {
-    background: #000;
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -99;
-  }
-  .video-foreground,
-  .video-background iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
