@@ -65,12 +65,13 @@ constructor(props) {
         <h1>Login</h1>
         {this.state.err && <h3>{this.state.err}</h3> }
       <form onSubmit={this.submitHandler}>
-            <div className="form-group">
+        <div className='form-signin'>
                         <label htmlFor="email">Email address</label>
                         <input type="email" value={this.state.data.email} name="email" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
                         <h3 style={{color:"red"}}>{this.state.loginErrors && this.state.loginErrors.email && <p>{this.state.loginErrors.email.msg} </p> }</h3>
 
-            </div>
+        </div>
+
             <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <input onChange={changeHandler} value={this.state.data.password} name="password" type="password" className="form-control" id="password" placeholder="Password"/>
@@ -78,6 +79,7 @@ constructor(props) {
                         <h3 style={{color:"red"}}>{this.state.matchingPassword}  </h3>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
+        
       </form>
       </div>
     )

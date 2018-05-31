@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Nav from './Nav';
+import { Link } from 'react-router-dom';
 
 
 class Request extends Component {
@@ -111,10 +112,11 @@ handleSubmit(event) {
                     <option value='Bootcampers' >Bootcampers</option>
                     <option value='Guides'>Guides</option>
                     <option  value='Developers'>Developers</option>
-                   </select><br/><br/><br/><br/><br/><br/><br/><br/>
+                   </select><br/><br/><br/>
           
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
             </div>
+            <Link className="btn btn-success btn-lg" to="/homepage">Go back</Link>
       </form>
       </div>
     )
