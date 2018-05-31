@@ -33,6 +33,9 @@
     width: 10%;
     size: 250px
   }
+  .table{
+      background-color: orangered
+  }
   .card-group-listing{
     align-items: center;
     background-color:#ebebeb;

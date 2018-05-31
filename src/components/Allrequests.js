@@ -137,18 +137,19 @@ class AllRequests extends Component {
             <div>
                  <Nav />
 
-                <h1>helloooooo</h1>
+                <h1 className="title">Here you can see all requests</h1>
+                <br/>
                 <div className="requests">
-                      <table className ="table">
-                      <thead>
-                      <tr className="eachProduct1"> 
-                        <th scope="col">Name</th>
-                        <th scope="col">House</th>
-                        <th scope="col">Level </th>
-                        <th scope="col">Item </th>
-                        <th scope="col">Proof </th>
-                        <th scope="col">Request </th>
-                      </tr> 
+                      <table className= 'table'>
+                        <thead className ="table-head">
+                        <tr className="eachProduct1"> 
+                          <th scope="col">Name</th>
+                          <th scope="col">House</th>
+                          <th scope="col">Level </th>
+                          <th scope="col">Item </th>
+                          <th scope="col">Proof </th>
+                          <th scope="col">Request </th>
+                        </tr> 
                       </thead>
                
                {this.state.showingRequests && this.state.showingRequests.map((request)=>{
@@ -173,18 +174,20 @@ class AllRequests extends Component {
                         <td>
                              <input type="radio" name="negative" value="yes" onClick={this.sendFromYes}/>Y/
                             <input type="radio" name="negative" value="no" onClick={this.sendFromNo} />N</td> 
-                    </tr>    
-                    </tbody> 
+                    </tr>  
+                    
+                    </tbody>
+                   
             
                     )
                     
                 })}
-               
+               <Link className="btn nav-link btn-success" to="/adminHomepage" style={{marginLeft: 400 + 'px'}}>Back</Link>   
                             </table>
 
                         </div>
                     
-                  <Link className="btn nav-link btn-success" to="/adminHomepage">Back</Link>
+                  
             </div>
         );
     }

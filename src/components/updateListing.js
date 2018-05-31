@@ -38,7 +38,7 @@ class UpdateListing extends Component {
         return (
             <div>
                 <Nav />
-                <div>
+                <div className='loginform'>
                 <h1>Update a List</h1>
                 <h3 style={{color:"red"}}> {this.state.errors}</h3>
                 <form>
@@ -55,9 +55,10 @@ class UpdateListing extends Component {
                   <input type="text" name="description" value={this.state.description} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description"/>
                 </div>
                 <button type="submit" onClick={this.sendFrom} className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-success" to="/adminListing" style={{marginLeft: 30 + 'px'}}>Back</button> 
               </form>
             </div>
-            
+           
             <Link to={`/adminListing`}>Go Back</Link>
             </div>
         );

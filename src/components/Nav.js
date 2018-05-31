@@ -55,7 +55,7 @@ export default class Nav extends Component {
     return (
         <div>
             <div className="shadow-lg p-3 mb-5 bg-white rounded">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style={{marginTop: 10 +"px",height: 80 + "px"}}>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style={{marginTop: 3 +"px",height: 80 + "px"}}>
                 
                     <a href="/"><img   src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@ export default class Nav extends Component {
                         </button>
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style={{marginLeft: 120 +"px"}} >
                             <div class="navbar-nav" >
-                            <select className="form-control" style={{width:150 + "px", height:33+"px"}}
+                            <select className="form-control" style={{width:150 + "px",marginLeft: 300 +"px",marginTop: 10 +"px", height:33+"px"}}
                                                     value={this.state.formdata.level}
                                                     onChange={(event)=> this.handleInput(event, 'level')}
                                                 >
@@ -74,9 +74,12 @@ export default class Nav extends Component {
                             </select>
 
   
-                      {!this.state.session ?<Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>: null}
+                        {!this.state.session ?<Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>: null}
 
-                        {this.state.session ?<h4 className="nav-link"  style={{marginLeft:90 +"%"}}>Welcome: {this.state.session.firstName.toUpperCase()}</h4>: null}
+                        {this.state.session ?<h4 className="nav-link" style={{marginLeft:500 +"px"}} >Welcome: {this.state.session.firstName.toUpperCase()}</h4>: null}
+                        {this.state.session ?
+                        <Link to="/adminHomepage" className="nav-link" style={{marginTop: 15 +"px"}} ><h4>Homepage</h4></Link> :null}
+        
                         { this.state.session ?<Link className="nav-link" to='/logout'><h2 className="btn btn-danger navbar-btn">LogOut</h2></Link>: null}
                          </div>
                         </div>
