@@ -39,14 +39,13 @@ class AllListing extends Component {
                     return (
                        <div key={listing._id}>
                              <div className="card-group-listing">
-                                    <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>
-                                        <div className="card-body">
-                                        <h4 className='card-text'><b>Product: {listing.name}</b></h4>
-                                        <h4 className='card-text'><b>Description: {listing.description}</b></h4>
-                                        <h4 className='card-text'><b>Coins: {listing.price}</b></h4>
-                                        <h4 className='card-text'><b>Bought : {listing.like} Times</b></h4>
-                                    <Link className="btn btn-info btn-lg" to={`/showOne/${listing._id}`}>Buy Me!</Link>
- 
+                                    
+                                        <div className="shadow-lg p-3 mb-5 bg-white rounded">
+                                           <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>
+                                            <h4 className='card-text'><b>Product: {listing.name}</b></h4>
+                                            <h4 className='card-text'><b>Description: {listing.description}</b></h4>
+                                            <h4 className='card-text'><b>Coins: {listing.price}</b></h4>
+                                            <Link className="btn btn-info btn-lg" to={`/showOne/${listing._id}`}>Buy Me!</Link>
                                     <hr/>  
                                     <br/>
                                     </div>
