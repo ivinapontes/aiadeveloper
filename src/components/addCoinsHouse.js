@@ -40,7 +40,7 @@ export default class AddCoinsHouse extends Component {
         axios.put(`/api/updatingCoins/${this.props.match.params.id}`, {
             reason:this.state.reason,
             coins:parseInt(this.state.changedCoins) + parseInt(this.state.data.coins),
-            histories:`on ${this.state.date} You have send ${this.state.changedCoins} Because of ${this.state.reason}`
+            histories:`On ${this.state.date} You have sent ${this.state.changedCoins} Because of ${this.state.reason}`
         }).then((response) => {
             console.log(response);
             

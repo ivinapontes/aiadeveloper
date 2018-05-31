@@ -293,12 +293,17 @@ function updatingListing(req, res) {
 
 function userRequest(req, res, next) {
     const request = new Request(req.body);
+//     var filename = null;
+//     if (req.files && req.files.screenshot && req.files.screenshot[0]) {
+//       filename = req.files.screenshot[0].filename;
+//     }
+//   request.screenshot = filename;
     request.save((err) => {
         if (err) {
-        console.log('Error saving request: ', request);
+        console.log('Error saving request: ', err);
         return next();    
         }
-        res.json({ok: true});
+        res.json({ok: true}); 
     })
   }
   function getAlluserRequest(req, res, next) {

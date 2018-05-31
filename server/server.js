@@ -30,9 +30,9 @@ app.use(session({
   //this is for uploading photo
   var upload = multer({ storage: storage });
   
+  
+  require('./config/mongoose');
+  require('./config/routes.js')(app);
   app.use("/uploads", express.static("uploads"));
-
-require('./config/mongoose');
-require('./config/routes.js')(app);
 
 app.listen(3001,() => console.log('Server up and running on port 3001'));

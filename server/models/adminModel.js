@@ -42,7 +42,7 @@ const RequestSchema = {
     userName: {type: String , required: true},
     userHouse: {type: String , required: true},
     userLevel: {type: String , required: true},
-    screenshot: {type: String , required: true},
+    // screenshot: {type: String , required: true},
     createAt: { type : Date, default : Date.now},
     updatedAt: { type : Date, default : Date.now}
 }

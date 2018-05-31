@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import Nav from "./Nav";
+import Img from 'react-image';
+// import "../../server/config/uploads";
 
 class AllRequests extends Component {
     constructor(props){
@@ -17,7 +19,7 @@ class AllRequests extends Component {
     componentDidMount(){
         axios.get('/api/getAlluserRequest/')
         .then((response)=> {
-            //console.log(response.data.list.name);
+            console.log(response);
           this.setState({
             showingRequests: response.data,
             });
@@ -31,6 +33,10 @@ class AllRequests extends Component {
         });
     }
 
+    sendFrom = (event) => {
+        console.log("Clicked");
+    }
+
     
     render() {
 
@@ -39,47 +45,47 @@ class AllRequests extends Component {
                  <Nav />
 
                 <h1>helloooooo</h1>
-            
+                <div className="requests">
+                      <table className ="table">
+                      <thead>
+                      <tr className="eachProduct1"> 
+                        <th scope="col">Name</th>
+                        <th scope="col">House</th>
+                        <th scope="col">Level </th>
+                        <th scope="col">Proof </th>
+                        <th scope="col">Request </th>
+                      </tr> 
+                      </thead>
                
                {this.state.showingRequests && this.state.showingRequests.map((request)=>{
                     return (
-                        <div className="requests">
                       
-                        
-                      <table className="requestTable">
-                        
-                     
-                        
-                 
-                        
-                        <th className="requestTableth">Name
-                        <td><b> {request.userName}</b></td>
-                        </th>
-                      
-                        <th className="requestTableth">House
-                        <td><b> {request.userHouse}</b></td>
-                        </th>
-                     
-                        <th className="requestTableth">Level</th>
-                        <tr>
-                      
-                     
-                        <td><b> {request.userLevel}</b></td>
-                        </tr>
-                        
-                        
-                     
                        
-                        
-                            
-
-                        </table>
-                     
-                      
-                        
-                           </div>
+                       <tbody key={request._id}>
+                      <tr className="eachProduct">          
+                    <td> {request.userName} </td>
+                    <td> {request.userHouse} </td>
+                    <td> {request.userLevel} </td> 
+                    
+                   
+               
+                    <td>   <div className="StudentProfile-leftContainer">
+                          {/* <img src={`http://localhost:3000/uploads/${this.state.studentInfo.profilePic}`} */}
+                          {/* className="img-rounded img-responsive" alt="Profile Picture" /> */}
+                        </div></td>
+                        <td>
+<input type="radio" name="negative" value="yes" onClick={this.sendFrom}/>Y/
+<input type="radio" name="negative" value="no"/>N</td> 
+                    </tr>    
+                    </tbody> 
+            
                     )
+                    
                 })}
+                            </table>
+
+                        </div>
+                    
                   <Link className="btn nav-link btn-success" to="/adminHomepage">Back</Link>
             </div>
         );
