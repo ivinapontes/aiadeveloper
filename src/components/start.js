@@ -39,13 +39,13 @@ class Start extends Component {
         return (
             <div>
               {/* <Nav /> */}
+              <div className="shadow-lg p-3 mb-5 bg-white rounded">
                 <div className= 'container1'>
                     <div className= 'main_title'>
                     
                     <img src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/>
                         <h1 className="display-3">Welcome to OneMarket</h1>
-                    </div>
-                    <div className="lead">
+                        <div className="lead">
                         <h2>Please enter your coupon code :</h2>
                     </div>
                     <div className= 'textBox'>
@@ -53,6 +53,9 @@ class Start extends Component {
                         <h1><button type="submit" className='btn btn-danger btn-lg'  onClick={this.sendFrom}>Enter</button></h1>
                         <h3 style={{color:"red"}}>{this.state.couponErrors && this.state.couponErrors.coupon_student && <p>{this.state.couponErrors.coupon_student.msg} </p> }</h3>
 
+                         </div>
+                        </div>
+                    
                     </div>
                 </div>
                     <footer className="footer">

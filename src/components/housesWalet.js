@@ -57,11 +57,11 @@ export default class HousesWalet extends Component {
     return (
       <div>
         <Nav />
-          <h1> Hello Walet </h1>
-          <button type="button" className="btn btn-warning btn-circle" ><Link to={`/newHouse`}>Add New House</Link></button>
+          <h1 className="col-md-12 welcome_txt text-center"> Welcome to the wallet page </h1>
+          <br/>
+          
             <br />
-           <table class="table">
-
+           <table class="table" >
                     <thead>
                       <tr>
                         <th scope="col">Name</th>
@@ -95,7 +95,8 @@ export default class HousesWalet extends Component {
             )
         })}
         </table>
-        <Link className ="btn btn-info btn-lg" to={`/adminHomepage`}>Go Back</Link>
+        <Link className="btn btn-warning btn-circle" to={`/newHouse`}>Add New House</Link>
+        <Link className ="btn btn-info btn-circle" to={`/adminHomepage`}>Go Back</Link>
       </div>
     )
   }

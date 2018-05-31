@@ -20,7 +20,7 @@ class Listings extends Component {
     render() {
         return (
         <div>
-            <div className= "listing">
+            <div className= "listing" >
                 <AllListing />
             </div>
             <footer className="footer ">
@@ -49,11 +49,11 @@ class Listings extends Component {
                                       <div className="col-md-2 mx-auto">
                                         
                                         <div className="social-networks">
-                                          <a href="https://twitter.com/Restart_Network"  className="btn-floating btn-lg btn-tw" ><i class="fa fa-twitter"> Twitter</i></a>
+                                          <a href="https://twitter.com/Restart_Network"  className="fa fa-twitter" > Twitter</a>
                                         <br/>
-                                        <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"></a> Facebook
+                                        <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"> Facebook</a>
                                         <br/>
-                                        <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram"></a>Instagram
+                                        <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram">Instagram</a>
 
                                         </div>
                                       </div>
