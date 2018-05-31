@@ -8,6 +8,7 @@ const ListingSchema = new Schema ({
     name : {type:String, required: true},
     description : {type:String, required: true},
     price : {type:Number, required: true},
+    picture : {type:String, required: true},
     like: {type: Number, default: 0 ,required: true},
    // img: { data: Buffer, contentType: String },
     user_id: {type: Schema.Types.ObjectId, ref: "User"},

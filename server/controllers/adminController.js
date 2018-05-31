@@ -266,7 +266,8 @@ var validateCreateListing= () => {
     return (
             check('name', 'Please enter name.').not().isEmpty(),
             check('price', 'Please enter the price.').not().isEmpty(),
-            check('description', 'Please enter the description.').not().isEmpty()
+            check('description', 'Please enter the description.').not().isEmpty(),
+            check('picture', 'Please enter the description.').not().isEmpty()
     
     );
 };
