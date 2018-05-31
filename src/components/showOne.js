@@ -106,13 +106,14 @@ class ShowOne extends Component {
         return (
             <div>
                 <Nav />
-                <div className="card">
-                                           <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>  
-             <h3><b>Product name:</b>{this.state.name}</h3>
-             
-             <h3><b>Price:</b>{this.state.price}</h3>
-             <h3><b>Description:</b> {this.state.description}</h3>
-             </div>
+                <div className="card-group-listing">
+                <div className="shadow-lg p-3 mb-5 bg-white rounded">
+                    <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>  
+                        <h3><b>Product name:</b>{this.state.name}</h3>
+                        <h3><b>Price:</b>{this.state.price}</h3>
+                        <h3><b>Description:</b> {this.state.description}</h3>
+                    </div>
+                   </div>
             
              
              
@@ -149,6 +150,7 @@ class ShowOne extends Component {
       
       <footer className="footer">
                         <div className="container text-center text-md-left">
+
                             <div className="row">
                                  <div className="col-md-4 mx-auto">
                                     <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Restart Network</h5>

@@ -23,8 +23,9 @@ class Listings extends Component {
             <div className= "listing" >
                 <AllListing />
             </div>
+            <hr/>
             <footer className="footer ">
-                <div className="shadow-lg p-3 mb-5 bg-white rounded">
+                <div className="shadow-lg p-3 mb-5 bg-white rounded" >
                         <div className="container text-center text-md-left">
                             <div className="row">
                                  <div className="col-md-4 mx-auto">

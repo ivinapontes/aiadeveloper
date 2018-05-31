@@ -55,10 +55,13 @@
 
 }
 .card{
-    align-content:center
+    text-align: center;
+    background-color: pink;
+
 }
 .footer{
-    background-color: light;
+    background-color: #ebebeb;
+    border-color: #272932
     
 }
 .textBox{
