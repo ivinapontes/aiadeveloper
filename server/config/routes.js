@@ -30,7 +30,7 @@ module.exports = function(app) {
     app.post('/api/createListing', adminController.createListing);
     app.post('/api/createHouse', adminController.validateHouse() ,adminController.createHouse);
     app.post('/api/createCoupon', adminController.createCoupon);
-    app.post('/api/userRequest', upload.fields([{ name: "screenshot", maxCount: 1 }]),  adminController.userRequest);
+    app.post('/api/userRequest',  adminController.userRequest);
     app.get('/api/getAllHouses',adminController.getAllHouses);
     app.get('/api/getAlluserRequest',adminController.getAlluserRequest);
     app.get('/api/image', function (req, res) {
@@ -42,7 +42,7 @@ module.exports = function(app) {
     app.get('/api/user', authUser, adminController.getAuthenticateUserName);
     app.get('/api/logout', adminController.logout);
     
-
+    // upload.fields([{ name: "screenshot", maxCount: 1 }]),
    
     app.get('/api/getAllListings/', adminController.getAllListings);
 

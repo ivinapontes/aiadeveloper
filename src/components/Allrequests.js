@@ -33,6 +33,10 @@ class AllRequests extends Component {
         });
     }
 
+    sendFrom = (event) => {
+        console.log("Clicked");
+    }
+
     
     render() {
 
@@ -41,34 +45,47 @@ class AllRequests extends Component {
                  <Nav />
 
                 <h1>helloooooo</h1>
-            
-               
-               {this.state.showingRequests && this.state.showingRequests.map((request)=>{
-                    return (
-                        <div className="requests">
+                <div className="requests">
                       <table className ="table">
+                      <thead>
                       <tr className="eachProduct1"> 
                         <th scope="col">Name</th>
                         <th scope="col">House</th>
                         <th scope="col">Level </th>
                         <th scope="col">Proof </th>
-                      </tr>  <br/>
+                        <th scope="col">Request </th>
+                      </tr> 
+                      </thead>
+               
+               {this.state.showingRequests && this.state.showingRequests.map((request)=>{
+                    return (
+                      
+                       
+                       <tbody key={request._id}>
                       <tr className="eachProduct">          
                     <td> {request.userName} </td>
                     <td> {request.userHouse} </td>
-                    <td> {request.userLevel} </td>  
+                    <td> {request.userLevel} </td> 
+                    
                    
                
                     <td>   <div className="StudentProfile-leftContainer">
-                          <img src={`http://localhost:3000/uploads/${this.state.studentInfo.profilePic}`}
-                          className="img-rounded img-responsive" alt="Profile Picture" />
+                          {/* <img src={`http://localhost:3000/uploads/${this.state.studentInfo.profilePic}`} */}
+                          {/* className="img-rounded img-responsive" alt="Profile Picture" /> */}
                         </div></td>
-                    </tr>     
-                        </table>
-
-                           </div>
+                        <td>
+<input type="radio" name="negative" value="yes" onClick={this.sendFrom}/>Y/
+<input type="radio" name="negative" value="no"/>N</td> 
+                    </tr>    
+                    </tbody> 
+            
                     )
+                    
                 })}
+                            </table>
+
+                        </div>
+                    
                   <Link className="btn nav-link btn-success" to="/adminHomepage">Back</Link>
             </div>
         );
