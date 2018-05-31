@@ -33,13 +33,16 @@ class ShowOneAdmin extends Component {
     render() {
         return (
             <div>
-                <Nav />
-             <h3>{this.state.name}</h3>
-             <h3>{this.state.description}</h3>
-             <h3>{this.state.price}</h3>
+                <Nav/>
+            <div className=" card-group-listing">
+            <div className="shadow-lg p-3 mb-5 bg-white rounded">  
+             <h3 className='card-text'><b>Product:{this.state.name}</b></h3>
+             <h3 className='card-text'><b>Description:{this.state.description}</b></h3>
+             <h3 className='card-text'><b>Price:{this.state.price}</b></h3>
             
              <Link to={`/adminListing`}>Back to the Homepage</Link>
-
+            </div>
+            </div>
             </div>
         );
     }
