@@ -241,33 +241,36 @@ function showOneHouse(req, res) {
 }
 
 function createListing(req, res, next) {
-        //console.log(req.body.listing);
-    //    console.log('sess '+ req.session.user);
-    const errors = validateCreateListing(req);
-    
-      if(req.session.user)
-       {if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.mapped() });
-   } else {
-    
-       const listing = new Listing(req.body);
-       listing.user_id= req.session.user._id;
-       listing.save((err) => {
-           if (err) {
-           console.log('Error saving user: ', listing);
-           return next();    
-           }
-           res.json({ok: true});
-       })
+    //console.log(req.body.listing);
+//    console.log('sess '+ req.session.user);
+const listing = new Listing(req.body);
+
+  if(req.session.user)
+   {   var filename = null;
+  
+    if (req.files && req.files.picture && req.files.picture[0]) {
+      filename = req.files.picture[0].filename;
     }
-}};
+    listing.picture = filename;
+
+
+  
+   listing.user_id= req.session.user._id;
+   listing.save((err) => {
+       if (err) {
+       console.log('Error saving user: ', listing);
+       return next();    
+       }
+       res.json({ok: true});
+   })
+}
+};
 
 var validateCreateListing= () => {
     return (
             check('name', 'Please enter name.').not().isEmpty(),
             check('price', 'Please enter the price.').not().isEmpty(),
-            check('description', 'Please enter the description.').not().isEmpty(),
-            check('picture', 'Please enter the description.').not().isEmpty()
+            check('description', 'Please enter the description.').not().isEmpty()
     
     );
 };
@@ -316,12 +319,6 @@ function updatingListing(req, res) {
 };
 
 function userRequest(req, res, next) {
-    const errors = validateUserrequest(req);
-  
-    
-    if (!errors.isEmpty()) {
-         return res.status(422).json({ errors: errors.mapped() });
-    } else {
     const request = new Request(req.body);
     var filename = null;
     if (req.files && req.files.screenshot && req.files.screenshot[0]) {
@@ -335,9 +332,9 @@ function userRequest(req, res, next) {
         }
         res.json({ok: true}); 
     })
-  }}
+  }
   function getAlluserRequest(req, res, next) {
-    Request.find({}, ['userName','userHouse','userLevel','screenshot', 'itemId'], (err, requests) => {
+    Request.find({}, ['userName','userHouse','userLevel','screenshot'], (err, requests) => {
         if (err) {
             console.log('Error getting userRequest: ', err);
             return next();    

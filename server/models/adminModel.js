@@ -45,7 +45,6 @@ const RequestSchema = {
     userHouse: {type: String , required: true},
     userLevel: {type: String , required: true},
     screenshot: {type: String , required: true},
-    itemId:{type: String , required: true},
     createAt: { type : Date, default : Date.now},
     updatedAt: { type : Date, default : Date.now}
 }
