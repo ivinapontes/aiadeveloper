@@ -33,6 +33,6 @@ app.use(session({
   
   require('./config/mongoose');
   require('./config/routes.js')(app);
-  app.use("/uploads", express.static("uploads"));
+  app.use("/uploads", express.static("config/uploads"));
 
 app.listen(3001,() => console.log('Server up and running on port 3001'));

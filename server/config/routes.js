@@ -27,7 +27,7 @@ module.exports = function(app) {
     app.post('/api/register', adminController.validateRegister(), adminController.createUser);
     app.post('/api/login', adminController.validateLogin(), adminController.loginUser);
     app.post('/api/loginCoupon', adminController.validateCoupon(),adminController.loginCoupon);
-    app.post('/api/createListing', adminController.createListing);
+    app.post('/api/createListing',adminController.validateCreateListing(),adminController.createListing);
     app.post('/api/createHouse', adminController.validateHouse() ,adminController.createHouse);
     app.post('/api/createCoupon', adminController.createCoupon);
     app.post('/api/userRequest', upload.fields([{ name: "screenshot", maxCount: 1 }]),  adminController.userRequest);

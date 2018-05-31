@@ -96,6 +96,7 @@ handleSubmit(event) {
             <div className="form-group">
                         <label htmlFor="userName" >Enter Your Name</label>
                         <input type="text" value={this.state.data.userName} name="userName" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="userName"/>
+                        <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.userName && <p>{this.state.errors.userName.errMsg} </p> }</h3>
             </div>
             <div className="form-group">
                         <label htmlFor="userHouse" >Enter Your House</label>

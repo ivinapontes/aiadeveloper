@@ -59,10 +59,7 @@ class AllRequests extends Component {
                     <td> {request.userLevel} </td>  
                    
                
-                    <td>   <div className="StudentProfile-leftContainer">
-                          <img src={`http://localhost:3000/uploads/${this.state.studentInfo.profilePic}`}
-                          className="img-rounded img-responsive" alt="Profile Picture" />
-                        </div></td>
+                    <td> <img width={200} src={'http://localhost:3001/uploads/'+request.screenshot} />  </td>
                     </tr>     
                         </table>
 

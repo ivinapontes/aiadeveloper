@@ -83,6 +83,7 @@ export default class NewHouse extends Component {
                   <input type="number" name="coins"  onChange={this.updateInputField} value={this.state.coins} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coins"/>
                   <button type="submit" onClick={this.sendFrom}  className="btn btn-primary">Submit</button>
                   <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.coins && <p>{this.state.errors.coins.msg} </p> }</h3>
+                  
 
             </div>
         </form>
