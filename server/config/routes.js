@@ -36,13 +36,14 @@ module.exports = function(app) {
     app.get('/api/image', function (req, res) {
       res.sendfile(path.resolve('./uploads'));
   }); 
+  app.post('/api/likePost/:id', adminController.likePost);
     //app.get('/api/users/', authUser, adminController.getAllUsers);
     // app.get('/api/session', (req,res) => res.json({session: req.session}));
     // // app.get('/api/users/:userEmail', authUser, usersController.findOneUser);
     app.get('/api/user', authUser, adminController.getAuthenticateUserName);
     app.get('/api/logout', adminController.logout);
     
-
+    // upload.fields([{ name: "screenshot", maxCount: 1 }]),
    
     app.get('/api/getAllListings/', adminController.getAllListings);
 

@@ -336,7 +336,7 @@ function userRequest(req, res, next) {
     })
   }}
   function getAlluserRequest(req, res, next) {
-    Request.find({}, ['userName','userHouse','userLevel','screenshot'], (err, requests) => {
+    Request.find({}, ['userName','userHouse','userLevel','screenshot', 'itemId'], (err, requests) => {
         if (err) {
             console.log('Error getting userRequest: ', err);
             return next();    
@@ -351,8 +351,15 @@ function deleteRequest(req, res) {
     .catch((err)=>{res.send(err)})
 };
 
-
-
+function likePost(req,res){
+    Listing.findById(req.params.id).then(function(listing) {
+        listing.like = listing.like + 1;
+        listing.save().then(function(listing) {
+            res.send(listing);
+        })
+        .catch(err => res.send(err));
+    })
+}
 
 function getAuthenticateUserName(req,res, next) {
     res.json({name:req.session.user.firstname});
@@ -408,5 +415,6 @@ module.exports= {
     validateHouse,
     validateCoins,
     validateCreateListing,
-    validateUserrequest
+    validateUserrequest,
+    likePost
  };

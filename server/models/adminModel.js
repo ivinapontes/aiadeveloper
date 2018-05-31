@@ -8,6 +8,7 @@ const ListingSchema = new Schema ({
     name : {type:String, required: true},
     description : {type:String, required: true},
     price : {type:Number, required: true},
+    like: {type: Number, default: 0 ,required: true},
    // img: { data: Buffer, contentType: String },
     user_id: {type: Schema.Types.ObjectId, ref: "User"},
     createAt: { type : Date, default : Date.now},
@@ -43,6 +44,7 @@ const RequestSchema = {
     userHouse: {type: String , required: true},
     userLevel: {type: String , required: true},
     screenshot: {type: String , required: true},
+    itemId:{type: String , required: true},
     createAt: { type : Date, default : Date.now},
     updatedAt: { type : Date, default : Date.now}
 }

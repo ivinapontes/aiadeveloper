@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Nav from './Nav';
+import ShowOne from './showOne';
+import { Link } from 'react-router-dom';
 
 
 class Request extends Component {
@@ -21,6 +23,7 @@ constructor(props) {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
   }
+  
   
 
   handlePhotoChange(event) {
@@ -89,6 +92,7 @@ handleSubmit(event) {
   render() {
       var changeHandler= this.changeHandler;
     return (
+      <div>
       <div className='loginform'>
       <h1 className="requestText">Send a request for this item</h1><br/><br/><br/>
         {this.state.err && <h3>{this.state.err}</h3> }
@@ -112,12 +116,14 @@ handleSubmit(event) {
                     <option value='Bootcampers' >Bootcampers</option>
                     <option value='Guides'>Guides</option>
                     <option  value='Developers'>Developers</option>
-                   </select><br/><br/><br/><br/><br/><br/><br/><br/>
+                   </select><br/><br/><br/>
           
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
             </div>
+            <Link className="btn btn-success btn-lg" to="/homepage">Go back</Link>
          
       </form>
+      </div>
       </div>
     )
   }

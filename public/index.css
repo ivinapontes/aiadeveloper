@@ -18,8 +18,7 @@
     background-position: center;
     background-size: cover;
     padding-top: 200px;
-  
-    background: #ebebeb;
+
     position: relative;
     
 }
@@ -33,7 +32,7 @@
     background-color:#ebebeb;
     margin-left: 300px;
     margin-right: 300px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     text-align: center;
     padding: 20px;
    
@@ -51,7 +50,8 @@
     align-content:center
 }
 .footer{
-    background-color: light
+    background-color: light;
+    
 }
 .textBox{
     font-family: sans-serif;

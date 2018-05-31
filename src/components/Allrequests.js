@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import Nav from "./Nav";
 import Img from 'react-image';
+import swal from 'sweetalert';
 // import "../../server/config/uploads";
 
 class AllRequests extends Component {
@@ -10,6 +11,9 @@ class AllRequests extends Component {
         super(props);
          this.state= {
              showingRequests: [],
+             showingListings:[],
+             itemId:{},
+             id:{},
              errors: ""
          }
          }
@@ -19,7 +23,7 @@ class AllRequests extends Component {
     componentDidMount(){
         axios.get('/api/getAlluserRequest/')
         .then((response)=> {
-            console.log(response);
+            console.log(response.data);
           this.setState({
             showingRequests: response.data,
             });
@@ -31,8 +35,101 @@ class AllRequests extends Component {
           console.log(error);
           this.setState({errors : "Server Error"});
         });
+        axios.get('/api/getAllListings/')
+        .then((response)=> {
+            console.log(response.data.list);
+          this.setState({
+              showingListings: response.data.list,
+            });
+            
+        })
+        .catch( (error) =>{
+          console.log(error);
+          this.setState({errors : "Server Error"});
+        });
     }
 
+    sendFromYes = (event) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once you accept it, you will not be able to recover this Request agin!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Poof! Your Request file has been deleted!", {
+                icon: "success",
+              });
+        console.log(this.state.showingRequests);
+     this.state.showingRequests.map((request, key) => {
+         if( request.itemId != undefined){
+            this.state.itemId =request.itemId;
+         }
+         this.state.id=request._id
+            return request
+          });
+        //   console.log( this.state.itemId);
+          console.log( this.state.id);
+          
+        axios.post(`/api/likePost/${this.state.itemId}`)
+        .then((response)=> {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        axios.delete(`/api/deleteRequest/${this.state.id}`)
+        .then((response)=> {
+            
+          console.log(response);
+          
+          window.location.href = "/Allrequests";
+      
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+        swal("Your imaginary file is safe!");
+      }
+    });
+    }
+
+    sendFromNo = (event) =>{
+        swal({
+            title: "Are you sure?",
+            text: "Once you dont accept it, you will not be able to recover this Reguest Agin!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Poof! Your Request file has been deleted!", {
+                icon: "success",
+              });
+        this.state.showingRequests.map((request, key) => {
+            this.state.id=request._id
+               return request
+             });
+             axios.delete(`/api/deleteRequest/${this.state.id}`)
+             .then((response)=> {
+                 
+               console.log(response);
+               
+               window.location.href = "/Allrequests";
+           
+             })
+             .catch(function (error) {
+               console.log(error);
+             });
+            } else {
+                swal("Your imaginary file is safe!");
+              }
+            });
+    }
     
     render() {
 
@@ -41,36 +138,69 @@ class AllRequests extends Component {
                  <Nav />
 
                 <h1>helloooooo</h1>
-            
-               
-               {this.state.showingRequests && this.state.showingRequests.map((request)=>{
-                    return (
-                        <div className="requests">
+                <div className="requests">
                       <table className ="table">
+                      <thead>
                       <tr className="eachProduct1"> 
                         <th scope="col">Name</th>
                         <th scope="col">House</th>
                         <th scope="col">Level </th>
+                        <th scope="col">Item </th>
                         <th scope="col">Proof </th>
-                      </tr>  <br/>
+                        <th scope="col">Request </th>
+                      </tr> 
+                      </thead>
+               
+               {this.state.showingRequests && this.state.showingRequests.map((request)=>{
+                    return (
+                       <tbody key={request._id}>
                       <tr className="eachProduct">          
                     <td> {request.userName} </td>
                     <td> {request.userHouse} </td>
-                    <td> {request.userLevel} </td>  
+                    <td> {request.userLevel} </td> 
+
+                    {this.state.showingListings && this.state.showingListings.map((listing)=>{
+                    return (
+                        <div key ={listing._id}>
+                         {request.itemId === listing._id ? <td>{listing.name}</td> :null}
+                       </div>
+                )
+                    
+            })}
                    
                
+<<<<<<< HEAD
                     <td> <img width={200} src={'http://localhost:3001/uploads/'+request.screenshot} />  </td>
                     </tr>     
                         </table>
 
                            </div>
+=======
+                    <td>   <div className="StudentProfile-leftContainer">
+                          {/* <img src={`http://localhost:3000/uploads/${this.state.studentInfo.profilePic}`} */}
+                          {/* className="img-rounded img-responsive" alt="Profile Picture" /> */}
+                        </div></td>
+                        <td>
+                             <input type="radio" name="negative" value="yes" onClick={this.sendFromYes}/>Y/
+                            <input type="radio" name="negative" value="no" onClick={this.sendFromNo} />N</td> 
+                    </tr>    
+                    </tbody> 
+            
+>>>>>>> 2a195e9a227bc24aca11d2e66e3481524c99d749
                     )
+                    
                 })}
+               
+                            </table>
+
+                        </div>
+                    
                   <Link className="btn nav-link btn-success" to="/adminHomepage">Back</Link>
             </div>
         );
     }
 }
+
 
 
 export default AllRequests;
