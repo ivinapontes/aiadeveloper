@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Nav from './Nav';
+import ShowOne from './showOne';
 import { Link } from 'react-router-dom';
 
 
@@ -22,6 +23,7 @@ constructor(props) {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePhotoChange = this.handlePhotoChange.bind(this);
   }
+  
   
 
   handlePhotoChange(event) {
@@ -90,6 +92,7 @@ handleSubmit(event) {
   render() {
       var changeHandler= this.changeHandler;
     return (
+      <div>
       <div className='loginform'>
       <h1 className="requestText">Send a request for this item</h1><br/><br/><br/>
         {this.state.err && <h3>{this.state.err}</h3> }
@@ -119,6 +122,7 @@ handleSubmit(event) {
             <Link className="btn btn-success btn-lg" to="/homepage">Go back</Link>
          
       </form>
+      </div>
       </div>
     )
   }

@@ -30,12 +30,13 @@ module.exports = function(app) {
     app.post('/api/createListing', adminController.createListing);
     app.post('/api/createHouse', adminController.validateHouse() ,adminController.createHouse);
     app.post('/api/createCoupon', adminController.createCoupon);
-    app.post('/api/userRequest',  adminController.userRequest);
+    app.post('/api/userRequest', upload.fields([{ name: "screenshot", maxCount: 1 }]),  adminController.userRequest);
     app.get('/api/getAllHouses',adminController.getAllHouses);
     app.get('/api/getAlluserRequest',adminController.getAlluserRequest);
     app.get('/api/image', function (req, res) {
       res.sendfile(path.resolve('./uploads'));
   }); 
+  app.post('/api/likePost/:id', adminController.likePost);
     //app.get('/api/users/', authUser, adminController.getAllUsers);
     // app.get('/api/session', (req,res) => res.json({session: req.session}));
     // // app.get('/api/users/:userEmail', authUser, usersController.findOneUser);
