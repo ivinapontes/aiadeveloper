@@ -28,7 +28,7 @@ class AdminHomepage extends Component {
 
   render() {
     return (
-      <div>
+      <div >
       <Nav />
         <div  className="header_title" >
           <h1>Welcome Admin</h1>

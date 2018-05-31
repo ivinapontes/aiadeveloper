@@ -60,8 +60,9 @@ constructor(props) {
   render() {
       var changeHandler= this.changeHandler;
     return (
+      
       <div className='loginform'>
-      <h1>Welcome Admin</h1>
+      <h1 className='title'>Welcome Admin</h1>
         <h1>Login</h1>
         {this.state.err && <h3>{this.state.err}</h3> }
       <form onSubmit={this.submitHandler}>
