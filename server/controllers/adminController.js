@@ -8,7 +8,7 @@ var Request = mongoose.model('Request');
 const {check, validationResult} = require('express-validator/check');
 
 function createUser(req, res, next) {
-    const errors = validationResult(req);
+  
     
     if (!errors.isEmpty()) {
          return res.status(422).json({ errors: errors.mapped() });
@@ -67,6 +67,14 @@ function createCoupon(req, res, next) {
     return (
             check('houseName', 'Please enter the house name.').not().isEmpty(),
             check('coins', 'Please enter coins.').not().isEmpty()
+    
+    );
+};
+   var validateUserrequest= () => {
+    return (
+            check('userName', 'Please enter your name.').not().isEmpty(),
+            check('userHouse', 'Please enter your hous.').not().isEmpty(),
+            check('userLevel', 'Please enter your level').not().isEmpty()
     
     );
 };
@@ -235,8 +243,13 @@ function showOneHouse(req, res) {
 function createListing(req, res, next) {
         //console.log(req.body.listing);
     //    console.log('sess '+ req.session.user);
+    const errors = validateCreateListing(req);
+    
       if(req.session.user)
-       {
+       {if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.mapped() });
+   } else {
+    
        const listing = new Listing(req.body);
        listing.user_id= req.session.user._id;
        listing.save((err) => {
@@ -247,7 +260,17 @@ function createListing(req, res, next) {
            res.json({ok: true});
        })
     }
-}
+}};
+
+var validateCreateListing= () => {
+    return (
+            check('name', 'Please enter name.').not().isEmpty(),
+            check('price', 'Please enter the price.').not().isEmpty(),
+            check('description', 'Please enter the description.').not().isEmpty()
+    
+    );
+};
+
 
 
 function getAllListings(req, res, next) {
@@ -292,6 +315,12 @@ function updatingListing(req, res) {
 };
 
 function userRequest(req, res, next) {
+    const errors = validateUserrequest(req);
+  
+    
+    if (!errors.isEmpty()) {
+         return res.status(422).json({ errors: errors.mapped() });
+    } else {
     const request = new Request(req.body);
     var filename = null;
     if (req.files && req.files.screenshot && req.files.screenshot[0]) {
@@ -305,7 +334,7 @@ function userRequest(req, res, next) {
         }
         res.json({ok: true}); 
     })
-  }
+  }}
   function getAlluserRequest(req, res, next) {
     Request.find({}, ['userName','userHouse','userLevel','screenshot', 'itemId'], (err, requests) => {
         if (err) {
@@ -385,5 +414,7 @@ module.exports= {
     updatingCoins,
     validateHouse,
     validateCoins,
+    validateCreateListing,
+    validateUserrequest,
     likePost
  };
