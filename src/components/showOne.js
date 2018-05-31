@@ -63,14 +63,20 @@ class ShowOne extends Component {
                                       </div>
                                       <div className="col-md-2 mx-auto">
                                         
-                                        <div className="social-networks">
-                                          <a href="https://twitter.com/Restart_Network"  className="fa fa-twitter"></a> Twitter
+                                        {/* <button type="button" class="btn btn-fb"><i class="fa fa-facebook pr-1"></i> Facebook</button>
+                                        <br/> */}
+                                        
+                                        <button type="button" class="btn btn-fb"><i class="fa fa-facebook"></i></button>
+                                        
+                                        <button type="button" class="btn btn-tw"><i class="fa fa-twitter"></i></button>  
+                                      
+                                        <button type="button" class="btn btn-li"><i class="fa fa-linkedin"></i></button>
+                                   
+                                        <button type="button" class="btn btn-ins"><i class="fa fa-instagram"></i></button>
+                                        {/* <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"></a> Facebook
                                         <br/>
-                                        <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"></a> Facebook
-                                        <br/>
-                                        <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram"></a>Instagram
+                                        <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram"></a>Instagram */}
 
-                                        </div>
                                       </div>
                                     
 
