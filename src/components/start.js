@@ -50,7 +50,7 @@ class Start extends Component {
                     </div>
                     <div className= 'textBox'>
                         <input type="text" name="coupon" className="form-control" placeholder="Enter Your Coupon Code" aria-describedby="basic-addon1" value={this.state.coupon} onChange={this.updateInputField}/>
-                        <h1><button type="submit" className='btn btn-danger btn-lg'  onClick={this.sendFrom}>Enter</button></h1>
+                        <h1><button type="submit" className='btn btn-danger btn-lg' style={{marginBottom: 40+'px'}} onClick={this.sendFrom}>Enter</button></h1>
                         <h3 style={{color:"red"}}>{this.state.couponErrors && this.state.couponErrors.coupon_student && <p>{this.state.couponErrors.coupon_student.msg} </p> }</h3>
 
                          </div>
