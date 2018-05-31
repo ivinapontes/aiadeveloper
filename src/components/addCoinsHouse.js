@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 import axios from "axios";
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
+import React, { PropTypes, Component } from 'react'
+import SpeechRecognition from 'react-speech-recognition'
+// import responsiveVoice from 'responsivevoice'
+// var voice = require('responsivevoice');
 
-export default class AddCoinsHouse extends Component {
+class AddCoinsHouse extends Component {
     constructor(props){
         super(props);
         this.state ={
@@ -17,7 +21,12 @@ export default class AddCoinsHouse extends Component {
                 histories:null
                 },
                 date: new Date(),
-                errors: null
+                errors: null,
+                voice:null,
+            orderReq:"send 500 to house",
+            coinsVoice:null,
+            houseVoice:null,
+            reasonVoice:null
         }
     }
 
@@ -56,14 +65,92 @@ export default class AddCoinsHouse extends Component {
         this.setState({[event.target.name] : event.target.value})
       }
 
-    
+      saveVoice = (event)=>{
+    //    console.log(responsiveVoice.speak("hello world"));
+        event.preventDefault();
+        // send 500 coins to the house of alan turing because of helping
+        // 0    1   2      3   4    5  6    7      8      9   10   11
+        const spilt = this.state.voice.split(" ");
+        console.log(spilt.length);
+        if(spilt.length === 11){
+        this.setState({
+            coinsVoice : spilt[1],
+            houseVoice:spilt[5]+ " " + spilt[6]+ " " +spilt[7]+ " " + spilt[8],
+            reasonVoice:spilt[11] 
+        })
+    }
+     if (spilt.length === 12){
+        this.setState({
+            coinsVoice : spilt[1],
+            houseVoice:spilt[6]+ " " + spilt[7]+ " " +spilt[8]+ " " + spilt[9],
+            reasonVoice:spilt[12] 
+    })
+
+     }
+    }
+
+    sendFromVoice = (event)=>{
+        console.log(this.props);
+        event.preventDefault();
+       
+        axios.put(`/api/updatingCoins/${this.props.match.params.id}`, {
+            reason:this.state.reasonVoice,
+            coins:parseInt(this.state.coinsVoice) + parseInt(this.state.data.coins),
+            histories:`On ${this.state.date} You have sent ${this.state.changedCoins} Because of ${this.state.reason}`
+        }).then((response) => {
+            console.log(response);
+            
+            swal("Good job!", "Coins has been updated!", "success");
+        }).catch((error)=>{
+            console.log(error.response.data.errors);
+            this.setState({errors: error.response.data.errors });
+        });
+        
+      }
 
 
   render() {
-console.log(this.state.changedCoins);
+    const { transcript, resetTranscript,autoStart, browserSupportsSpeechRecognition } = this.props
+
+    if (!browserSupportsSpeechRecognition) {
+      return null
+    }
+
+this.state.voice = transcript
     return (
       <div>
           <Nav />
+          <div>
+              <h4><em>If you want to enjoy using the sound recognition please send as a follow:</em></h4>
+          <h6>for Plus :Send 500 coins to the house of alan turing because of helping</h6>
+          <h6>For minus :Send 500 - coins to the house of alan turing because of helping</h6>
+          <textarea rows="4" cols="50" style={{width:500 +"px", marginLeft: 20 +"px"}} className="form-control" value={transcript}></textarea><br />
+          <div style={{marginTop: 10 + "px", marginLeft: 20+ "px", padding: 10 +"px"}}>
+          <button className="btn btn-primary" onClick={resetTranscript}>Reset</button>
+          <button style={{marginLeft:10 +"px"}}className="btn btn-primary" onClick={this.saveVoice}>save</button>
+        
+         </div>
+
+        
+        </div>
+
+        <form style={{width: 600+ "px", marginLeft:25 + "%"}}>
+            <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">Reason :</label>
+                  <input type="text" name="reasonVoice" value={this.state.reasonVoice} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Reason"/>
+
+            </div> 
+            <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">Coins:</label>
+                  <input type="number" name="coinsVoice"  onChange={this.updateInputField} value={this.state.coinsVoice} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.state.data.coins}/>
+
+                  <button type="submit" onClick={this.sendFromVoice}  className="btn btn-primary">Submit</button>
+
+            </div>
+            
+        </form>
+
+
        <div>
         <h1>Update House</h1>
         <div className="card bg-light mb-3" style={{maxWidth: 50 +"rem"}}>
@@ -107,3 +194,4 @@ console.log(this.state.changedCoins);
     )
   }
 }
+export default SpeechRecognition(AddCoinsHouse)

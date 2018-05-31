@@ -24,6 +24,7 @@ import ShowOneAdmin from './components/showOneAdmin';
 import DeleteListing from './components/deleteListing';
 import Nav from './components/Nav';
 import Logout from './components/logout';
+import Dictaphone from './components/Dictaphone';
 
 
 ReactDOM.render(
@@ -49,6 +50,7 @@ ReactDOM.render(
       <Route path ='/newHouse/' component={NewHouse}/>
       <Route path ='/Nav/' component={Nav}/>
       <Route path ='/logout' component={Logout}/>
+      <Route path ='/dictaphone' component={Dictaphone}/>
 
       <Route exact path = '/showOneAdmin/:id'component={ShowOneAdmin}/>
       <Route path='/createListing' component={CreateListing} />
