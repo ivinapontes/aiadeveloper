@@ -112,7 +112,7 @@ class ShowOne extends Component {
                 <div className="shadow-lg p-3 mb-5 bg-white rounded">
                  
                 <h4 className='card-text'><b> <img width={200} src={'http://localhost:3001/uploads/'+this.state.picture} /></b></h4>
-                        <h3><b>Product name:</b>{this.state.name}</h3>
+                        <h3><b>Product     gggname:</b>{this.state.name}</h3>
                         <h3><b>Price:</b>{this.state.price}</h3>
                         <h3><b>Description:</b> {this.state.description}</h3>
                        
