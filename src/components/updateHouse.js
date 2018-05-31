@@ -56,15 +56,16 @@ export default class UpdateHouse extends Component {
       <div>
           <Nav />
        <div>
-        <h1>Update House</h1>
-        <form style={{width: 600+ "px", marginLeft:25 + "%"}}>
+        <h1 className='col-md-12 welcome_txt text-center'>Update House</h1>
+        <br/>
+        <form  className='loginform'>
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">House Name:</label>
                   <input type="text" name="houseName" value={this.state.houseName} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="House Name"/>
                   <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.houseName && <p>{this.state.errors.houseName.msg} </p> }</h3>
 
             </div>
-
+            <label htmlFor="exampleInputEmail1">House Level:</label>
             <select className="form-control" style={{width:150 + "px", height:33+"px"}}
                             value={this.state.formdata.level}
                             onChange={(event)=> this.handleInput(event, 'level')}
@@ -73,17 +74,18 @@ export default class UpdateHouse extends Component {
                         <option val="2">Guide</option>
                         <option val="3">Developer</option>
                         </select>
-            
+            <br/>
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Coins:</label>
                   <input type="number" name="coins"  onChange={this.updateInputField} value={this.state.coins} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coins"/>
                   <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.coins && <p>{this.state.errors.coins.msg} </p> }</h3>
 
-                  <button type="submit" onClick={this.sendFrom}  className="btn btn-primary">Submit</button>
+                  <button type="submit" onClick={this.sendFrom}  className="btn btn-primary btn-circle">Submit</button>
+                  <button type="button" className="btn btn-warning btn-circle" ><Link to={`/housesWalet`}>Go Back</Link></button>
 
             </div>
         </form>
-        <button type="button" className="btn btn-warning btn-circle" ><Link to={`/housesWalet`}>Go Back</Link></button>
+       
 
       </div>
       </div>
