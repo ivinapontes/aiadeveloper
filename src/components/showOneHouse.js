@@ -30,19 +30,21 @@ export default class ShowOneHouse extends Component {
     return (
       <div>
         <Nav />
-        <h1>hello one house </h1>
-        <div className="card-group-listing">
+        <div className="loginform">
             <div className="shadow-lg p-3 mb-5 bg-white rounded">
                 <div className="card bg-light mb-3" style={{maxWidth: 50 +"rem"}}>
                 <div className="card-header"><h3> {this.state.data.houseName}</h3></div>
                 <div className="card-body"><h3> {this.state.data.coins}</h3></div>
                 <div className="card-body">
                 <h4 className="card-text">{this.state.data.level}</h4>
-                </div>              
-             </div>
+                </div>  
+                          
+             </div> 
+             <Link className ="btn btn-info btn-lg" to={`/housesWalet`}  style={{alignItems: 'center'}}>Go Back</Link> 
         </div>
+       
         </div>
-        <Link className ="btn btn-info btn-lg" to={`/housesWalet`}>Go Back</Link>
+        
       </div>
     )
   }
