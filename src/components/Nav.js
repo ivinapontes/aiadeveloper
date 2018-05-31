@@ -55,7 +55,7 @@ export default class Nav extends Component {
     return (
         <div>
             <div className="shadow-lg p-3 mb-5 bg-white rounded">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style={{marginTop: 10 +"px"}}>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style={{marginTop: 10 +"px",height: 80 + "px"}}>
                 
                     <a href="/"><img   src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,7 @@ export default class Nav extends Component {
                       {!this.state.session ?<Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>: null}
 
                         {this.state.session ?<h4 className="nav-link"  style={{marginLeft:90 +"%"}}>Welcome: {this.state.session.firstName.toUpperCase()}</h4>: null}
-                        { this.state.session ?<Link className="nav-link" to='/logout'><h2 className="btn btn-default navbar-btn">LogOut</h2></Link>: null}
+                        { this.state.session ?<Link className="nav-link" to='/logout'><h2 className="btn btn-danger navbar-btn">LogOut</h2></Link>: null}
                          </div>
                         </div>
                          
@@ -87,8 +87,8 @@ export default class Nav extends Component {
             return(
 
             <div key={house._id}>
-            <h5 className='shadow-lg p-3 mb-5 bg-white rounded'>House: <b>  { house.level === this.state.formdata.level ?<td>{house.houseName}</td>: null } </b> </h5>
-            <h5 className='shadow-lg p-3 mb-5 bg-white rounded'>Coins in your wallet: <b>  { house.level === this.state.formdata.level ?<td>{house.coins}</td>: null }</b> </h5>
+              { house.level === this.state.formdata.level ?<td><h5 className='shadow-lg p-3 mb-5 bg-white rounded'>House: <b>{house.houseName}</b> </h5></td>: null } 
+             { house.level === this.state.formdata.level ?<td><h5 className='shadow-lg p-3 mb-5 bg-white rounded'>Coins in your wallet: <b> {house.coins} </b> </h5></td>: null }
             
 
             </div>

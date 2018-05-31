@@ -169,13 +169,6 @@ class AllRequests extends Component {
             })}
                    
                
-<<<<<<< HEAD
-                    <td> <img width={200} src={'http://localhost:3001/uploads/'+request.screenshot} />  </td>
-                    </tr>     
-                        </table>
-
-                           </div>
-=======
                     <td>   <div className="StudentProfile-leftContainer">
                           {/* <img src={`http://localhost:3000/uploads/${this.state.studentInfo.profilePic}`} */}
                           {/* className="img-rounded img-responsive" alt="Profile Picture" /> */}
@@ -186,7 +179,6 @@ class AllRequests extends Component {
                     </tr>    
                     </tbody> 
             
->>>>>>> 2a195e9a227bc24aca11d2e66e3481524c99d749
                     )
                     
                 })}

@@ -106,47 +106,51 @@ class ShowOne extends Component {
         return (
             <div>
                 <Nav />
-                
-             <h3><b>Product name:</b>{this.state.name}</h3>
-             
-             <h3><b>Price:</b>{this.state.price}</h3>
-             <h3><b>Description:</b> {this.state.description}</h3>
+                <div className="card-group-listing">
+                <div className="shadow-lg p-3 mb-5 bg-white rounded">
+                    <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>  
+                        <h3><b>Product name:</b>{this.state.name}</h3>
+                        <h3><b>Price:</b>{this.state.price}</h3>
+                        <h3><b>Description:</b> {this.state.description}</h3>
+                    </div>
+                   </div>
             
              
              
-                    <div className='loginform'>
-      <h1 className="requestText">Send a request for this item</h1><br/><br/><br/>
-        {this.state.err && <h3>{this.state.err}</h3> }
-      <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-                        <label htmlFor="userName" >Enter Your Name</label>
-                        <input type="text" value={this.state.data.userName} name="userName" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="userName"/>
-            </div>
-            <div className="form-group">
-                        <label htmlFor="userHouse" >Enter Your House</label>
-                        <input onChange={changeHandler} value={this.state.data.userHouse} name="userHouse" type="userHouse" className="form-control" id="userHouse" placeholder="userHouse"/>  
-            </div>
-            <div className="form-group">
-                                <label htmlFor="exampleInputPhoto">Upload Screenshot</label>
-                                <input type="file" name="screenshot"  onChange={this.handlePhotoChange}  className="form-control" id="exampleInputPhoto" placeholder="screenshot" />
-                            </div>
-
-            <div className="requestOption">
-            <select onChange={changeHandler} value={this.state.data.userLevel}  name="userLevel"  >
-                    <option value='Bootcampers' >Bootcampers</option>
-                    <option value='Guides'>Guides</option>
-                    <option  value='Developers'>Developers</option>
-                   </select><br/><br/>
-          
-            <button type="submit" className="btn btn-primary">Submit</button>
-            </div>
-         
-      </form>
+        <div className='loginform'>
+         <h1 className="requestText">Send a request for this item</h1>
+                                    <h4>Please fill in your details</h4>
+                                    <hr/>
+                {this.state.err && <h3>{this.state.err}</h3> }
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="userName" >Enter Your Name</label>
+                            <input type="text" value={this.state.data.userName} name="userName" onChange={changeHandler} className="form-control" id="email" aria-describedby="emailHelp" placeholder="userName"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="userHouse" >Enter Your House</label>
+                            <input onChange={changeHandler} value={this.state.data.userHouse} name="userHouse" type="userHouse" className="form-control" id="userHouse" placeholder="userHouse"/>  
+                         </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputPhoto">Upload Screenshot</label>
+                            <input type="file" name="screenshot"  onChange={this.handlePhotoChange}  className="form-control" id="exampleInputPhoto" placeholder="screenshot" />
+                        </div>
+                        <label htmlFor="userHouse" >Enter Your Level</label>
+                <select onChange={changeHandler} value={this.state.data.userLevel}  name="userLevel" className="form-control" style={{height:33+"px"}}  >
+                        <option value='Bootcampers' >Bootcampers</option>
+                        <option value='Guides'>Guides</option>
+                        <option  value='Developers'>Developers</option>
+                    </select><br/>
+            
+                <button type="submit" className="btn btn-success">Submit</button> <br/>                
+                <Link className="btn btn-primary" to={`/homepage`}>Back to the Homepage</Link>
+            
+         </form>
       </div>
-      <br /> <br />
-      <Link className="btn btn-primary" to={`/homepage`}>Back to the Homepage</Link>
+      
       <footer className="footer">
                         <div className="container text-center text-md-left">
+
                             <div className="row">
                                  <div className="col-md-4 mx-auto">
                                     <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Restart Network</h5>
