@@ -20,10 +20,12 @@ class Listings extends Component {
     render() {
         return (
         <div>
-            <div className= "listing">
+            <div className= "listing" >
                 <AllListing />
             </div>
-            <footer className="footer">
+            <hr/>
+            <footer className="footer ">
+                <div className="shadow-lg p-3 mb-5 bg-white rounded" >
                         <div className="container text-center text-md-left">
                             <div className="row">
                                  <div className="col-md-4 mx-auto">
@@ -48,11 +50,11 @@ class Listings extends Component {
                                       <div className="col-md-2 mx-auto">
                                         
                                         <div className="social-networks">
-                                          <a href="https://twitter.com/Restart_Network"  className="fa fa-twitter"></a> Twitter
+                                          <a href="https://twitter.com/Restart_Network"  className="fa fa-twitter" > Twitter</a>
                                         <br/>
-                                        <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"></a> Facebook
+                                        <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"> Facebook</a>
                                         <br/>
-                                        <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram"></a>Instagram
+                                        <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram">Instagram</a>
 
                                         </div>
                                       </div>
@@ -60,9 +62,9 @@ class Listings extends Component {
 
                             </div>  
                            
-                        </div>        
-                    </footer>   
-                 <Link to={`/adminLogin`}>Admin login</Link><br />
+                        </div>
+                </div>        
+            </footer>
         </div>
         );
     }
