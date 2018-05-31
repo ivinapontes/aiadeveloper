@@ -11,6 +11,7 @@ class ShowOne extends Component {
             name: "",
             description: "",
             price:"",  
+            screenshot: "",
             data:{
                 userName:'',
                 userHouse:'',
@@ -29,7 +30,8 @@ class ShowOne extends Component {
             showingListing: response.data._id,
             description: response.data.description,
             price: response.data.price,
-            name: response.data.name
+            name: response.data.name,
+            screenshot: response.data.screenshot,
 
         });
         //   console.log(response.data);
@@ -108,10 +110,12 @@ class ShowOne extends Component {
                 <Nav />
                 <div className="card-group-listing">
                 <div className="shadow-lg p-3 mb-5 bg-white rounded">
-                    <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>  
+                 
+                      
                         <h3><b>Product name:</b>{this.state.name}</h3>
                         <h3><b>Price:</b>{this.state.price}</h3>
                         <h3><b>Description:</b> {this.state.description}</h3>
+                        <h3><b>screen</b> {this.state.screenshot}</h3>
                     </div>
                    </div>
             
