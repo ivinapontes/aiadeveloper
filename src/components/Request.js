@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import Nav from './Nav';
 import ShowOne from './showOne';
+import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 
 
@@ -44,6 +45,7 @@ handleSubmit(event) {
   axios.post("/api/userRequest", formData)
       .then(res => {
           console.log(res.data);
+          swal("Good job!", "Your Request has been sent successfully ", "success");
           if (res.data.errors) {
               let mainErr = res.data.errors;
               let errMsg = {
