@@ -57,7 +57,8 @@ export default class Nav extends Component {
             <div className="shadow-lg p-3 mb-5 bg-white rounded">
             <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{marginTop: 3 +"px",height: 80 + "px"}}>
                 
-                    <a href="/"><img   src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/></a>
+                    <a href="/homePage"><img   src="https://restart.network/assets/partials/particles_partial/assets/images/restart.png" alt="Restart Logo" height="100px" width="300px"/></a>
+                        
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                           <span className="navbar-toggler-icon"></span>
                         </button>
@@ -72,7 +73,7 @@ export default class Nav extends Component {
                                                 <option val="2">Guide</option>
                                                 <option val="3">Developer</option>
                             </select>
-
+                   
   
                         {!this.state.session ?<Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>: null}
 

@@ -30,7 +30,7 @@ export default class Footer extends Component {
                                       </div>
                                       <div className="col-md-2 mx-auto">
                                         
-                                        <div className="social-networks" style={{marginTop:10+"px"}}>
+                                        <div className="social-networks" style={{marginTop:10+"px", position: "relative"}}>
                                           <a href="https://twitter.com/Restart_Network"  className="fa fa-twitter" > Twitter</a>
                                         <br/>
                                         <a href="https://www.facebook.com/restartnetwork"  className="fa fa-facebook"> Facebook</a>
@@ -38,6 +38,10 @@ export default class Footer extends Component {
                                         <a href="https://instagram.com/restartnetwork/"  className="fa fa-instagram">Instagram</a>
 
                                         </div>
+                                        <div className="Logo">
+                                          <img width={100} height={50} src={'http://localhost:3001/uploads/images (1).png-1527791672154.png'} /> 
+                                          <h6><center><strong><em>AIA Developers</em></strong></center></h6>
+                                         </div>
                                       </div>
                                     
 

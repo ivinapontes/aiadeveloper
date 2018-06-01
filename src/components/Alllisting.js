@@ -42,10 +42,11 @@ class AllListing extends Component {
                              <div className="card-group-listing" >
                                     
                                         <div className="shadow-lg p-3 mb-5 bg-white rounded">
-                                           <h4 className='card-text'><b>Picture: <img width={200} src={'http://localhost:3001/uploads/'+listing.picture} /></b></h4>
+                                       
+                                           <h4 className='card-text'><b><img width={200} src={'http://localhost:3001/uploads/'+listing.picture} /></b></h4>
                                             <h4 className='card-text'><b>Product: {listing.name}</b></h4>
                                             <h4 className='card-text'><b>Description: {listing.description}</b></h4>
-                                            <h4 className='card-text'><b>Coins: {listing.price}</b></h4>
+                                            <h4 className='card-text'><b>Price : {listing.price}</b> </h4>
                                             <Link className="btn btn-info btn-lg" to={`/showOne/${listing._id}`}>Buy Me!</Link>
                                     <hr/>  
                                     <br/>
@@ -58,7 +59,7 @@ class AllListing extends Component {
                         </div>
                     )
                 })}
-                <Footer />
+         
             </div>
         );
     }
