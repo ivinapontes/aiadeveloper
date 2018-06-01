@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import Nav from './Nav';
 import ShowOne from './showOne';
+import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 
 
@@ -44,6 +45,7 @@ handleSubmit(event) {
   axios.post("/api/createListing", formData)
       .then(res => {
           console.log(res.data);
+          swal("Good job!", "Your item has been inserted successfully ", "success");
           if (res.data.errors) {
               let mainErr = res.data.errors;
               let errMsg = {
@@ -104,7 +106,7 @@ handleSubmit(event) {
             </div>
             <div className="form-group">
                         <label htmlFor="userHouse" >Insert the price</label>
-                        <input onChange={changeHandler} value={this.state.data.price} name="price" type="price" className="form-control" id="price" placeholder="price"/>  
+                        <input onChange={changeHandler} value={this.state.data.price} name="price" type="number" className="form-control" id="price" placeholder="price"/>  
             </div>
             <div className="form-group">
                         <label htmlFor="userHouse" >Write a discription</label>
