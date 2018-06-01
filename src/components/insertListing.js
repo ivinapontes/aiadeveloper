@@ -33,6 +33,7 @@ constructor(props) {
 
 }
 handleSubmit(event) {
+  
   event.preventDefault();
   let _this = this;
 
@@ -41,7 +42,7 @@ handleSubmit(event) {
   formData.append('price', this.state.data.price);
   formData.append('description', this.state.data.description);
   formData.append('picture', this.state.data.picture);
-  axios.post("/api/createListing", formData)
+  axios.post("/api/createListing/", formData)
       .then(res => {
           console.log(res.data);
           if (res.data.errors) {

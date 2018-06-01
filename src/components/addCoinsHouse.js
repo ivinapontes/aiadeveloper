@@ -71,17 +71,17 @@ class AddCoinsHouse extends Component {
         // send 500 coins to the house of alan turing because of helping
         // 0    1   2      3   4    5  6    7      8      9   10   11
         const spilt = this.state.voice.split(" ");
-        console.log(spilt.length);
-        if(spilt.length === 11){
+        console.log(spilt);
+        if(spilt.length === 12){
         this.setState({
             coinsVoice : spilt[1],
             houseVoice:spilt[5]+ " " + spilt[6]+ " " +spilt[7]+ " " + spilt[8],
             reasonVoice:spilt[11] 
         })
     }
-     if (spilt.length === 12){
+     if (spilt.length === 13){
         this.setState({
-            coinsVoice : spilt[1],
+            coinsVoice : spilt[1] +" "+ spilt[2],
             houseVoice:spilt[6]+ " " + spilt[7]+ " " +spilt[8]+ " " + spilt[9],
             reasonVoice:spilt[12] 
     })
@@ -142,7 +142,7 @@ this.state.voice = transcript
             </div> 
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Coins:</label>
-                  <input type="number" name="coinsVoice"  onChange={this.updateInputField} value={this.state.coinsVoice} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.state.data.coins}/>
+                  <input type="text" name="coinsVoice"  onChange={this.updateInputField} value={this.state.coinsVoice} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.state.data.coins}/>
 
                   <button type="submit" onClick={this.sendFromVoice}  className="btn btn-primary">Submit</button>
 
