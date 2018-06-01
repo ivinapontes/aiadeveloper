@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import swal from 'sweetalert';
 import Nav from './Nav';
+import Footer from './footer';
 
 export default class UpdateHouse extends Component {
     constructor(props){
@@ -80,7 +81,7 @@ export default class UpdateHouse extends Component {
                   <input type="number" name="coins"  onChange={this.updateInputField} value={this.state.coins} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coins"/>
                   <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.coins && <p>{this.state.errors.coins.msg} </p> }</h3>
 
-                  <button type="submit" onClick={this.sendFrom}  className="btn btn-primary btn-circle">Submit</button>
+                  <button type="submit" onClick={this.sendFrom}  className="btn btn-primary btn-circle">Submit</button><br /><br />
                   <button type="button" className="btn btn-warning btn-circle" ><Link to={`/housesWalet`}>Go Back</Link></button>
 
             </div>
@@ -88,6 +89,7 @@ export default class UpdateHouse extends Component {
        
 
       </div>
+      <Footer />
       </div>
     )
   }

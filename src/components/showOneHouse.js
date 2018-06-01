@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
+import Footer from './footer';
 
 export default class ShowOneHouse extends Component {
     constructor(props){
@@ -33,10 +34,10 @@ export default class ShowOneHouse extends Component {
         <div className="loginform">
             <div className="shadow-lg p-3 mb-5 bg-white rounded">
                 <div className="card bg-light mb-3" style={{maxWidth: 50 +"rem"}}>
-                <div className="card-header"><h3> {this.state.data.houseName}</h3></div>
-                <div className="card-body"><h3> {this.state.data.coins}</h3></div>
+                <div className="card-header"><h4><b>House Name:</b> <em>{this.state.data.houseName}</em></h4></div>
+                <div className="card-body"><h4><b>Coins:</b> <em>{this.state.data.coins}</em></h4></div>
                 <div className="card-body">
-                <h4 className="card-text">{this.state.data.level}</h4>
+                <h4 className="card-text"><h4><b>Level:</b> <em>{this.state.data.level}</em></h4></h4>
                 </div>  
                           
              </div> 
@@ -44,7 +45,7 @@ export default class ShowOneHouse extends Component {
         </div>
        
         </div>
-        
+        <Footer />
       </div>
     )
   }

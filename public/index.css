@@ -7,6 +7,17 @@
     background-color: #272932;
     background: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/2ovIcCg/high-number-of-dust-particles-moving-slowly-in-sun-flare-dark-blue-background_nftflzvil__F0007.png')
 }
+
+.bgShowOne{
+    background-color: #272932;
+    background: url('http://getwallpapers.com/wallpaper/full/b/8/f/840045-amazing-background-space-1920x1080-retina.jpg')
+}
+
+.adminLogin{
+    background-color: #272932;
+    background: url('https://restart.network/one/img/admissionpreview.png')
+}
+
 .eachProduct{
     margin-left: 50px;
     font-family: Arial, Helvetica, sans-serif;
@@ -62,6 +73,7 @@
     background-color: pink;
 
 }
+
 .footer{
     background-color: #ebebeb;
     border-color: #272932

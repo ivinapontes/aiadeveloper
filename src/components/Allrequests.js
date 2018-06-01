@@ -4,6 +4,7 @@ import axios from "axios";
 import Nav from "./Nav";
 import Img from 'react-image';
 import swal from 'sweetalert';
+import Footer from "./footer";
 // import "../../server/config/uploads";
 
 class AllRequests extends Component {
@@ -137,7 +138,7 @@ class AllRequests extends Component {
             <div>
                  <Nav />
 
-                <h1 className="title">Here you can see all requests</h1>
+                <h1 className="title"><strong><em>Here you can see all requests:</em></strong></h1>
                 <br/>
                 <div className="requests">
                       <table className= 'table'>
@@ -149,6 +150,7 @@ class AllRequests extends Component {
                           <th scope="col">Item </th>
                           <th scope="col">Proof </th>
                           <th scope="col">Request </th>
+                          
                         </tr> 
                       </thead>
                
@@ -187,7 +189,7 @@ class AllRequests extends Component {
 
                         </div>
                     
-                  
+                  <Footer />
             </div>
         );
     }

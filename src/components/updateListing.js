@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
+import Footer from './footer';
 
 class UpdateListing extends Component {
     constructor(props){
@@ -39,7 +40,7 @@ class UpdateListing extends Component {
             <div>
                 <Nav />
                 <div className='loginform'>
-                <h1>Update a List</h1>
+                <h1><strong><em>Update a List</em></strong></h1>
                 <h3 style={{color:"red"}}> {this.state.errors}</h3>
                 <form>
                  <div className="form-group">
@@ -54,12 +55,12 @@ class UpdateListing extends Component {
                   <label htmlFor="exampleInputEmail1">Description</label>
                   <input type="text" name="description" value={this.state.description} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description"/>
                 </div>
-                <button type="submit" onClick={this.sendFrom} className="btn btn-primary">Submit</button>
-                <button type="submit" className="btn btn-success" to="/adminListing" style={{marginLeft: 30 + 'px'}}>Back</button> 
+                <button type="submit" onClick={this.sendFrom} className="btn btn-primary">Submit</button><br />
+                <button type="submit" className="btn btn-success" to="/adminListing" style={{marginLeft: 30 + 'px'}}><Link to="/adminListing"> Back</Link></button> 
               </form>
             </div>
            
-            <Link to={`/adminListing`}>Go Back</Link>
+            <Footer />
             </div>
         );
     }

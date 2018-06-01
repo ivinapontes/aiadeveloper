@@ -95,6 +95,7 @@ handleSubmit(event) {
       var changeHandler= this.changeHandler;
     return (
       <div>
+        <Nav />
       <div className='loginform'>
       <h1 className="requestText">Send a request for this item</h1><br/><br/><br/>
         {this.state.err && <h3>{this.state.err}</h3> }

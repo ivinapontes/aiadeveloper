@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import Nav from "./Nav";
+import Footer from "./footer";
 
 class AllListing extends Component {
     constructor(props){
@@ -38,10 +39,9 @@ class AllListing extends Component {
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (
                        <div key={listing._id}>
-                             <div className="card-group-listing">
+                             <div className="card-group-listing" >
                                     
                                         <div className="shadow-lg p-3 mb-5 bg-white rounded">
-                                           <img className="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap"/>
                                            <h4 className='card-text'><b>Picture: <img width={200} src={'http://localhost:3001/uploads/'+listing.picture} /></b></h4>
                                             <h4 className='card-text'><b>Product: {listing.name}</b></h4>
                                             <h4 className='card-text'><b>Description: {listing.description}</b></h4>
@@ -58,6 +58,7 @@ class AllListing extends Component {
                         </div>
                     )
                 })}
+                <Footer />
             </div>
         );
     }
