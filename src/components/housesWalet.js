@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import Nav from "./Nav";
+import Footer from "./footer";
 export default class HousesWalet extends Component {
     constructor(props){
         super(props);
@@ -97,6 +98,7 @@ export default class HousesWalet extends Component {
         </table>
         <Link className="btn btn-warning btn-circle" to={`/newHouse`}>Add New House</Link>
         <Link className ="btn btn-info btn-circle" to={`/adminHomepage`}>Go Back</Link>
+      <Footer />
       </div>
     )
   }

@@ -334,7 +334,7 @@ function userRequest(req, res, next) {
     })
   }
   function getAlluserRequest(req, res, next) {
-    Request.find({}, ['userName','userHouse','userLevel','screenshot'], (err, requests) => {
+    Request.find({}, ['userName','userHouse','userLevel','screenshot','itemId'], (err, requests) => {
         if (err) {
             console.log('Error getting userRequest: ', err);
             return next();    

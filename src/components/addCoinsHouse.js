@@ -3,6 +3,7 @@ import axios from "axios";
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 import Nav from "./Nav";
+import Footer from "./footer";
 import React, { PropTypes, Component } from 'react'
 import SpeechRecognition from 'react-speech-recognition'
 // import responsiveVoice from 'responsivevoice'
@@ -71,17 +72,17 @@ class AddCoinsHouse extends Component {
         // send 500 coins to the house of alan turing because of helping
         // 0    1   2      3   4    5  6    7      8      9   10   11
         const spilt = this.state.voice.split(" ");
-        console.log(spilt.length);
-        if(spilt.length === 11){
+        console.log(spilt);
+        if(spilt.length === 12){
         this.setState({
             coinsVoice : spilt[1],
             houseVoice:spilt[5]+ " " + spilt[6]+ " " +spilt[7]+ " " + spilt[8],
             reasonVoice:spilt[11] 
         })
     }
-     if (spilt.length === 12){
+     if (spilt.length === 13){
         this.setState({
-            coinsVoice : spilt[1],
+            coinsVoice : spilt[1] +" "+ spilt[2],
             houseVoice:spilt[6]+ " " + spilt[7]+ " " +spilt[8]+ " " + spilt[9],
             reasonVoice:spilt[12] 
     })
@@ -121,7 +122,8 @@ this.state.voice = transcript
       <div>
           <Nav />
           <div>
-              <h4><em>If you want to enjoy using the sound recognition please send as a follow:</em></h4>
+              <center>
+              <h4><em>If you want to enjoy using the sound recognition please send as the following below:</em></h4>
           <h6>for Plus :Send 500 coins to the house of alan turing because of helping</h6>
           <h6>For minus :Send 500 - coins to the house of alan turing because of helping</h6>
           <textarea rows="4" cols="50" style={{width:500 +"px", marginLeft: 20 +"px"}} className="form-control" value={transcript}></textarea><br />
@@ -130,11 +132,12 @@ this.state.voice = transcript
           <button style={{marginLeft:10 +"px"}}className="btn btn-primary" onClick={this.saveVoice}>save</button>
         
          </div>
-
+         </center>
         
         </div>
-
+        <br />
         <form style={{width: 600+ "px", marginLeft:25 + "%"}}>
+        
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Reason :</label>
                   <input type="text" name="reasonVoice" value={this.state.reasonVoice} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Reason"/>
@@ -142,23 +145,23 @@ this.state.voice = transcript
             </div> 
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Coins:</label>
-                  <input type="number" name="coinsVoice"  onChange={this.updateInputField} value={this.state.coinsVoice} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.state.data.coins}/>
+                  <input type="text" name="coinsVoice"  onChange={this.updateInputField} value={this.state.coinsVoice} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={this.state.data.coins}/>
 
                   <button type="submit" onClick={this.sendFromVoice}  className="btn btn-primary">Submit</button>
 
             </div>
-            
+        
         </form>
+        <br />
 
-
-       <div>
-        <h1>Update House</h1>
+       <div style={{marginLeft:25 + "%"}}>
+        <h1><strong><em>Updated House:</em></strong></h1>
         <div className="card bg-light mb-3" style={{maxWidth: 50 +"rem"}}>
-        <div className="card-header"><h3>House Name: {this.state.data.houseName}</h3></div>
-        <div className="card-body"><h3> Coins :{this.state.data.coins}</h3></div>
+        <div className="card-header"><h4><b>House Name:</b> <em>{this.state.data.houseName}</em></h4></div>
+        <div className="card-body"><h4><b> Coins :</b><em>{this.state.data.coins}</em></h4></div>
         <div className="card-body">
-        <h4 className="card-text">Level :{this.state.data.level}</h4>
-        <h4 className="card-text">histories :{this.state.data.histories && this.state.data.histories.map((history)=>{
+        <h4 className="card-text"><b>Level :</b><em>{this.state.data.level}</em></h4>
+        <h4 className="card-text"><b>histories :</b><em>{this.state.data.histories && this.state.data.histories.map((history)=>{
             return(
                 <div key={history._id}>
                 <ul>
@@ -167,10 +170,10 @@ this.state.voice = transcript
                         </ul>
                 </div>
             )
-        })}</h4>
+        })}</em></h4>
         </div>
         </div>
-        <form style={{width: 600+ "px", marginLeft:25 + "%"}}>
+        <form style={{width: 600+ "px"}}>
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Reason :</label>
                   <input type="text" name="reason" value={this.state.reason} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Level"/>
@@ -190,6 +193,7 @@ this.state.voice = transcript
         <button type="button" className="btn btn-warning btn-circle" ><Link to={`/housesWalet`}>Go Back</Link></button>
 
       </div>
+      <Footer />
       </div>
     )
   }

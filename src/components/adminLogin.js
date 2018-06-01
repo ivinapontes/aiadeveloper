@@ -1,6 +1,7 @@
 //Login.js
 import React, { Component } from 'react'
 import axios from 'axios';
+import Footer from './footer';
 
 
 class Login extends Component {
@@ -60,10 +61,14 @@ constructor(props) {
   render() {
       var changeHandler= this.changeHandler;
     return (
+      <div className="adminLogin">
+      <div className='loginform' style={{paddingTop:120 +"px"}}>
       
-      <div className='loginform'>
+      <div className="shadow-lg p-3 mb-5 bg-white rounded" style={{ height:400 +"px"}} >
+      
+                
       <h1 className='title'>Welcome Admin</h1>
-        <h1>Login</h1>
+        <h3 className='title'>Login</h3>
         {this.state.err && <h3>{this.state.err}</h3> }
       <form onSubmit={this.submitHandler}>
         <div className='form-signin'>
@@ -83,6 +88,10 @@ constructor(props) {
         
       </form>
       </div>
+      </div>
+      <Footer />
+      </div>
+      
     )
   }
 }

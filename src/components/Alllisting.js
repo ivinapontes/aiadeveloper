@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import Nav from "./Nav";
+import Footer from "./footer";
 
 class AllListing extends Component {
     constructor(props){
@@ -38,7 +39,7 @@ class AllListing extends Component {
                {this.state.showingListings && this.state.showingListings.map((listing)=>{
                     return (
                        <div key={listing._id}>
-                             <div className="card-group-listing">
+                             <div className="card-group-listing" >
                                     
                                         <div className="shadow-lg p-3 mb-5 bg-white rounded">
                                        
@@ -58,6 +59,7 @@ class AllListing extends Component {
                         </div>
                     )
                 })}
+         
             </div>
         );
     }

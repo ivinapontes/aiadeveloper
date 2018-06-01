@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
+import Footer from './footer';
 
 
 class ShowOneAdmin extends Component {
@@ -36,13 +37,14 @@ class ShowOneAdmin extends Component {
                 <Nav/>
             <div className=" card-group-listing">
             <div className="shadow-lg p-3 mb-5 bg-white rounded">  
-             <h3 className='card-text'><b>Product:{this.state.name}</b></h3>
-             <h3 className='card-text'><b>Description:{this.state.description}</b></h3>
-             <h3 className='card-text'><b>Price:{this.state.price}</b></h3>
+             <h3 className='card-text'><b>Product:</b> <em>{this.state.name}</em></h3>
+             <h3 className='card-text'><b>Description:</b><em>{this.state.description}</em></h3>
+             <h3 className='card-text'><b>Price:</b><em>{this.state.price}</em></h3>
             
-             <Link to={`/adminListing`}>Back to the Homepage</Link>
+             <Link to={`/adminListing`} className="btn btn-warning btn-circle">Back to the Homepage</Link>
             </div>
             </div>
+            <Footer />
             </div>
         );
     }

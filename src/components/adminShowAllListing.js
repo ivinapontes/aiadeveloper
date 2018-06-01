@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import Nav from './Nav';
 import swal from 'sweetalert';
-
+import Footer from "./footer";
 
 class ShowAllListing extends Component {
     constructor(props){
@@ -109,7 +109,7 @@ class ShowAllListing extends Component {
                 })}
                 </table>
                 <Link className ="btn btn-info btn-lg" to={`/adminHomepage`}>Go Back</Link>
-
+                  <Footer />
             </div>
         );
     }
