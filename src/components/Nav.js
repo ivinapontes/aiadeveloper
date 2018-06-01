@@ -72,7 +72,9 @@ export default class Nav extends Component {
                                                 <option val="2">Guide</option>
                                                 <option val="3">Developer</option>
                             </select>
-
+                            <div className="Logo">
+                            <img width={200} src={'http://localhost:3001/uploads/images (1).png-1527791672154.png'} /> 
+                            </div>
   
                         {!this.state.session ?<Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>: null}
 

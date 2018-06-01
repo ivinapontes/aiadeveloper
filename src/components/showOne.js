@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
+import swal from 'sweetalert';
 import Request from "./Request";
 
 class ShowOne extends Component {
@@ -61,6 +62,7 @@ class ShowOne extends Component {
       axios.post("/api/userRequest", formData)
           .then(res => {
               console.log(res.data);
+              swal("Good job!", "Your Request has been sent successfully ", "success");
               if (res.data.errors) {
                   let mainErr = res.data.errors;
                   let errMsg = {
@@ -113,7 +115,7 @@ class ShowOne extends Component {
                  
                 <h4 className='card-text'><b> <img width={200} src={'http://localhost:3001/uploads/'+this.state.picture} /></b></h4>
                         <h3><b>Product name:</b>{this.state.name}</h3>
-                        <h3><b>Price:</b>{this.state.price}</h3>
+                        <h3><b>Price:</b>{this.state.price} $</h3>
                         <h3><b>Description:</b> {this.state.description}</h3>
                        
                     </div>

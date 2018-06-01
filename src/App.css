@@ -44,3 +44,6 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.Logo{
+  margin-left: 275px;
+}
