@@ -77,7 +77,7 @@ export default class Nav extends Component {
   
                         {!this.state.session ?<Link className="nav-item nav-link"  style={{marginLeft:150 + "px"}} to={`/adminLogin`}>Are you an Admin?</Link>: null}
 
-                        {this.state.session ?<h4 className="nav-link" style={{marginLeft:150 +"px"}} >Welcome: {this.state.session.firstName.toUpperCase()}</h4>: null}
+                        {this.state.session ?<Link className="nav-link" to='/adminHomepage'><h4 className="nav-link" style={{marginLeft:150 +"px"}} >Welcome: {this.state.session.firstName.toUpperCase()}</h4></Link>: null}
   
         
                         { this.state.session ?<Link className="nav-link" to='/logout'><h2 className="btn btn-danger navbar-btn">LogOut</h2></Link>: null}
