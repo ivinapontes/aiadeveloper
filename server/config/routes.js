@@ -41,7 +41,7 @@ module.exports = function(app) {
     // // app.get('/api/users/:userEmail', authUser, usersController.findOneUser);
     app.get('/api/user', authUser, adminController.getAuthenticateUserName);
     app.get('/api/logout', adminController.logout);
-    
+    app.get('/api/isLogin', adminController.isLogin);
 
    
     app.get('/api/getAllListings/', adminController.getAllListings);

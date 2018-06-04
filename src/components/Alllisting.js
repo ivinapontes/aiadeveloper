@@ -36,7 +36,7 @@ class AllListing extends Component {
             <div>
                 <Nav />
                  <br/>  
-               {this.state.showingListings && this.state.showingListings.map((listing)=>{
+               {this.state.showingListings && this.state.showingListings.slice(0).reverse().map((listing)=>{
                     return (
                        <div key={listing._id}>
                              <div className="card-group-listing" >
