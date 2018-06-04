@@ -199,6 +199,19 @@ function updatingHouse(req, res) {
 }
 };
 
+function updatingHouseCoins(req, res) {
+    
+    House.findById(req.params.id)
+        .then(function(house) {
+            house.coins=house.coins - req.body.coins;
+            house.save().then(function(house) {
+             res.send(house);
+        });
+    })
+        .catch(err => res.send(err));
+}
+
+
 var validateCoins= () => {
     return (
             check('coins', 'Please enter coins.').not().isEmpty(),
@@ -423,5 +436,6 @@ module.exports= {
     validateCreateListing,
     validateUserrequest,
     likePost,
-    isLogin
+    isLogin,
+    updatingHouseCoins
  };

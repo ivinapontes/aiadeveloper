@@ -17,7 +17,7 @@ class ShowOne extends Component {
             data:{
                 userName:'',
                 userHouse:'',
-                userLevel:'Bootcampers',
+                userLevel:'Bootcamper',
                 screenshot: null,
                 // itemId: this.props.match.params.id,
               },
@@ -145,9 +145,9 @@ class ShowOne extends Component {
                         </div>
                         <label htmlFor="userHouse" >Enter Your Level</label>
                         <select onChange={changeHandler} value={this.state.data.userLevel}  name="userLevel" className="form-control" style={{height:33+"px"}}  >
-                        <option value='Bootcampers' >Bootcampers</option>
-                        <option value='Guides'>Guides</option>
-                        <option  value='Developers'>Developers</option>
+                        <option value='Bootcampers' >Bootcamper</option>
+                        <option value='Guides'>Guide</option>
+                        <option  value='Developers'>Developer</option>
                     </select><br/>
             
                 <button type="submit" className="btn btn-success">Submit</button> <br/>                

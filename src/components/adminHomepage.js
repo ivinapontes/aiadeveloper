@@ -33,20 +33,20 @@ class AdminHomepage extends Component {
         <div  className="header_title" >
           <h1><strong><em>Welcome Admin:</em></strong></h1>
         </div>
-         <div class="card-group">
-          <div class="card">
-            <div class="card-body text-center">
-              <h4 class="card-text"><Link to={`/adminListing`}> <b>Listings</b></Link></h4>
+         <div className="card-group">
+          <div className="card">
+            <div className="card-body text-center">
+              <h4 className="card-text"><Link to={`/adminListing`}> <b>Listings</b></Link></h4>
             </div>
           </div>
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <h4 class="card-text"><Link to={`/housesWalet`}><b> Houses Wallet</b></Link></h4>
+          <div className="card bg-warning">
+            <div className="card-body text-center">
+              <h4 className="card-text"><Link to={`/housesWalet`}><b> Houses Wallet</b></Link></h4>
             </div>
           </div>
-          <div class="card bg-info">
-            <div class="card-body text-center">
-              <h4 class="card-text"><Link to={`/Allrequests`}> <b>Listing requests</b></Link></h4>
+          <div className="card bg-info">
+            <div className="card-body text-center">
+              <h4 className="card-text"><Link to={`/Allrequests`}> <b>Listing requests</b></Link></h4>
             </div>
           </div> 
         </div>

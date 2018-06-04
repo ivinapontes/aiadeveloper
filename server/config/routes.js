@@ -48,6 +48,8 @@ module.exports = function(app) {
 
     app.post('/api/likePost/:id', adminController.likePost);
     app.put('/api/updatingListing/:id', adminController.updatingListing);
+    app.put('/api/updatingHouseCoins/:id', adminController.updatingHouseCoins);
+
     app.put('/api/updatingHouse/:id', adminController.validateHouse(), adminController.updatingHouse);
     app.put('/api/updatingCoins/:id', adminController.validateCoins(),adminController.updatingCoins);
     app.delete('/api/deleteHouse/:id', adminController.deleteHouse);

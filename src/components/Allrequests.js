@@ -15,7 +15,11 @@ class AllRequests extends Component {
              showingListings:[],
              itemId:{},
              id:{},
-             errors: ""
+             errors: "",
+             coins:null,
+             houses:null,
+             houseCoins:null,
+             houseId:null
          }
          }
 
@@ -48,6 +52,17 @@ class AllRequests extends Component {
           console.log(error);
           this.setState({errors : "Server Error"});
         });
+        axios.get('/api/getAllHouses/')
+        .then((response)=> {
+            this.setState ({
+                houses: response.data
+             });
+            
+            console.log(response.data);
+        })
+        .catch( (error) =>{
+          console.log(error);
+        });
     }
 
     sendFromYes = (event) => {
@@ -64,16 +79,45 @@ class AllRequests extends Component {
                 icon: "success",
               });
         console.log(this.state.showingRequests);
-     this.state.showingRequests.map((request, key) => {
-         if( request.itemId != undefined){
-            this.state.itemId =request.itemId;
-         }
-         this.state.id=request._id
-            return request
-          });
+    //  this.state.showingRequests.map((request, key) => {
+    //      if( request.itemId != undefined){
+    //         this.state.itemId =request.itemId;
+    //      }
+    //      this.state.id=request._id
+    //         return request
+    //       });
         //   console.log( this.state.itemId);
           console.log( this.state.id);
-          
+          this.state.showingRequests.map((request, key) => {
+            if( request.itemId != undefined){
+               this.state.itemId =request.itemId;
+            }
+            this.state.id=request._id
+               return this.state.showingListings.map((listing, key) => {
+                if(listing._id === request.itemId){
+                   this.state.coins =listing.price;
+                }
+                   return this.state.houses.map((house, key) => {
+                    if (house.level === request.userLevel || house.houseName === request.userHouse){
+                      this.state.houseCoins = house.coins;
+                      this.state.houseId = house._id
+                    } 
+                      return house
+                     })
+                   
+                 });
+                 
+             });
+             console.log(this.state.houseId)
+            //  console.log(this.state.coins);
+            //  console.log(this.state.houseCoins);
+            axios.put(`/api/updatingHouseCoins/${this.state.houseId}`, {
+              coins:this.state.coins,
+          }).then((response) => {
+              console.log(response);
+          }).catch((error)=>{
+              console.log(error);
+          });
         axios.post(`/api/likePost/${this.state.itemId}`)
         .then((response)=> {
           console.log(response.data);
@@ -154,7 +198,7 @@ class AllRequests extends Component {
                         </tr> 
                       </thead>
                
-               {this.state.showingRequests && this.state.showingRequests.map((request)=>{
+               {this.state.showingRequests && this.state.showingRequests.slice(0).reverse().map((request)=>{
                     return (
                        <tbody key={request._id}>
                       <tr className="eachProduct">          
@@ -162,7 +206,7 @@ class AllRequests extends Component {
                     <td> {request.userHouse} </td>
                     <td> {request.userLevel} </td> 
 
-                    {this.state.showingListings && this.state.showingListings.map((listing)=>{
+                    {this.state.showingListings && this.state.showingListings.slice(0).reverse().map((listing)=>{
                     return (
                         <div key ={listing._id}>
                          {request.itemId === listing._id ? <td>{listing.name}</td> :null}
