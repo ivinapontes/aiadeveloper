@@ -46,7 +46,7 @@ module.exports = function(app) {
    
     app.get('/api/getAllListings/', adminController.getAllListings);
 
-    // app.post('/api/likeListing/:id', usersController.likeListing);
+    app.post('/api/likePost/:id', adminController.likePost);
     app.put('/api/updatingListing/:id', adminController.updatingListing);
     app.put('/api/updatingHouse/:id', adminController.validateHouse(), adminController.updatingHouse);
     app.put('/api/updatingCoins/:id', adminController.validateCoins(),adminController.updatingCoins);

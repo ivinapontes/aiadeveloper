@@ -47,6 +47,7 @@ class AllListing extends Component {
                                             <h4 className='card-text'><b>Product: {listing.name}</b></h4>
                                             <h4 className='card-text'><b>Description: {listing.description}</b></h4>
                                             <h4 className='card-text'><b>Price : {listing.price}</b> </h4>
+                                            <h4 className='card-text'><b>Bought: {listing.like}</b> </h4>
                                             <Link className="btn btn-info btn-lg" to={`/showOne/${listing._id}`}>Buy Me!</Link>
                                     <hr/>  
                                     <br/>
