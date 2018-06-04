@@ -359,6 +359,14 @@ function likePost(req,res){
     })
 }
 
+function isLogin(req,res) {
+    if(req.session.user){
+        return res.json({isLogedin: true});
+    } else {
+        return res.status(401).json({isLogedin: false});
+    }
+}
+
 function getAuthenticateUserName(req,res, next) {
     res.json({name:req.session.user.firstname});
  }
@@ -414,5 +422,6 @@ module.exports= {
     validateCoins,
     validateCreateListing,
     validateUserrequest,
-    likePost
+    likePost,
+    isLogin
  };
