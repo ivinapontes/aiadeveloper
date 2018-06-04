@@ -176,7 +176,7 @@ this.state.voice = transcript
         <form style={{width: 600+ "px"}}>
             <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Reason :</label>
-                  <input type="text" name="reason" value={this.state.reason} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Level"/>
+                  <input type="text" name="reason" value={this.state.reason} onChange={this.updateInputField} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Reason"/>
                   <h3 style={{color:"red"}}>{this.state.errors && this.state.errors.reason && <p>{this.state.errors.reason.msg} </p> }</h3>
 
             </div> 
