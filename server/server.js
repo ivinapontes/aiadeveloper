@@ -35,4 +35,4 @@ app.use(session({
   require('./config/routes.js')(app);
   app.use("/uploads", express.static("config/uploads"));
 
-app.listen(3001,() => console.log('Server up and running on port 3001'));
+app.listen(process.env.PORT || 3001,() => console.log('Server up and running on port 3001'));
