@@ -92,8 +92,6 @@ ReactDOM.render(
       <ProtectedRouteForUser exact path = '/showOneAdmin/:id'component={ShowOneAdmin}/>
       <ProtectedRouteForUser path='/createListing' component={CreateListing} />
       <ProtectedRouteForUser exact path='/deleteListing/:id' component={DeleteListing} />
-
-
     </div>
 </BrowserRouter>, document.getElementById('root'));
 

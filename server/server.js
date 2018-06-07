@@ -34,5 +34,13 @@ app.use(session({
   require('./config/mongoose');
   require('./config/routes.js')(app);
   app.use("/uploads", express.static("config/uploads"));
+  
+  // when deploy the app on internet after we built react from npm run script build
+  app.use(express.static(path.join(__dirname, '../build')));
+  
+  // to catch all req
+app.get('/*', function(req, res){
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(process.env.PORT || 3001,() => console.log('Server up and running on port 3001'));

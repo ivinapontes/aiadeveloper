@@ -64,6 +64,5 @@ module.exports = function(app) {
     
     
     app.post('/api/*', (req,res) => res.json({error :true, message:'ABBOUD! API"s ERROR PLEASE CHECK THE URL'}));
-    
 }
 
