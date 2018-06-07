@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from "./footer";
 import AllListing from "./Alllisting";
 
 
@@ -23,7 +22,6 @@ class Listings extends Component {
                 <AllListing />
             </div>
             <br />
-           <Footer />
         </div>
         );
     }

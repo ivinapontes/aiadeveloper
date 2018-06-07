@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import Nav from "./Nav";
-import Img from 'react-image';
+import img from 'react-image';
 import swal from 'sweetalert';
 import Footer from "./footer";
 // import "../../server/config/uploads";
@@ -89,18 +89,31 @@ class AllRequests extends Component {
         //   console.log( this.state.itemId);
           console.log( this.state.id);
           this.state.showingRequests.map((request, key) => {
-            if( request.itemId != undefined){
-               this.state.itemId =request.itemId;
+            if( request.itemId !== undefined){
+              this.setState ({
+                itemId :request.itemId
+             });
+               
             }
-            this.state.id=request._id
+            this.setState ({
+              id:request._id
+           });
+            
                return this.state.showingListings.map((listing, key) => {
                 if(listing._id === request.itemId){
-                   this.state.coins =listing.price;
+                   
+                   this.setState ({
+                    coins :listing.price
+                 });
+                   
                 }
                    return this.state.houses.map((house, key) => {
-                    if (house.level === request.userLevel || house.houseName === request.userHouse){
-                      this.state.houseCoins = house.coins;
-                      this.state.houseId = house._id
+                    if (house.level === request.userLevel && house.houseName === request.userHouse){
+                     
+                      this.setState ({
+                        houseCoins : house.coins,
+                        houseId : house._id
+                     });
                     } 
                       return house
                      })
@@ -156,7 +169,10 @@ class AllRequests extends Component {
                 icon: "success",
               });
         this.state.showingRequests.map((request, key) => {
-            this.state.id=request._id
+          this.setState ({
+            id:request._id
+         });
+            
                return request
              });
              axios.delete(`/api/deleteRequest/${this.state.id}`)
@@ -216,7 +232,7 @@ class AllRequests extends Component {
             })}
                    
                
-                    <td><img width={200} src={'http://localhost:3001/uploads/'+request.screenshot} />   </td>
+                    <td><img width={200} src={'http://localhost:3001/uploads/'+request.screenshot} alt="img" />   </td>
                         <td>
                              <input type="radio" name="negative" value="yes" onClick={this.sendFromYes}/>Y/
                             <input type="radio" name="negative" value="no" onClick={this.sendFromNo} />N</td> 

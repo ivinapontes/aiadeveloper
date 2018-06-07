@@ -49,6 +49,11 @@ class AdminHomepage extends Component {
               <h4 className="card-text"><Link to={`/Allrequests`}> <b>Listing requests</b></Link></h4>
             </div>
           </div> 
+          <div className="card">
+            <div className="card-body text-center">
+              <h4 className="card-text"><Link to={`/adminListing`}> <b>Create Coupon</b></Link></h4>
+            </div>
+            </div>
         </div>
         <br />
         <br />

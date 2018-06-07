@@ -62,6 +62,17 @@ function createCoupon(req, res, next) {
     
    }
 
+   function getAllCoupons(req, res, next) {
+    Coupon.find({}, ['coupon_student'], (err, coupons) => {
+        if (err) {
+            console.log('Error getting houses: ', err);
+            return next();    
+            }
+            console.log(coupons);
+            res.json(coupons);
+    })
+}
+
 
    var validateHouse= () => {
     return (
@@ -427,7 +438,7 @@ module.exports= {
     deleteCoupon,
     showOneHouse,
     updatingListing,
-    // likeListing,
+    getAllCoupons,
     deleteListing,
     validateRegister,
     updatingCoins,

@@ -37,13 +37,14 @@ class AllListing extends Component {
                 <Nav />
                  <br/>  
                {this.state.showingListings && this.state.showingListings.slice(0).reverse().map((listing)=>{
+                   console.log(listing.picture);
                     return (
                        <div key={listing._id}>
                              <div className="card-group-listing" >
                                     
                                         <div className="shadow-lg p-3 mb-5 bg-white rounded">
                                        
-                                           <h4 className='card-text'><b><img width={200} src={'http://localhost:3001/uploads/'+listing.picture} /></b></h4>
+                                           <h4 className='card-text'><b><img width={200} src={`http://localhost:3001/api/image/${listing.picture}`} alt="img"/></b></h4>
                                             <h4 className='card-text'><b>Product: {listing.name}</b></h4>
                                             <h4 className='card-text'><b>Description: {listing.description}</b></h4>
                                             <h4 className='card-text'><b>Price : {listing.price}</b> </h4>
@@ -60,7 +61,7 @@ class AllListing extends Component {
                         </div>
                     )
                 })}
-         
+            <Footer />
             </div>
         );
     }

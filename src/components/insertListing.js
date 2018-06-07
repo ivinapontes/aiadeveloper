@@ -1,8 +1,6 @@
 //Login.js
 import React, { Component } from 'react'
 import axios from 'axios';
-import Nav from './Nav';
-import ShowOne from './showOne';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
 

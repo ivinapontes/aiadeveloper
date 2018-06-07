@@ -29,12 +29,12 @@ module.exports = function(app) {
     app.post('/api/loginCoupon', adminController.validateCoupon(),adminController.loginCoupon);
     app.post('/api/createListing', upload.fields([{ name: "picture", maxCount: 1 }]),adminController.createListing);
     app.post('/api/createHouse', adminController.validateHouse() ,adminController.createHouse);
-    app.post('/api/createCoupon', adminController.createCoupon);
+    app.post('/api/createCoupon', adminController.validateCoupon(),adminController.createCoupon);
     app.post('/api/userRequest', upload.fields([{ name: "screenshot", maxCount: 1 }]),  adminController.userRequest);
     app.get('/api/getAllHouses',adminController.getAllHouses);
     app.get('/api/getAlluserRequest',adminController.getAlluserRequest);
-    app.get('/api/image', function (req, res) {
-      res.sendfile(path.resolve('./uploads'));
+    app.get('/api/image/:img', function (req, res) {
+      res.sendfile(path.resolve('./server/config/uploads/' + req.params.img));
   }); 
     //app.get('/api/users/', authUser, adminController.getAllUsers);
     // app.get('/api/session', (req,res) => res.json({session: req.session}));
@@ -42,6 +42,7 @@ module.exports = function(app) {
     app.get('/api/user', authUser, adminController.getAuthenticateUserName);
     app.get('/api/logout', adminController.logout);
     app.get('/api/isLogin', adminController.isLogin);
+    app.get('/api/getAllCoupons', adminController.getAllCoupons);
 
    
     app.get('/api/getAllListings/', adminController.getAllListings);

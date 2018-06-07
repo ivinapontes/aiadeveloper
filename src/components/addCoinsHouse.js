@@ -111,13 +111,13 @@ class AddCoinsHouse extends Component {
 
 
   render() {
-    const { transcript, resetTranscript,autoStart, browserSupportsSpeechRecognition } = this.props
+    const { transcript, resetTranscript, browserSupportsSpeechRecognition } = this.props
 
     if (!browserSupportsSpeechRecognition) {
       return null
     }
+    this.state.voice = transcript 
 
-this.state.voice = transcript
     return (
       <div>
           <Nav />

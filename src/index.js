@@ -2,16 +2,13 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import Listings from './components/homepage';
-import Start from './components/start';
 import Alllisting from './components/Alllisting';
 import Request from './components/Request';
 import adminHomepage from './components/adminHomepage';
 import adminLogin from './components/adminLogin';
 import Allrequests from './components/Allrequests';
-import Login from './components/adminLogin';
 import App from './App';
 import ShowOne from './components/showOne';
-import AdminHomepage from './components/adminHomepage';
 import ShowAllListing from './components/adminShowAllListing';
 import UpdateListing from './components/updateListing';
 import HousesWalet from './components/housesWalet';
@@ -24,9 +21,9 @@ import ShowOneAdmin from './components/showOneAdmin';
 import DeleteListing from './components/deleteListing';
 import Nav from './components/Nav';
 import Logout from './components/logout';
-import Dictaphone from './components/Dictaphone';
 import Footer from './components/footer';
 import axios from "axios";
+import CreateCoupon from './components/createCoupon';
 axios.defaults.withCredentials = true;
 
 class ProtectedRouteForUser extends Component {
@@ -88,8 +85,9 @@ ReactDOM.render(
       <ProtectedRouteForUser path ='/newHouse/' component={NewHouse}/>
       <Route path ='/Nav/' component={Nav}/>
       <Route path ='/logout' component={Logout}/>
-      <Route path ='/dictaphone' component={Dictaphone}/>
+      
       <Route path ='/footer' component={Footer}/>
+      <ProtectedRouteForUser path ='/createCoupon' component={CreateCoupon}/>
 
       <ProtectedRouteForUser exact path = '/showOneAdmin/:id'component={ShowOneAdmin}/>
       <ProtectedRouteForUser path='/createListing' component={CreateListing} />

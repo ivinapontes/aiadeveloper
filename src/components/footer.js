@@ -39,7 +39,7 @@ export default class Footer extends Component {
 
                                         </div>
                                         <div className="Logo">
-                                          <img width={100} height={50} src={'http://localhost:3001/uploads/images (1).png-1527791672154.png'} /> 
+                                          <img width={100} height={50} src={'http://localhost:3001/uploads/images (1).png-1527791672154.png'} alt="logo" /> 
                                           <h6><center><strong><em>AIA Developers</em></strong></center></h6>
                                          </div>
                                       </div>
