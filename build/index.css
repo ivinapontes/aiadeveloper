@@ -1,0 +1,97 @@
+.header_title{
+    text-align: center
+
+}
+
+.listing{
+    background-color: #272932;
+    background: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/2ovIcCg/high-number-of-dust-particles-moving-slowly-in-sun-flare-dark-blue-background_nftflzvil__F0007.png')
+}
+
+.bgShowOne{
+    background-color: #272932;
+    background: url('http://getwallpapers.com/wallpaper/full/b/8/f/840045-amazing-background-space-1920x1080-retina.jpg')
+}
+
+.adminLogin{
+    background-color: #272932;
+    background: url('https://restart.network/one/img/admissionpreview.png')
+}
+
+.eachProduct{
+    margin-left: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container1{
+    align-items: center;
+    padding: 150px;
+    background: url('https://restart.network/assets/partials/particles_partial/assets/images/art2.jpg');
+   
+    padding-top: 200px;
+   
+    position: relative;
+    
+}
+.loginform{
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-bottom: 400px;
+    
+}
+.form-control {
+  
+    width: 10%;
+    size: 250px
+  }
+  .table{
+      background-color: orangered
+  }
+  .card-group-listing{
+    align-items: center;
+    background-color:#ebebeb;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px;
+   
+}
+.main_title {
+    padding: 0;
+    font-family: sans-serif;
+    background-color:#ebebeb;
+    
+  }
+.subtitle{
+    font-family: sans-serif;
+    background-color:#ebebeb;
+
+}
+.card{
+    text-align: center;
+    background-color: pink;
+
+}
+
+.footer{
+    background-color: #ebebeb;
+    border-color: #272932
+    
+}
+.textBox{
+    font-family: sans-serif;
+    margin-left:450px;
+    width: 300px;
+    align-items: center;
+    background-color:#ebebeb;
+    
+}
+.title{
+    text-align: center;
+    font-family:'Source Sans Pro', sans-serif
+}
+.table-houses{
+    margin-left: 100px;
+    margin-right: 100px
+}
