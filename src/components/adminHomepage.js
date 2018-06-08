@@ -51,7 +51,7 @@ class AdminHomepage extends Component {
           </div> 
           <div className="card">
             <div className="card-body text-center">
-              <h4 className="card-text"><Link to={`/adminListing`}> <b>Create Coupon</b></Link></h4>
+              <h4 className="card-text"><Link to={`/createCoupon`}> <b>Create Coupon</b></Link></h4>
             </div>
             </div>
         </div>

@@ -125,7 +125,7 @@ function loginCoupon( req, res, next){
          return res.status(422).json({ errors: errors.mapped() });
     } else {
     Coupon.findOne({coupon_student: req.body.coupon_student}, (err, coupon_student) => {
-       // console.log(coupon_student);
+       /*
         if (err) {
             console.log('Error getting user: ', err);
             return next();
@@ -134,7 +134,7 @@ function loginCoupon( req, res, next){
             return res.status(404).json({err : true, message : "Coupon does not exist"})
         };
 
-        req.session.coupon_student= coupon_student;
+        req.session.coupon_student= coupon_student;*/
         res.json(coupon_student);
     })
 }

@@ -44,7 +44,7 @@ class AllListing extends Component {
                                     
                                         <div className="shadow-lg p-3 mb-5 bg-white rounded">
                                        
-                                           <h4 className='card-text'><b><img width={200} src={`http://localhost:3001/api/image/${listing.picture}`} alt="img"/></b></h4>
+                                           <h4 className='card-text'><b><img width={200} src={`/api/image/${listing.picture}`} alt="img"/></b></h4>
                                             <h4 className='card-text'><b>Product: {listing.name}</b></h4>
                                             <h4 className='card-text'><b>Description: {listing.description}</b></h4>
                                             <h4 className='card-text'><b>Price : {listing.price}</b> </h4>

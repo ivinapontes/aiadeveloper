@@ -232,7 +232,7 @@ class AllRequests extends Component {
             })}
                    
                
-                    <td><img width={200} src={'http://localhost:3001/uploads/'+request.screenshot} alt="img" />   </td>
+                    <td><img width={200} src={'/api/image/'+request.screenshot} alt="img" />   </td>
                         <td>
                              <input type="radio" name="negative" value="yes" onClick={this.sendFromYes}/>Y/
                             <input type="radio" name="negative" value="no" onClick={this.sendFromNo} />N</td> 

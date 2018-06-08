@@ -1,4 +1,4 @@
-
+const express = require('express');
 const adminController = require('./../controllers/adminController');
 const authUser = adminController.authenticateUser;
 var multer = require("multer");
@@ -62,7 +62,16 @@ module.exports = function(app) {
     app.get('/api/session', (req,res) => res.json({session: req.session.user}));
 
     
-    
+
     app.post('/api/*', (req,res) => res.json({error :true, message:'ABBOUD! API"s ERROR PLEASE CHECK THE URL'}));
+
+    app.use("/uploads", express.static(path.join(__dirname,"./uploads")));
+    // when deploy the app on internet after we built react from npm run script build
+    app.use(express.static(path.join(__dirname, '../../build')));
+  
+    // to catch all req
+    app.get('/*', function(req, res){
+      res.sendFile(path.join(__dirname, '../../build/index.html'));
+    });
 }
 
