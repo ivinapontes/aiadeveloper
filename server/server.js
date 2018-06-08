@@ -42,6 +42,7 @@ app.use(session({
 app.get('/*', function(req, res){
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
+app.set("view engine", "ejs");
 
 
 
